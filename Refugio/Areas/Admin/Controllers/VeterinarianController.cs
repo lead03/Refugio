@@ -14,15 +14,15 @@ namespace Refugio.Areas.Admin.Controllers
             Models.Veterinarian.List model = new Models.Veterinarian.List();//sdsd
             model.Pager.CurrentPage = 1;
             model.Pager.TotalPages = Business.Veterinarian.GetTotalPages(model.Pager.PageSize);
-            model.Veterinarians = Business.Veterinarian.GetAllVeterinariansPaged(model.Pager.CurrentPage, model.Pager.PageSize);
+            model.Veterinarians = Business.Veterinarian.GetVeterinariansFilteredAndPaged(model.Pager.CurrentPage, model.Pager.PageSize);
             return View(model);//asasas
         }
 
         [HttpPost]
         public ActionResult Index(Models.Veterinarian.List model)
         {
-            model.Veterinarians = Business.Veterinarian.GetVeterinariansFilteredAndPaged(out int totalElements, model.Pager.CurrentPage, model.Pager.PageSize, model.Filters.Keyword);
-            model.Pager.TotalPages = Business.Veterinarian.GetTotalPages(model.Pager.PageSize, totalElements);
+            model.Veterinarians = Business.Veterinarian.GetVeterinariansFilteredAndPaged(model.Pager.CurrentPage, model.Pager.PageSize, model.Filters.Keyword);
+            model.Pager.TotalPages = Business.Veterinarian.GetTotalPages(model.Pager.PageSize);
             return View(model);
         }
 

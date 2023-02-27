@@ -18,7 +18,7 @@ namespace Refugio.DataAccess
             return Common.DataContext.Set<T>().Find(id);
         }
 
-        public static int GetFilteredCount<T>() where T : class
+        public static int GetCount<T>() where T : class
         {
             return Common.DataContext.Set<T>().Count();
         }

@@ -11,12 +11,12 @@ namespace Refugio.Business
         public static List<DTO.Veterinarian> GetVeterinariansFilteredAndPaged(int currentPage, int pageSize, string keyword = null)
         {
             List<DTO.Veterinarian> veterinarians = DataAccess.Veterinarian.GetAllPaged(currentPage, pageSize, keyword);
-            return veterinarians;//asd
+            return veterinarians;
         }
 
-        public static int GetTotalPages(int pageSize, int totalElements)
+        public static int GetTotalPages(int pageSize)
         {
-            int totalPages = (int)Math.Ceiling((double)totalElements / pageSize);
+            int totalPages = (int)Math.Ceiling((double)GetAllCount() / pageSize);
             return totalPages;
         }
 
@@ -28,7 +28,7 @@ namespace Refugio.Business
 
         public static int GetAllCount()
         {
-            int total = DataAccess.Generic.GetFilteredCount<DTO.Veterinarian>();
+            int total = DataAccess.Generic.GetCount<DTO.Veterinarian>();
             return total;
         }
     }
