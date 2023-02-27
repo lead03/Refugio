@@ -15,7 +15,7 @@ namespace Refugio.Areas.Admin.Controllers
             model.Pager.CurrentPage = 1;
             model.Pager.TotalPages = Business.Veterinarian.GetTotalPages(model.Pager.PageSize);
             model.Veterinarians = Business.Veterinarian.GetVeterinariansFilteredAndPaged(model.Pager.CurrentPage, model.Pager.PageSize);
-            return View(model);//asasas
+            return View(model);
         }
 
         [HttpPost]
