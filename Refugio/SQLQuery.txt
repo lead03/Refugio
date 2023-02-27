@@ -1,0 +1,186 @@
+﻿CREATE TABLE Veterinarian (
+ Id int PRIMARY KEY,
+ UserName varchar(50) NOT NULL,
+ UserPassword varchar (50) NOT NULL,
+ FirstName varchar(100) NOT NULL,
+ LastName varchar(100) NOT NULL,
+ StreetAddress varchar(50) NOT NULL,
+ ApartmentNumber varchar(50) NOT NULL,
+ City varchar(50) NOT NULL,
+ ZipCode varchar(10) NOT NULL,
+ Country varchar(10) NOT NULL,
+ PhoneNumberMain varchar(15) NOT NULL,
+ PhoneNumberAditional varchar(15),
+ Speciality int NOT NULL,
+ IsTemporal bit NOT NULL,
+ Salary decimal(10,2) NOT NULL,
+ TimeSlot int NOT NULL,
+ ProfessionalLicense varchar(10) NOT NULL,
+ ForDescription varchar(max),
+)
+
+GO
+
+CREATE TABLE Staff (
+ Id int PRIMARY KEY,
+ UserName varchar(50) NOT NULL,
+ UserPassword varchar (50) NOT NULL,
+ FirstName varchar(100) NOT NULL,
+ LastName varchar(100) NOT NULL,
+ StreetAddress varchar(50) NOT NULL,
+ ApartmentNumber varchar(50) NOT NULL,
+ City varchar(50) NOT NULL,
+ ZipCode varchar(10) NOT NULL,
+ Country varchar(10) NOT NULL,
+ PhoneNumberMain varchar(15) NOT NULL,
+ PhoneNumberAditional varchar(15),
+ Speciality int NOT NULL,
+ IsTemporal bit NOT NULL,
+ Salary decimal(10,2) NOT NULL,
+ TimeSolt int NOT NULL,
+ ForDescription varchar(max),
+)
+
+GO
+
+CREATE TABLE GlobalUser (
+ Id uniqueidentifier PRIMARY KEY,
+ UserName varchar(50) NOT NULL,
+ UserPassword varchar (50) NOT NULL,
+ FirstName varchar(100),
+ LastName varchar(100),
+ StreetAddress varchar(50),
+ ApartmentNumber varchar(50),
+ City varchar(50),
+ ZipCode varchar(10),
+ Country varchar(10),
+ PhoneNumberMain varchar(15) NOT NULL,
+ IsDonator bit NOT NULL,
+ ForDescription varchar(max),
+)
+
+GO
+
+CREATE TABLE VeterinarianSpeciality (
+ Id int PRIMARY KEY NOT NULL,
+ SpecialityName varchar(100) NOT NULL,
+)
+GO
+
+INSERT INTO VeterinarianSpeciality (Id, SpecialityName) VALUES (1, 'Alergología')
+INSERT INTO VeterinarianSpeciality (Id, SpecialityName) VALUES (2, 'Anestesiología')
+INSERT INTO VeterinarianSpeciality (Id, SpecialityName) VALUES (3, 'Cardiología')
+INSERT INTO VeterinarianSpeciality (Id, SpecialityName) VALUES (4, 'Dermatología')
+INSERT INTO VeterinarianSpeciality (Id, SpecialityName) VALUES (5, 'Endocrinología')
+INSERT INTO VeterinarianSpeciality (Id, SpecialityName) VALUES (6, 'Etología')
+INSERT INTO VeterinarianSpeciality (Id, SpecialityName) VALUES (7, 'Gastroenterología')
+INSERT INTO VeterinarianSpeciality (Id, SpecialityName) VALUES (8, 'Hematología')
+INSERT INTO VeterinarianSpeciality (Id, SpecialityName) VALUES (9, 'Infectología')
+INSERT INTO VeterinarianSpeciality (Id, SpecialityName) VALUES (10, 'Neurología')
+INSERT INTO VeterinarianSpeciality (Id, SpecialityName) VALUES (11, 'Nutrición')
+INSERT INTO VeterinarianSpeciality (Id, SpecialityName) VALUES (12, 'Oftalmología')
+INSERT INTO VeterinarianSpeciality (Id, SpecialityName) VALUES (13, 'Oncología')
+INSERT INTO VeterinarianSpeciality (Id, SpecialityName) VALUES (14, 'Ortopedia')
+INSERT INTO VeterinarianSpeciality (Id, SpecialityName) VALUES (15, 'Patología')
+INSERT INTO VeterinarianSpeciality (Id, SpecialityName) VALUES (16, 'Radiología')
+INSERT INTO VeterinarianSpeciality (Id, SpecialityName) VALUES (17, 'Rehabilitación')
+INSERT INTO VeterinarianSpeciality (Id, SpecialityName) VALUES (18, 'Terapia Intensiva')
+INSERT INTO VeterinarianSpeciality (Id, SpecialityName) VALUES (19, 'Urología')
+INSERT INTO VeterinarianSpeciality (Id, SpecialityName) VALUES (20, 'Zoología')
+
+GO
+
+ALTER TABLE Veterinarian
+ADD CONSTRAINT [FK_Veterinarian_VeterinarianSpeciality] 
+FOREIGN KEY ([Speciality]) 
+REFERENCES VeterinarianSpeciality ([Id])
+
+GO
+
+CREATE TABLE TimeSlot (
+Id int PRIMARY KEY NOT NULL,
+TimeSlotRange varchar(11),
+)
+
+GO
+
+INSERT INTO TimeSlot 
+VALUES (1, '00:00-08:00')
+INSERT INTO TimeSlot 
+VALUES (2, '00:00-08:00')
+INSERT INTO TimeSlot 
+VALUES (3, '00:00-08:00')
+
+GO
+
+ALTER TABLE Veterinarian
+ADD CONSTRAINT [FK_Veterinarian_TimeSlot]
+FOREIGN KEY ([TimeSlot])
+REFERENCES TimeSlot ([Id])
+
+INSERT INTO [dbo].[Veterinarian]
+([Id], [UserName], [UserPassword], [FirstName], [LastName], [StreetAddress], [ApartmentNumber], [City], [ZipCode], [Country], [PhoneNumberMain], [PhoneNumberAditional], [Speciality], [IsTemporal], [Salary], [TimeSlot], [ProfessionalLicense], [ForDescription])
+VALUES
+(1, 'josegonzalez', 'pass123', 'José', 'González', 'Av. Rivadavia', '1234', 'Buenos Aires', '1200', 'Argentina', '011-1234567', NULL, 5, 0, 2000, 1, '1234ABC', 'Veterinario especialista en neurología'),
+(2, 'lucianamartinez', 'pass123', 'Luciana', 'Martínez', 'Av. Cabildo', '4321', 'Ciudad de Buenos Aires', '1426', 'Argentina', '011-7654321', NULL, 12, 0, 2500, 2, '5678DEF', 'Veterinario especialista en dermatología'),
+(3, 'julianlopez', 'pass123', 'Julián', 'López', 'Calle Corrientes', '678', 'Rosario', '2000', 'Argentina', '0341-1234567', NULL, 17, 1, 1800, 3, '9101GHI', 'Veterinario especialista en cirugía de tejidos blandos')
+
+GO
+
+INSERT INTO Veterinarian
+VALUES 
+    (8, 'user1', 'password1', 'Juan', 'Pérez', 'Calle 123', '2A', 'Buenos Aires', '1234', 'Argentina', '1234567890', NULL, 1, 0, 2000.00, 1, 'ABC123', NULL),
+    (7, 'user2', 'password2', 'María', 'Gómez', 'Calle 456', '3B', 'Córdoba', '5678', 'Argentina', '0987654321', NULL, 2, 0, 2500.00, 2, 'XYZ987', NULL),
+    (6, 'user3', 'password3', 'Pedro', 'García', 'Calle 789', '1C', 'Rosario', '9012', 'Argentina', '1122334455', NULL, 3, 0, 3000.00, 3, 'PQR456', NULL),
+    (4, 'user4', 'password4', 'Ana', 'Fernández', 'Calle 111', '2B', 'Mendoza', '3456', 'Argentina', '5544332211', NULL, 4, 0, 3500.00, 1, 'LMN789', NULL),
+    (5, 'user5', 'password5', 'Jorge', 'López', 'Calle 222', '3A', 'La Plata', '7890', 'Argentina', '6677889900', NULL, 5, 0, 4000.00, 2, 'OPQ123', NULL);
+
+GO
+
+INSERT INTO Veterinarian
+VALUES 
+(13, 'julian.mendez', 'password123', 'Julian', 'Mendez', 'Calle Falsa', '123', 'Buenos Aires', '1234', 'Argentina', '1234567890', NULL, 1, 0, 50000.00, 1, '1234', NULL),
+(9, 'lucia.garcia', 'password456', 'Lucia', 'Garcia', 'Calle Falsa', '456', 'Buenos Aires', '5678', 'Argentina', '0987654321', NULL, 2, 1, 60000.00, 2, '5678', NULL),
+(10, 'andres.rodriguez', 'password789', 'Andres', 'Rodriguez', 'Calle Falsa', '789', 'Buenos Aires', '9012', 'Argentina', '2345678901', NULL, 3, 0, 70000.00, 3, '9012', NULL),
+(11, 'ana.fernandez', 'password111', 'Ana', 'Fernandez', 'Calle Falsa', '111', 'Buenos Aires', '3456', 'Argentina', '6789012345', NULL, 4, 1, 80000.00, 1, '3456', NULL),
+(12, 'pablo.perez', 'password222', 'Pablo', 'Perez', 'Calle Falsa', '222', 'Buenos Aires', '7890', 'Argentina', '4321098765', NULL, 5, 0, 90000.00, 2, '7890', NULL)
+
+GO
+
+INSERT INTO Veterinarian 
+VALUES
+(14, 'pedro_perez', 'veterinario123', 'Pedro', 'Perez', 'Calle 13', '25', 'Buenos Aires', '1427', 'Argentina', '1134456789', NULL, 8, 0, 50000.00, 2, 'A1234', NULL),
+(15, 'ana_sanchez', 'veterinario123', 'Ana', 'Sanchez', 'Calle 22', '15', 'Córdoba', '5000', 'Argentina', '3512456789', NULL, 3, 1, 40000.00, 1, 'S5678', NULL),
+(16, 'maria_garcia', 'veterinario123', 'Maria', 'Garcia', 'Calle 18', '10', 'Mendoza', '5500', 'Argentina', '2613456789', NULL, 11, 0, 60000.00, 3, 'G2345', NULL),
+(17, 'carlos_rodriguez', 'veterinario123', 'Carlos', 'Rodriguez', 'Calle 9', '5', 'Santa Fe', '3000', 'Argentina', '3423456789', NULL, 5, 1, 55000.00, 1, 'R1234', NULL),
+(18, 'lucia_gonzalez', 'veterinario123', 'Lucia', 'Gonzalez', 'Calle 3', '21', 'La Pampa', '6300', 'Argentina', '2952456789', NULL, 2, 0, 45000.00, 3, 'G5678', NULL)
+
+GO
+
+ALTER TABLE Veterinarian
+ADD State VARCHAR(50);
+
+GO
+
+ALTER TABLE Veterinarian 
+ALTER COLUMN Salary decimal(18, 2) NULL;
+
+GO
+
+EXEC sp_rename 'Veterinarian.IsTemporal', 'IsPermanent', 'COLUMN';
+
+GO
+
+ALTER TABLE Veterinarian ALTER COLUMN TimeSlot int NULL;
+
+GO
+
+INSERT INTO Veterinarian
+VALUES
+(19, 'marianarodriguez', 'pass123', 'Mariana', 'Rodríguez', 'Calle 9 de Julio', '4321', 'La Plata', '1900', 'Argentina', '0221-7654321', NULL, 5, 0, 2200, 1, '2345JKL', 'Veterinario especialista en cardiología'),
+(20, 'agustinalopez', 'pass123', 'Agustina', 'López', 'Av. San Martín', '1234', 'Mendoza', '5500', 'Argentina', '0261-1234567', NULL, 12, 0, 2700, 2, '6789MNO', 'Veterinario especialista en oncología'),
+(21, 'franciscoperez', 'pass123', 'Francisco', 'Pérez', 'Calle Laprida', '2345', 'Rosario', '2000', 'Argentina', '0341-7654321', NULL, 17, 1, 1900, 3, '1112PQR', 'Veterinario especialista en oftalmología'),
+(22, 'lucioacosta', 'pass123', 'Lucio', 'Acosta', 'Calle 25 de Mayo', '567', 'Córdoba', '5000', 'Argentina', '0351-1234567', NULL, 5, 0, 2400, 1, '1314STU', 'Veterinario especialista en odontología'),
+(23, 'carolinagonzalez', 'pass123', 'Carolina', 'González', 'Calle Belgrano', '3456', 'Bahía Blanca', '8000', 'Argentina', '0291-7654321', NULL, 12, 0, 2300, 2, '1516VWX', 'Veterinario especialista en endocrinología'),
+(24, 'santiagolopez', 'pass123', 'Santiago', 'López', 'Calle San Juan', '789', 'San Juan', '5400', 'Argentina', '0264-1234567', NULL, 17, 1, 2000, 3, '1718YZA', 'Veterinario especialista en traumatología'),
+(25, 'valeriapaz', 'pass123', 'Valeria', 'Paz', 'Calle Alvear', '987', 'Mar del Plata', '7600', 'Argentina', '0223-7654321', NULL, 5, 0, 2100, 1, '1920BCD', 'Veterinario especialista en gastroenterología')

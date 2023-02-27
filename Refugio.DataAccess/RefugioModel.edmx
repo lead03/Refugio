@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RefugioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="GlobalUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserPassword" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="100" />
+          <Property Name="LastName" Type="varchar" MaxLength="100" />
+          <Property Name="StreetAddress" Type="varchar" MaxLength="50" />
+          <Property Name="ApartmentNumber" Type="varchar" MaxLength="50" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="ZipCode" Type="varchar" MaxLength="10" />
+          <Property Name="Country" Type="varchar" MaxLength="10" />
+          <Property Name="PhoneNumberMain" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="IsDonator" Type="bit" Nullable="false" />
+          <Property Name="ForDescription" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserPassword" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="StreetAddress" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ApartmentNumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ZipCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Country" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="PhoneNumberMain" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="PhoneNumberAditional" Type="varchar" MaxLength="15" />
+          <Property Name="Speciality" Type="int" Nullable="false" />
+          <Property Name="IsTemporal" Type="bit" Nullable="false" />
+          <Property Name="Salary" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="TimeSolt" Type="int" Nullable="false" />
+          <Property Name="ForDescription" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="TimeSlot">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="TimeSlotRange" Type="varchar" MaxLength="11" />
+        </EntityType>
+        <EntityType Name="Veterinarian">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserPassword" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="StreetAddress" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ApartmentNumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ZipCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Country" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="PhoneNumberMain" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="PhoneNumberAditional" Type="varchar" MaxLength="15" />
+          <Property Name="Speciality" Type="int" Nullable="false" />
+          <Property Name="IsPermanent" Type="bit" Nullable="false" />
+          <Property Name="Salary" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TimeSlot" Type="int" />
+          <Property Name="ProfessionalLicense" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ForDescription" Type="varchar(max)" />
+          <Property Name="State" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="VeterinarianSpeciality">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="SpecialityName" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Veterinarian_TimeSlot">
+          <End Role="TimeSlot" Type="Self.TimeSlot" Multiplicity="0..1" />
+          <End Role="Veterinarian" Type="Self.Veterinarian" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TimeSlot">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Veterinarian">
+              <PropertyRef Name="TimeSlot" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Veterinarian_VeterinarianSpeciality">
+          <End Role="VeterinarianSpeciality" Type="Self.VeterinarianSpeciality" Multiplicity="1" />
+          <End Role="Veterinarian" Type="Self.Veterinarian" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VeterinarianSpeciality">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Veterinarian">
+              <PropertyRef Name="Speciality" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RefugioModelStoreContainer">
+          <EntitySet Name="GlobalUser" EntityType="Self.GlobalUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TimeSlot" EntityType="Self.TimeSlot" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Veterinarian" EntityType="Self.Veterinarian" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VeterinarianSpeciality" EntityType="Self.VeterinarianSpeciality" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Veterinarian_TimeSlot" Association="Self.FK_Veterinarian_TimeSlot">
+            <End Role="TimeSlot" EntitySet="TimeSlot" />
+            <End Role="Veterinarian" EntitySet="Veterinarian" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Veterinarian_VeterinarianSpeciality" Association="Self.FK_Veterinarian_VeterinarianSpeciality">
+            <End Role="VeterinarianSpeciality" EntitySet="VeterinarianSpeciality" />
+            <End Role="Veterinarian" EntitySet="Veterinarian" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RefugioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="GlobalUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="StreetAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ApartmentNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumberMain" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsDonator" Type="Boolean" Nullable="false" />
+          <Property Name="ForDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StreetAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ApartmentNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Country" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhoneNumberMain" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhoneNumberAditional" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Speciality" Type="Int32" Nullable="false" />
+          <Property Name="IsTemporal" Type="Boolean" Nullable="false" />
+          <Property Name="Salary" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="TimeSolt" Type="Int32" Nullable="false" />
+          <Property Name="ForDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TimeSlot">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="TimeSlotRange" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Veterinarian" Relationship="RefugioModel.FK_Veterinarian_TimeSlot" FromRole="TimeSlot" ToRole="Veterinarian" />
+        </EntityType>
+        <EntityType Name="VeterinarianSpeciality">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="SpecialityName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Veterinarian" Relationship="RefugioModel.FK_Veterinarian_VeterinarianSpeciality" FromRole="VeterinarianSpeciality" ToRole="Veterinarian" />
+        </EntityType>
+        <EntityContainer Name="RefugioEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="GlobalUser" EntityType="Self.GlobalUser" />
+          <EntitySet Name="Staff" EntityType="Self.Staff" />
+          <EntitySet Name="TimeSlot" EntityType="Self.TimeSlot" />
+          <EntitySet Name="VeterinarianSpeciality" EntityType="Self.VeterinarianSpeciality" />
+          <EntitySet Name="Veterinarian" EntityType="RefugioModel.Veterinarian" />
+          <AssociationSet Name="FK_Veterinarian_TimeSlot" Association="RefugioModel.FK_Veterinarian_TimeSlot">
+            <End Role="TimeSlot" EntitySet="TimeSlot" />
+            <End Role="Veterinarian" EntitySet="Veterinarian" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Veterinarian_VeterinarianSpeciality" Association="RefugioModel.FK_Veterinarian_VeterinarianSpeciality">
+            <End Role="VeterinarianSpeciality" EntitySet="VeterinarianSpeciality" />
+            <End Role="Veterinarian" EntitySet="Veterinarian" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Veterinarian">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserPassword" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="StreetAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ApartmentNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ZipCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumberMain" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumberAditional" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Speciality" Type="Int32" Nullable="false" />
+          <Property Name="IsPermanent" Type="Boolean" Nullable="false" />
+          <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TimeSlot" Type="Int32" />
+          <Property Name="ProfessionalLicense" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ForDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TimeSlot1" Relationship="RefugioModel.FK_Veterinarian_TimeSlot" FromRole="Veterinarian" ToRole="TimeSlot" />
+          <NavigationProperty Name="VeterinarianSpeciality" Relationship="RefugioModel.FK_Veterinarian_VeterinarianSpeciality" FromRole="Veterinarian" ToRole="VeterinarianSpeciality" />
+        </EntityType>
+        <Association Name="FK_Veterinarian_TimeSlot">
+          <End Type="RefugioModel.TimeSlot" Role="TimeSlot" Multiplicity="0..1" />
+          <End Type="RefugioModel.Veterinarian" Role="Veterinarian" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TimeSlot">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Veterinarian">
+              <PropertyRef Name="TimeSlot" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Veterinarian_VeterinarianSpeciality">
+          <End Type="RefugioModel.VeterinarianSpeciality" Role="VeterinarianSpeciality" Multiplicity="1" />
+          <End Type="RefugioModel.Veterinarian" Role="Veterinarian" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VeterinarianSpeciality">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Veterinarian">
+              <PropertyRef Name="Speciality" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RefugioModelStoreContainer" CdmEntityContainer="RefugioEntities">
+          <EntitySetMapping Name="GlobalUser">
+            <EntityTypeMapping TypeName="RefugioModel.GlobalUser">
+              <MappingFragment StoreEntitySet="GlobalUser">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+                <ScalarProperty Name="ApartmentNumber" ColumnName="ApartmentNumber" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="PhoneNumberMain" ColumnName="PhoneNumberMain" />
+                <ScalarProperty Name="IsDonator" ColumnName="IsDonator" />
+                <ScalarProperty Name="ForDescription" ColumnName="ForDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Staff">
+            <EntityTypeMapping TypeName="RefugioModel.Staff">
+              <MappingFragment StoreEntitySet="Staff">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+                <ScalarProperty Name="ApartmentNumber" ColumnName="ApartmentNumber" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="PhoneNumberMain" ColumnName="PhoneNumberMain" />
+                <ScalarProperty Name="PhoneNumberAditional" ColumnName="PhoneNumberAditional" />
+                <ScalarProperty Name="Speciality" ColumnName="Speciality" />
+                <ScalarProperty Name="IsTemporal" ColumnName="IsTemporal" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="TimeSolt" ColumnName="TimeSolt" />
+                <ScalarProperty Name="ForDescription" ColumnName="ForDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimeSlot">
+            <EntityTypeMapping TypeName="RefugioModel.TimeSlot">
+              <MappingFragment StoreEntitySet="TimeSlot">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TimeSlotRange" ColumnName="TimeSlotRange" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VeterinarianSpeciality">
+            <EntityTypeMapping TypeName="RefugioModel.VeterinarianSpeciality">
+              <MappingFragment StoreEntitySet="VeterinarianSpeciality">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SpecialityName" ColumnName="SpecialityName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Veterinarian">
+            <EntityTypeMapping TypeName="RefugioModel.Veterinarian">
+              <MappingFragment StoreEntitySet="Veterinarian">
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="ForDescription" ColumnName="ForDescription" />
+                <ScalarProperty Name="ProfessionalLicense" ColumnName="ProfessionalLicense" />
+                <ScalarProperty Name="TimeSlot" ColumnName="TimeSlot" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="IsPermanent" ColumnName="IsPermanent" />
+                <ScalarProperty Name="Speciality" ColumnName="Speciality" />
+                <ScalarProperty Name="PhoneNumberAditional" ColumnName="PhoneNumberAditional" />
+                <ScalarProperty Name="PhoneNumberMain" ColumnName="PhoneNumberMain" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="ApartmentNumber" ColumnName="ApartmentNumber" />
+                <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

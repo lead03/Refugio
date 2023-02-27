@@ -1,0 +1,48 @@
+﻿@model Refugio.Areas.Admin.Models.Veterinarian.List
+@{
+    ViewBag.Title = "Index";
+}
+@using (Html.BeginForm("Index", "Veterinarian", FormMethod.Post, new { @id = "form-veterinarian-list" }))
+{
+    <h1>Veterinarians</h1>
+    <div>
+        <h2>Filters</h2>
+        Buscar:
+        @Html.TextBoxFor(x => x.Filters.Keyword) 
+    </div>
+    <div>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Speciality</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var veterinarian in Model.Veterinarians)
+                {
+                    <tr>
+                        <td><a href="@Url.Action("Details", "Veterinarian", new { area = "Admin", id = veterinarian.Id })">@veterinarian.Id</a></td>
+                        <td>@veterinarian.FirstName</td>
+                        <td>@veterinarian.LastName</td>
+                        <td>@veterinarian.Speciality</td>
+                        <td>@veterinarian.Salary</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        @Html.HiddenFor(x => x.Pager.TotalPages)
+        @Html.HiddenFor(x => x.Pager.PageSize)
+        @Html.HiddenFor(x => x.Pager.PrevPageButtonsToShow)
+        @Html.HiddenFor(x => x.Pager.NextPageButtonsToShow)
+        @Html.HiddenFor(x => x.Pager.CurrentPage, new { @id = "hdn-pager-index" })
+        @Html.Partial("_pager", Model.Pager)
+    </div>
+}
+
+<script src="~/Scripts/Shared/Pager.js"></script>

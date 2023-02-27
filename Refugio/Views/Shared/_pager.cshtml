@@ -1,0 +1,30 @@
+﻿@model Refugio.Models.Shared.Pager
+
+
+<div>
+    @{
+        int minIndex = Math.Max(Model.CurrentPage - Model.PrevPageButtonsToShow, 1);
+        int maxIndex = Math.Min(Model.TotalPages, Model.CurrentPage + Model.NextPageButtonsToShow);
+    }
+    @if (Model.CurrentPage - Model.PrevPageButtonsToShow > 1)
+    {
+        <button type="button" class="btn btn-default pager-index" data-page-index="1">1</button>
+        <span>...</span>
+    }
+    @for (int i = minIndex; i <= maxIndex; i++)
+    {
+        if (i == Model.CurrentPage)
+        {
+            @i
+        }
+        else
+        {
+            <button type="button" class="btn btn-default pager-index" data-page-index="@i">@i</button>
+        }
+    }
+    @if (Model.CurrentPage + Model.PrevPageButtonsToShow < Model.TotalPages)
+    {
+        <span>...</span>
+        <button type="button" class="btn btn-default pager-index" data-page-index="@Model.TotalPages">@Model.TotalPages</button>
+    }
+</div>
