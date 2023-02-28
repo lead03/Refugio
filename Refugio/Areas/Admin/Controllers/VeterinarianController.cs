@@ -11,7 +11,7 @@ namespace Refugio.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            Models.Veterinarian.List model = new Models.Veterinarian.List();//sdsd
+            Models.Veterinarian.List model = new Models.Veterinarian.List();
             model.Pager.CurrentPage = 1;
             model.Pager.TotalPages = Business.Veterinarian.GetTotalPages(model.Pager.PageSize);
             model.Veterinarians = Business.Veterinarian.GetVeterinariansFilteredAndPaged(model.Pager.CurrentPage, model.Pager.PageSize);
@@ -22,7 +22,7 @@ namespace Refugio.Areas.Admin.Controllers
         public ActionResult Index(Models.Veterinarian.List model)
         {
             model.Veterinarians = Business.Veterinarian.GetVeterinariansFilteredAndPaged(model.Pager.CurrentPage, model.Pager.PageSize, model.Filters.Keyword);
-            model.Pager.TotalPages = Business.Veterinarian.GetTotalPages(model.Pager.PageSize);
+            model.Pager.TotalPages = Business.Veterinarian.GetTotalPages(model.Pager.PageSize, model.Filters.Keyword);
             return View(model);
         }
 

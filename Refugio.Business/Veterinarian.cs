@@ -20,6 +20,12 @@ namespace Refugio.Business
             return totalPages;
         }
 
+        public static int GetTotalPages(int pageSize, string keyword = null)
+        {
+            int totalPages = (int)Math.Ceiling((double)GetCountFiltered(keyword) / pageSize);
+            return totalPages;
+        }
+
         public static object GetVeterinarianById(int id)
         {
             DTO.Veterinarian veterinarian = DataAccess.Generic.GetByIdIntType<DTO.Veterinarian>(id);
@@ -29,6 +35,12 @@ namespace Refugio.Business
         public static int GetAllCount()
         {
             int total = DataAccess.Generic.GetCount<DTO.Veterinarian>();
+            return total;
+        }
+
+        public static int GetCountFiltered(string keyword = null)
+        {
+            int total = DataAccess.Veterinarian.GetCount(keyword);
             return total;
         }
     }

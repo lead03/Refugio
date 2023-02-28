@@ -9,7 +9,7 @@ namespace Refugio.Models.Shared
     {
         public int CurrentPage { get; set; }
         public int TotalPages { get; set; }
-        public int PageSize { get; set; } = 2;
+        public int PageSize { get; set; } = 10;
         public int PrevPageButtonsToShow { get; set; } = 2;
         public int NextPageButtonsToShow { get; set; } = 2;
         public bool ShowFirstPageButton
