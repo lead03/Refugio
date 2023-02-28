@@ -27,8 +27,8 @@ namespace Refugio.DTO
     
         public DbSet<GlobalUser> GlobalUser { get; set; }
         public DbSet<Staff> Staff { get; set; }
-        public DbSet<TimeSlot> TimeSlot { get; set; }
         public DbSet<VeterinarianSpeciality> VeterinarianSpeciality { get; set; }
         public DbSet<Veterinarian> Veterinarian { get; set; }
+        public DbSet<TimeSlotRange> TimeSlotRange { get; set; }
     }
 }

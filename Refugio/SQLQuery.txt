@@ -184,3 +184,22 @@ VALUES
 (23, 'carolinagonzalez', 'pass123', 'Carolina', 'González', 'Calle Belgrano', '3456', 'Bahía Blanca', '8000', 'Argentina', '0291-7654321', NULL, 12, 0, 2300, 2, '1516VWX', 'Veterinario especialista en endocrinología'),
 (24, 'santiagolopez', 'pass123', 'Santiago', 'López', 'Calle San Juan', '789', 'San Juan', '5400', 'Argentina', '0264-1234567', NULL, 17, 1, 2000, 3, '1718YZA', 'Veterinario especialista en traumatología'),
 (25, 'valeriapaz', 'pass123', 'Valeria', 'Paz', 'Calle Alvear', '987', 'Mar del Plata', '7600', 'Argentina', '0223-7654321', NULL, 5, 0, 2100, 1, '1920BCD', 'Veterinario especialista en gastroenterología')
+
+GO
+
+ALTER TABLE Veterinarian
+DROP CONSTRAINT FK_Veterinarian_TimeSlot
+
+GO
+
+ALTER TABLE [Veterinarian]  WITH CHECK ADD  CONSTRAINT [FK_Veterinarian_WorkerTimeSlotRange] FOREIGN KEY([TimeSlot])
+REFERENCES [TimeSlot] ([Id])
+GO
+
+EXEC sp_rename 'TimeSlot', 'TimeSlotRange';
+
+GO
+
+EXEC sp_rename 'TimeSlotRange.TimeSlotRange', 'TimeRange', 'COLUMN';
+
+GO

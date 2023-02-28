@@ -45,12 +45,12 @@
           <Property Name="TimeSolt" Type="int" Nullable="false" />
           <Property Name="ForDescription" Type="varchar(max)" />
         </EntityType>
-        <EntityType Name="TimeSlot">
+        <EntityType Name="TimeSlotRange">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="TimeSlotRange" Type="varchar" MaxLength="11" />
+          <Property Name="TimeRange" Type="varchar" MaxLength="11" />
         </EntityType>
         <EntityType Name="Veterinarian">
           <Key>
@@ -83,18 +83,6 @@
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="SpecialityName" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Veterinarian_TimeSlot">
-          <End Role="TimeSlot" Type="Self.TimeSlot" Multiplicity="0..1" />
-          <End Role="Veterinarian" Type="Self.Veterinarian" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TimeSlot">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Veterinarian">
-              <PropertyRef Name="TimeSlot" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Veterinarian_VeterinarianSpeciality">
           <End Role="VeterinarianSpeciality" Type="Self.VeterinarianSpeciality" Multiplicity="1" />
           <End Role="Veterinarian" Type="Self.Veterinarian" Multiplicity="*" />
@@ -107,18 +95,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Veterinarian_WorkerTimeSlotRange">
+          <End Role="TimeSlotRange" Type="Self.TimeSlotRange" Multiplicity="0..1" />
+          <End Role="Veterinarian" Type="Self.Veterinarian" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TimeSlotRange">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Veterinarian">
+              <PropertyRef Name="TimeSlot" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="RefugioModelStoreContainer">
           <EntitySet Name="GlobalUser" EntityType="Self.GlobalUser" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TimeSlot" EntityType="Self.TimeSlot" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TimeSlotRange" EntityType="Self.TimeSlotRange" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Veterinarian" EntityType="Self.Veterinarian" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VeterinarianSpeciality" EntityType="Self.VeterinarianSpeciality" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Veterinarian_TimeSlot" Association="Self.FK_Veterinarian_TimeSlot">
-            <End Role="TimeSlot" EntitySet="TimeSlot" />
-            <End Role="Veterinarian" EntitySet="Veterinarian" />
-          </AssociationSet>
           <AssociationSet Name="FK_Veterinarian_VeterinarianSpeciality" Association="Self.FK_Veterinarian_VeterinarianSpeciality">
             <End Role="VeterinarianSpeciality" EntitySet="VeterinarianSpeciality" />
+            <End Role="Veterinarian" EntitySet="Veterinarian" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Veterinarian_WorkerTimeSlotRange" Association="Self.FK_Veterinarian_WorkerTimeSlotRange">
+            <End Role="TimeSlotRange" EntitySet="TimeSlotRange" />
             <End Role="Veterinarian" EntitySet="Veterinarian" />
           </AssociationSet>
         </EntityContainer>
@@ -166,14 +166,6 @@
           <Property Name="TimeSolt" Type="Int32" Nullable="false" />
           <Property Name="ForDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="TimeSlot">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="TimeSlotRange" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Veterinarian" Relationship="RefugioModel.FK_Veterinarian_TimeSlot" FromRole="TimeSlot" ToRole="Veterinarian" />
-        </EntityType>
         <EntityType Name="VeterinarianSpeciality">
           <Key>
             <PropertyRef Name="Id" />
@@ -185,15 +177,15 @@
         <EntityContainer Name="RefugioEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="GlobalUser" EntityType="Self.GlobalUser" />
           <EntitySet Name="Staff" EntityType="Self.Staff" />
-          <EntitySet Name="TimeSlot" EntityType="Self.TimeSlot" />
           <EntitySet Name="VeterinarianSpeciality" EntityType="Self.VeterinarianSpeciality" />
           <EntitySet Name="Veterinarian" EntityType="RefugioModel.Veterinarian" />
-          <AssociationSet Name="FK_Veterinarian_TimeSlot" Association="RefugioModel.FK_Veterinarian_TimeSlot">
-            <End Role="TimeSlot" EntitySet="TimeSlot" />
-            <End Role="Veterinarian" EntitySet="Veterinarian" />
-          </AssociationSet>
           <AssociationSet Name="FK_Veterinarian_VeterinarianSpeciality" Association="RefugioModel.FK_Veterinarian_VeterinarianSpeciality">
             <End Role="VeterinarianSpeciality" EntitySet="VeterinarianSpeciality" />
+            <End Role="Veterinarian" EntitySet="Veterinarian" />
+          </AssociationSet>
+          <EntitySet Name="TimeSlotRange" EntityType="RefugioModel.TimeSlotRange" />
+          <AssociationSet Name="FK_Veterinarian_WorkerTimeSlotRange" Association="RefugioModel.FK_Veterinarian_WorkerTimeSlotRange">
+            <End Role="TimeSlotRange" EntitySet="TimeSlotRange" />
             <End Role="Veterinarian" EntitySet="Veterinarian" />
           </AssociationSet>
           </EntityContainer>
@@ -220,21 +212,9 @@
           <Property Name="ProfessionalLicense" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="ForDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="TimeSlot1" Relationship="RefugioModel.FK_Veterinarian_TimeSlot" FromRole="Veterinarian" ToRole="TimeSlot" />
           <NavigationProperty Name="VeterinarianSpeciality" Relationship="RefugioModel.FK_Veterinarian_VeterinarianSpeciality" FromRole="Veterinarian" ToRole="VeterinarianSpeciality" />
+          <NavigationProperty Name="TimeSlotRange" Relationship="RefugioModel.FK_Veterinarian_WorkerTimeSlotRange" FromRole="Veterinarian" ToRole="TimeSlotRange" />
         </EntityType>
-        <Association Name="FK_Veterinarian_TimeSlot">
-          <End Type="RefugioModel.TimeSlot" Role="TimeSlot" Multiplicity="0..1" />
-          <End Type="RefugioModel.Veterinarian" Role="Veterinarian" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TimeSlot">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Veterinarian">
-              <PropertyRef Name="TimeSlot" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Veterinarian_VeterinarianSpeciality">
           <End Type="RefugioModel.VeterinarianSpeciality" Role="VeterinarianSpeciality" Multiplicity="1" />
           <End Type="RefugioModel.Veterinarian" Role="Veterinarian" Multiplicity="*" />
@@ -244,6 +224,26 @@
             </Principal>
             <Dependent Role="Veterinarian">
               <PropertyRef Name="Speciality" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TimeSlotRange">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="TimeRange" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Veterinarian" Relationship="RefugioModel.FK_Veterinarian_WorkerTimeSlotRange" FromRole="TimeSlotRange" ToRole="Veterinarian" />
+        </EntityType>
+        <Association Name="FK_Veterinarian_WorkerTimeSlotRange">
+          <End Type="RefugioModel.TimeSlotRange" Role="TimeSlotRange" Multiplicity="0..1" />
+          <End Type="RefugioModel.Veterinarian" Role="Veterinarian" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TimeSlotRange">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Veterinarian">
+              <PropertyRef Name="TimeSlot" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -295,14 +295,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TimeSlot">
-            <EntityTypeMapping TypeName="RefugioModel.TimeSlot">
-              <MappingFragment StoreEntitySet="TimeSlot">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="TimeSlotRange" ColumnName="TimeSlotRange" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="VeterinarianSpeciality">
             <EntityTypeMapping TypeName="RefugioModel.VeterinarianSpeciality">
               <MappingFragment StoreEntitySet="VeterinarianSpeciality">
@@ -332,6 +324,14 @@
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimeSlotRange">
+            <EntityTypeMapping TypeName="RefugioModel.TimeSlotRange">
+              <MappingFragment StoreEntitySet="TimeSlotRange">
+                <ScalarProperty Name="TimeRange" ColumnName="TimeRange" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

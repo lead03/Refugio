@@ -34,7 +34,7 @@ namespace Refugio.DTO
         public string ForDescription { get; set; }
         public string State { get; set; }
     
-        public virtual TimeSlot TimeSlot1 { get; set; }
         public virtual VeterinarianSpeciality VeterinarianSpeciality { get; set; }
+        public virtual TimeSlotRange TimeSlotRange { get; set; }
     }
 }

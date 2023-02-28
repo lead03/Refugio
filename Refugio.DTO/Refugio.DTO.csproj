@@ -66,7 +66,7 @@
     <Compile Include="Staff.cs">
       <DependentUpon>RefugioModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="TimeSlot.cs">
+    <Compile Include="TimeSlotRange.cs">
       <DependentUpon>RefugioModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Veterinarian.cs">

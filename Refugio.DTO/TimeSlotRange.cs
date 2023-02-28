@@ -12,15 +12,15 @@ namespace Refugio.DTO
     using System;
     using System.Collections.Generic;
     
-    public partial class TimeSlot
+    public partial class TimeSlotRange
     {
-        public TimeSlot()
+        public TimeSlotRange()
         {
             this.Veterinarian = new HashSet<Veterinarian>();
         }
     
         public int Id { get; set; }
-        public string TimeSlotRange { get; set; }
+        public string TimeRange { get; set; }
     
         public virtual ICollection<Veterinarian> Veterinarian { get; set; }
     }
