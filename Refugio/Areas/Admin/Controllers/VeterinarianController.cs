@@ -22,7 +22,8 @@ namespace Refugio.Areas.Admin.Controllers
         public ActionResult Index(Models.Veterinarian.List model)
         {
             model.Pager.TotalPages = Business.Veterinarian.GetTotalPages(model.Pager.PageSize, model.Filters.Keyword);
-            model.Pager.CurrentPage = model.Pager.TotalPages < model.Pager.CurrentPage ? 1 : model.Pager.CurrentPage;
+            model.Pager.CurrentPage = (model.Pager.TotalPages < model.Pager.CurrentPage || model.Filters.FilterModified) ? 1 : model.Pager.CurrentPage;
+            model.Filters.FilterModified = false;
             model.Veterinarians = Business.Veterinarian.GetVeterinariansFilteredAndPaged(model.Pager.CurrentPage, model.Pager.PageSize, model.Filters.Keyword);
             return View(model);
         }

@@ -8,7 +8,8 @@
     <div>
         <h2>Filters</h2>
         Buscar:
-        @Html.TextBoxFor(x => x.Filters.Keyword, new { @class = "filter" }) 
+        @Html.TextBoxFor(x => x.Filters.Keyword, new { @class = "filter" })
+        <input type="hidden" name="Filters.FilterModified" id="hdn-filter-modified-indicator" value="@Model.Filters.FilterModified" />
         <button type="button" class="btn btn-primary" id="btn-search">Buscar</button>
     </div>
     <div>

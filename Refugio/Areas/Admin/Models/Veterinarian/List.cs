@@ -9,6 +9,6 @@ namespace Refugio.Areas.Admin.Models.Veterinarian
     {
         public List<DTO.Veterinarian> Veterinarians { get; set; }
         public Refugio.Models.Shared.Pager Pager { get; set; } = new Refugio.Models.Shared.Pager();
-        public Refugio.Areas.Admin.Models.Veterinarian.Filter Filters { get; set; }
+        public Refugio.Areas.Admin.Models.Veterinarian.Filter Filters { get; set; } = new Refugio.Areas.Admin.Models.Veterinarian.Filter();
     }
 }

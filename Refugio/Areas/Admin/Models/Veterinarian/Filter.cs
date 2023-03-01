@@ -12,5 +12,6 @@ namespace Refugio.Areas.Admin.Models.Veterinarian
         public bool IsPermanent { get; set; }
         public decimal Salary { get; set; }
         public int TimeSlot { get; set; }
+        public bool FilterModified { get; set; } = false;
     }
 }

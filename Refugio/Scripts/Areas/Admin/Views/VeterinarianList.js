@@ -1,10 +1,10 @@
 ﻿$(document).ready(function () {
     $('#btn-search').click(loadFilters);
     $('.pager-index').click(loadPage);
+    $('.filter').change(setFilterIsModified);
 });
 
 function loadFilters() {
-    //event.preventDefault();
     $('#hdn-pager-index').val(1);
     $('#form-veterinarian-list').submit();
 }
@@ -15,8 +15,6 @@ function loadPage() {
     $('#form-veterinarian-list').submit();
 }
 
-//function avoidSubmit(event) {
-//    if (event.which == 13) {
-//        event.preventDefault();
-//    }
-//}
+function setFilterIsModified() {
+    $('#hdn-filter-modified-indicator').val(true);
+}
