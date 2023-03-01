@@ -1,11 +1,10 @@
 ﻿$(document).ready(function () {
     $('#btn-search').click(loadFilters);
     $('.pager-index').click(loadPage);
-    $('.filter').keypress(avoidSubmit);
 });
 
 function loadFilters() {
-    event.preventDefault();
+    //event.preventDefault();
     $('#hdn-pager-index').val(1);
     $('#form-veterinarian-list').submit();
 }
@@ -16,8 +15,8 @@ function loadPage() {
     $('#form-veterinarian-list').submit();
 }
 
-function avoidSubmit(event) {
-    if (event.which == 13) {
-        event.preventDefault();
-    }
-}
+//function avoidSubmit(event) {
+//    if (event.which == 13) {
+//        event.preventDefault();
+//    }
+//}

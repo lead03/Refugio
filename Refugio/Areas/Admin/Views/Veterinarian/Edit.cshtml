@@ -1,0 +1,113 @@
+﻿@model Refugio.Areas.Admin.Models.Veterinarian.Edit
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Editar veterinario</h2>
+
+@using (Html.BeginForm("Edit", "Veterinarian", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UserName)
+        @Html.TextBoxFor(model => model.UserName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UserPassword)
+        @Html.PasswordFor(model => model.UserPassword, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FirstName)
+        @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.LastName)
+        @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.StreetAddress)
+        @Html.TextBoxFor(model => model.StreetAddress, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ApartmentNumber)
+        @Html.TextBoxFor(model => model.ApartmentNumber, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.City)
+        @Html.TextBoxFor(model => model.City, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ZipCode)
+        @Html.TextBoxFor(model => model.ZipCode, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.State)
+        @Html.TextBoxFor(model => model.State, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Country)
+        @Html.TextBoxFor(model => model.Country, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PhoneNumberMain)
+        @Html.TextBoxFor(model => model.PhoneNumberMain, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PhoneNumberAditional)
+        @Html.TextBoxFor(model => model.PhoneNumberAditional, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Speciality)
+        @Html.TextBoxFor(model => model.Speciality, new { @class = "form-control" })
+
+        @*@Html.DropDownListFor(model => model.Speciality, ViewBag.Specialities as SelectList, "-- Seleccione una especialidad --", new { @class = "form-control" })*@
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.IsPermanent)
+        @Html.CheckBoxFor(model => model.IsPermanent, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Salary)
+        @Html.TextBoxFor(model => model.Salary, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.TimeSlot)
+        @Html.EditorFor(model => model.TimeSlot, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ProfessionalLicense)
+        @Html.EditorFor(model => model.ProfessionalLicense, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Description)
+        @Html.EditorFor(model => model.Description, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

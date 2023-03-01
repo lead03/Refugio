@@ -26,7 +26,7 @@ namespace Refugio.Business
             return totalPages;
         }
 
-        public static object GetVeterinarianById(int id)
+        public static DTO.Veterinarian GetVeterinarianById(int id)
         {
             DTO.Veterinarian veterinarian = DataAccess.Generic.GetByIdIntType<DTO.Veterinarian>(id);
             return veterinarian;
@@ -42,6 +42,11 @@ namespace Refugio.Business
         {
             int total = DataAccess.Veterinarian.GetCount(keyword);
             return total;
+        }
+
+        public static void Save (DTO.Veterinarian veterinarian)
+        {
+            DataAccess.Generic.UpdateOrCreate<DTO.Veterinarian>(veterinarian, veterinarian.Id);
         }
     }
 }

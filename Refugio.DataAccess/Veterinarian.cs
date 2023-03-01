@@ -11,7 +11,7 @@ namespace Refugio.DataAccess
         public static List<DTO.Veterinarian> GetAllPaged(int currentPage, int pageSize, string keyword = null)
         {
             IQueryable<DTO.Veterinarian> query = Common.DataContext.Veterinarian;
-            if (!string.IsNullOrWhiteSpace(keyword)) //asdasd
+            if (!string.IsNullOrWhiteSpace(keyword))
             {
                 query = query.Where(x => x.LastName.Contains(keyword) || x.FirstName.Contains(keyword) || x.ForDescription.Contains(keyword));
             }

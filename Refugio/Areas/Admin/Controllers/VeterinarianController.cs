@@ -21,30 +21,37 @@ namespace Refugio.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Index(Models.Veterinarian.List model)
         {
-            model.Veterinarians = Business.Veterinarian.GetVeterinariansFilteredAndPaged(model.Pager.CurrentPage, model.Pager.PageSize, model.Filters.Keyword);
             model.Pager.TotalPages = Business.Veterinarian.GetTotalPages(model.Pager.PageSize, model.Filters.Keyword);
+            model.Pager.CurrentPage = model.Pager.TotalPages < model.Pager.CurrentPage ? 1 : model.Pager.CurrentPage;
+            model.Veterinarians = Business.Veterinarian.GetVeterinariansFilteredAndPaged(model.Pager.CurrentPage, model.Pager.PageSize, model.Filters.Keyword);
             return View(model);
         }
 
-        public ActionResult Details(int id)
+        public ActionResult Details(Refugio.Models.Shared.RequestById request)
         {
             Models.Veterinarian.Details model = new Models.Veterinarian.Details();
-            model.GetValues((DTO.Veterinarian)Business.Veterinarian.GetVeterinarianById(id));
+            model.GetValues(Business.Veterinarian.GetVeterinarianById(request.Id.Value));
             return View(model);
         }
 
         [HttpGet]
-        public ActionResult Edit()
+        public ActionResult Edit(Refugio.Models.Shared.RequestById request)
         {
             Models.Veterinarian.Edit model = new Models.Veterinarian.Edit();
+            if (request.Id.HasValue)
+            {
+                model.GetValues(Business.Veterinarian.GetVeterinarianById(request.Id.Value));
+            }
             return View(model);
         }
 
-        //[HttpPost]
-        //public ActionResult Edit()
-        //{
-        //    Models.Veterinarian.Edit model = new Models.Veterinarian.Edit();
-        //    return View(model);
-        //}
+        [HttpPost]
+        public ActionResult Edit(Models.Veterinarian.Edit model)
+        {
+            DTO.Veterinarian veterinarian = new DTO.Veterinarian();
+            model.SetValues(veterinarian);
+            Business.Veterinarian.Save(veterinarian);
+            return RedirectToAction("Details", new { id = model.Id });
+        }
     }
 }
