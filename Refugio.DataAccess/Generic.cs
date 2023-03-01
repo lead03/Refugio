@@ -36,5 +36,19 @@ namespace Refugio.DataAccess
             }
             Common.DataContext.SaveChanges();
         }
+
+        public static void UpdateOrCreate<T>(T entity, Guid id) where T : class
+        {
+            var entityToUpdate = Common.DataContext.Set<T>().Find(id);
+            if (entityToUpdate == null)
+            {
+                Common.DataContext.Set<T>().Add(entity);
+            }
+            else
+            {
+                Common.DataContext.Entry(entityToUpdate).CurrentValues.SetValues(entity);
+            }
+            Common.DataContext.SaveChanges();
+        }
     }
 }

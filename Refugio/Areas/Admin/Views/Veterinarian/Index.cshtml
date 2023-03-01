@@ -40,6 +40,9 @@
         @Html.HiddenFor(x => x.Pager.CurrentPage, new { @id = "hdn-pager-index" })
         @Html.Partial("_pager", Model.Pager)
     </div>
+    <div>
+        <a href="@Url.Action("Edit", "Veterinarian", new { area = "Admin" })">Nuevo</a>
+    </div>
 }
 
 <script src="~/Scripts/Areas/Admin/Views/VeterinarianList.js"></script>
