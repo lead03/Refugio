@@ -22,14 +22,14 @@ namespace Refugio.DTO
         public string StreetAddress { get; set; }
         public string ApartmentNumber { get; set; }
         public string City { get; set; }
+        public string Province { get; set; }
         public string ZipCode { get; set; }
-        public string Country { get; set; }
         public string PhoneNumberMain { get; set; }
         public string PhoneNumberAditional { get; set; }
         public int Speciality { get; set; }
-        public bool IsTemporal { get; set; }
-        public decimal Salary { get; set; }
-        public int TimeSolt { get; set; }
+        public bool IsPermanent { get; set; }
+        public Nullable<decimal> Salary { get; set; }
+        public Nullable<int> TimeSlot { get; set; }
         public string ForDescription { get; set; }
     }
 }

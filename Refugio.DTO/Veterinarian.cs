@@ -22,8 +22,8 @@ namespace Refugio.DTO
         public string StreetAddress { get; set; }
         public string ApartmentNumber { get; set; }
         public string City { get; set; }
+        public string Province { get; set; }
         public string ZipCode { get; set; }
-        public string Country { get; set; }
         public string PhoneNumberMain { get; set; }
         public string PhoneNumberAditional { get; set; }
         public int Speciality { get; set; }
@@ -32,9 +32,8 @@ namespace Refugio.DTO
         public Nullable<int> TimeSlot { get; set; }
         public string ProfessionalLicense { get; set; }
         public string ForDescription { get; set; }
-        public string State { get; set; }
     
-        public virtual VeterinarianSpeciality VeterinarianSpeciality { get; set; }
         public virtual TimeSlotRange TimeSlotRange { get; set; }
+        public virtual VeterinarianSpeciality VeterinarianSpeciality { get; set; }
     }
 }

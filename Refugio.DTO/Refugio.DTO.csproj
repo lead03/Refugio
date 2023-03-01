@@ -49,9 +49,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="GlobalUser.cs">
-      <DependentUpon>RefugioModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RefugioModel.Context.cs">
       <AutoGen>True</AutoGen>

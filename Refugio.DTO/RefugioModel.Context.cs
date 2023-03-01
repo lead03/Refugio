@@ -25,10 +25,9 @@ namespace Refugio.DTO
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<GlobalUser> GlobalUser { get; set; }
         public DbSet<Staff> Staff { get; set; }
-        public DbSet<VeterinarianSpeciality> VeterinarianSpeciality { get; set; }
-        public DbSet<Veterinarian> Veterinarian { get; set; }
         public DbSet<TimeSlotRange> TimeSlotRange { get; set; }
+        public DbSet<Veterinarian> Veterinarian { get; set; }
+        public DbSet<VeterinarianSpeciality> VeterinarianSpeciality { get; set; }
     }
 }

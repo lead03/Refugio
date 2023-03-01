@@ -16,8 +16,7 @@ namespace Refugio.Areas.Admin.Models.Veterinarian
         public string ApartmentNumber { get; set; }
         public string City { get; set; }
         public string ZipCode { get; set; }
-        public string State { get; set; }
-        public string Country { get; set; }
+        public string Province { get; set; }
         public string PhoneNumberMain { get; set; }
         public string PhoneNumberAditional { get; set; }
         public int Speciality { get; set; }
@@ -38,8 +37,7 @@ namespace Refugio.Areas.Admin.Models.Veterinarian
             this.ApartmentNumber = veterinarian.ApartmentNumber;
             this.City = veterinarian.City;
             this.ZipCode = veterinarian.ZipCode;
-            this.State = veterinarian.State;
-            this.Country = veterinarian.Country;
+            this.Province = veterinarian.Province;
             this.PhoneNumberMain = veterinarian.PhoneNumberMain;
             this.PhoneNumberAditional = veterinarian.PhoneNumberAditional;
             this.Speciality = veterinarian.Speciality;
@@ -61,8 +59,7 @@ namespace Refugio.Areas.Admin.Models.Veterinarian
             veterinarian.ApartmentNumber = this.ApartmentNumber;
             veterinarian.City = this.City;
             veterinarian.ZipCode = this.ZipCode;
-            veterinarian.State = this.State;
-            veterinarian.Country = this.Country;
+            veterinarian.Province = this.Province;
             veterinarian.PhoneNumberMain = this.PhoneNumberMain;
             veterinarian.PhoneNumberAditional = this.PhoneNumberAditional;
             veterinarian.Speciality = this.Speciality;
