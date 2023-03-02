@@ -10,7 +10,9 @@
         Buscar:
         @Html.TextBoxFor(x => x.Filters.Keyword, new { @class = "filter" })
         <input type="hidden" name="Filters.FilterModified" id="hdn-filter-modified-indicator" value="@Model.Filters.FilterModified" />
+        @Html.DropDownListFor(x => x.Filters.SelectedVeterinarianSpecialityId, Model.Filters.VeterinarianSpeciality, "-- Select --", new { @class = "filter" })
         <button type="button" class="btn btn-primary" id="btn-search">Buscar</button>
+        <button type="button" class="btn btn-secondary" id="btn-reset-filters">Quitar filtros</button>
     </div>
     <div>
         <table class="table table-striped table-bordered">

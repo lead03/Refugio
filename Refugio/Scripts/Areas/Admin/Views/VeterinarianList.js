@@ -2,6 +2,7 @@
     $('#btn-search').click(loadFilters);
     $('.pager-index').click(loadPage);
     $('.filter').change(setFilterIsModified);
+    $('#btn-reset-filters').click(cleanFilters);
 });
 
 function loadFilters() {
@@ -17,4 +18,11 @@ function loadPage() {
 
 function setFilterIsModified() {
     $('#hdn-filter-modified-indicator').val(true);
+}
+
+function cleanFilters() {
+    $('.filter').each(function () {
+        $(this).val("");
+    });
+    $('#form-veterinarian-list').submit();
 }

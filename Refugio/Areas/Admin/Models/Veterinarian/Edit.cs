@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Refugio.Areas.Admin.Models.Veterinarian
 {
@@ -25,6 +26,14 @@ namespace Refugio.Areas.Admin.Models.Veterinarian
         public int? TimeSlot { get; set; }
         public string ProfessionalLicense { get; set; }
         public string Description { get; set; }
+        public SelectList VeterinarianSpeciality { get; set; }
+        public bool IsNewUser
+        {
+            get
+            {
+                return this.Id != 0;
+            }
+        }
 
         public void GetValues(DTO.Veterinarian veterinarian)
         {

@@ -8,9 +8,9 @@ namespace Refugio.Business
 {
     public class Veterinarian
     {
-        public static List<DTO.Veterinarian> GetVeterinariansFilteredAndPaged(int currentPage, int pageSize, string keyword = null)
+        public static List<DTO.Veterinarian> GetVeterinariansFilteredAndPaged(int currentPage, int pageSize, string keyword = null, int selectedVeterinarianSpecialityId = 0)
         {
-            List<DTO.Veterinarian> veterinarians = DataAccess.Veterinarian.GetAllPaged(currentPage, pageSize, keyword);
+            List<DTO.Veterinarian> veterinarians = DataAccess.Veterinarian.GetAllPaged(currentPage, pageSize, keyword, selectedVeterinarianSpecialityId);
             return veterinarians;
         }
 

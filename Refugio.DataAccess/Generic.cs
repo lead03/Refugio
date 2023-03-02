@@ -50,5 +50,10 @@ namespace Refugio.DataAccess
             }
             Common.DataContext.SaveChanges();
         }
+
+        public static List<T> GetAll<T>() where T: class
+        {
+            return Common.DataContext.Set<T>().ToList();
+        }
     }
 }

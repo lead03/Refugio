@@ -8,16 +8,27 @@
 @using (Html.BeginForm("Edit", "Veterinarian", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
+    if (Model.Id == 0)
+    {
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserName)
+            @Html.TextBoxFor(model => model.UserName, new { @class = "form-control" })
+        </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.UserName)
-        @Html.TextBoxFor(model => model.UserName, new { @class = "form-control" })
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.UserPassword)
-        @Html.PasswordFor(model => model.UserPassword, new { @class = "form-control" })
-    </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserPassword)
+            @Html.PasswordFor(model => model.UserPassword, new { @class = "form-control" })
+        </div>
+    }
+    else
+    {
+        <div class="form-group">
+            @Html.DisplayNameFor(model => model.UserName)
+            @Html.DisplayFor(model => model.UserName, new { @class = "form-control" })
+            @Html.HiddenFor(model => model.UserName)
+            @Html.HiddenFor(model => model.UserPassword)
+        </div>
+    }
 
     <div class="form-group">
         @Html.LabelFor(model => model.FirstName)
@@ -66,9 +77,7 @@
 
     <div class="form-group">
         @Html.LabelFor(model => model.Speciality)
-        @Html.TextBoxFor(model => model.Speciality, new { @class = "form-control" })
-
-        @*@Html.DropDownListFor(model => model.Speciality, ViewBag.Specialities as SelectList, "-- Seleccione una especialidad --", new { @class = "form-control" })*@
+        @Html.DropDownListFor(x => x.Speciality, Model.VeterinarianSpeciality, "-- Select --", new { @class = "filter" })
     </div>
 
     <div class="form-group">
@@ -104,5 +113,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    <a href="@Url.Action("Index", "Veterinarian", new { area = "Admin" })" class="btn btn-success">Volver al listado</a>
 </div>

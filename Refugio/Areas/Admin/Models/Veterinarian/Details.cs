@@ -21,6 +21,7 @@ namespace Refugio.Areas.Admin.Models.Veterinarian
         public string PhoneNumberMain { get; set; }
         public string PhoneNumberAditional { get; set; }
         public int Speciality { get; set; }
+        public string SpecialityName { get; set; }
         public bool IsPermanent { get; set; }
         public decimal? Salary { get; set; }
         public int? TimeSlot { get; set; }
@@ -41,7 +42,7 @@ namespace Refugio.Areas.Admin.Models.Veterinarian
             this.Province = veterinarian.Province;
             this.PhoneNumberMain = veterinarian.PhoneNumberMain;
             this.PhoneNumberAditional = veterinarian.PhoneNumberAditional;
-            this.Speciality = veterinarian.Speciality;
+            this.SpecialityName = veterinarian.VeterinarianSpeciality.SpecialityName;
             this.IsPermanent = veterinarian.IsPermanent;
             this.Salary = veterinarian.Salary;
             this.TimeSlot = veterinarian.TimeSlot;
