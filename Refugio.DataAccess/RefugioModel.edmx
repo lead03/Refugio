@@ -39,12 +39,12 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="UserPassword" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="UserPassword" Type="varchar" MaxLength="50" />
           <Property Name="FirstName" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="LastName" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="StreetAddress" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="ApartmentNumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ApartmentNumber" Type="varchar" MaxLength="50" />
           <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Province" Type="varchar" MaxLength="50" />
           <Property Name="ZipCode" Type="varchar" MaxLength="10" Nullable="false" />
@@ -56,6 +56,7 @@
           <Property Name="TimeSlot" Type="int" />
           <Property Name="ProfessionalLicense" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="ForDescription" Type="varchar(max)" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
         </EntityType>
         <EntityType Name="VeterinarianSpeciality">
           <Key>
@@ -155,12 +156,12 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="UserPassword" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="FirstName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="LastName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="StreetAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ApartmentNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ApartmentNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="City" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Province" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ZipCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
@@ -174,6 +175,7 @@
           <Property Name="ForDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="TimeSlotRange" Relationship="RefugioModel.FK_Veterinarian_TimeSlotRange" FromRole="Veterinarian" ToRole="TimeSlotRange" />
           <NavigationProperty Name="VeterinarianSpeciality" Relationship="RefugioModel.FK_Veterinarian_VeterinarianSpeciality" FromRole="Veterinarian" ToRole="VeterinarianSpeciality" />
+          <Property Name="RowVersion" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="VeterinarianSpeciality">
           <Key>
@@ -247,6 +249,7 @@
           <EntitySetMapping Name="Veterinarian">
             <EntityTypeMapping TypeName="RefugioModel.Veterinarian">
               <MappingFragment StoreEntitySet="Veterinarian">
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
                 <ScalarProperty Name="ForDescription" ColumnName="ForDescription" />
                 <ScalarProperty Name="ProfessionalLicense" ColumnName="ProfessionalLicense" />
                 <ScalarProperty Name="TimeSlot" ColumnName="TimeSlot" />

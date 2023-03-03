@@ -29,7 +29,7 @@
                 @foreach (var veterinarian in Model.Veterinarians)
                 {
                     <tr>
-                        <td><a href="@Url.Action("Details", "Veterinarian", new { area = "Admin", id = veterinarian.Id })">@veterinarian.Id</a></td>
+                        <td><a href="@Url.Action("Details", "Veterinarian", new { area = "Admin", Id = veterinarian.Id })">@veterinarian.Id</a></td>
                         <td>@veterinarian.FirstName</td>
                         <td>@veterinarian.LastName</td>
                         <td>@veterinarian.Speciality</td>

@@ -32,7 +32,12 @@ namespace Refugio.Areas.Admin.Controllers
 
         public ActionResult Details(Refugio.Models.Shared.RequestById request)
         {
+
             Models.Veterinarian.Details model = new Models.Veterinarian.Details();
+            if (TempData["ShowMessage"] != null)
+            {
+                model.Message = new Refugio.Models.Shared.Message(TempData);
+            }
             model.GetValues(Business.Veterinarian.GetVeterinarianById(request.Id.Value));
             return View(model);
         }
@@ -52,9 +57,31 @@ namespace Refugio.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Edit(Models.Veterinarian.Edit model)
         {
-            DTO.Veterinarian veterinarian = new DTO.Veterinarian();
-            model.SetValues(veterinarian);
-            Business.Veterinarian.Save(veterinarian);
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    model.VeterinarianSpeciality = new SelectList(Business.VeterinarianSpeciality.GetAll(), "Id", "SpecialityName");
+                    return View(model);
+                }
+                DTO.Veterinarian veterinarian = new DTO.Veterinarian();
+                if (!model.IsNewUser)
+                {
+                    veterinarian = Business.Veterinarian.GetVeterinarianById(model.Id);
+                    Business.Common.CheckRowVersion(model.RowVersion, veterinarian.RowVersion);
+                }
+                else
+                {
+                    veterinarian.UserPassword = Business.Common.DefaultPassword;
+                }
+                model.SetValues(veterinarian);
+                Business.Veterinarian.Save(veterinarian);
+                Business.AlertMessage.Set(TempData, true, "Los datos han sido guardados correctamente", (int)Business.Common.AlertMessageType.Success);
+            }
+            catch (Exception ex)
+            {
+                Business.AlertMessage.Set(TempData, true, "Los datos no han podido ser guardados correctamente: " + ex.Message, (int)Business.Common.AlertMessageType.Error);
+            }
             return RedirectToAction("Details", new { id = model.Id });
         }
     }

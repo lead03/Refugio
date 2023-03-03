@@ -1,0 +1,26 @@
+﻿@model Refugio.Models.Shared.Message
+
+@if (Model.ShowMessage)
+{
+    <div class="alert @GetAlertClass(Model.TypeMessage)" role="alert">
+        @Model.MessageToShow
+    </div>
+}
+
+@functions {
+    public static string GetAlertClass(int messageType)
+    {
+        switch (messageType)
+        {
+            case 0:
+            default:
+                return "alert-info";
+            case 1:
+                return "alert-danger";
+            case 2:
+                return "alert-warning";
+            case 3:
+                return "alert-success";
+        }
+    }
+}

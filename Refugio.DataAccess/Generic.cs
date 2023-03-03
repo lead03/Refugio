@@ -8,12 +8,21 @@ namespace Refugio.DataAccess
 {
     public class Generic
     {
-        public static T GetByIdIntType<T>(int id) where T : class
+        public static T GetById<T>(object id) where T : class
+        {
+            bool idIsIntType = int.TryParse(id.ToString(), out int intId);
+            bool idIsGuidType = Guid.TryParse(id.ToString(), out Guid guidId);
+            return idIsIntType ? DataAccess.Generic.GetByIdIntType<T>(intId)
+                 : idIsGuidType ? DataAccess.Generic.GetByIdGuidType<T>(guidId)
+                 : throw new Exception("Bad Id");
+        }
+
+        private static T GetByIdIntType<T>(int id) where T : class
         {
             return Common.DataContext.Set<T>().Find(id);
         }
 
-        public static T GetByIdGuidType<T>(Guid id) where T : class
+        private static T GetByIdGuidType<T>(Guid id) where T : class
         {
             return Common.DataContext.Set<T>().Find(id);
         }

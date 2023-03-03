@@ -28,7 +28,7 @@ namespace Refugio.Business
 
         public static DTO.Veterinarian GetVeterinarianById(int id)
         {
-            DTO.Veterinarian veterinarian = DataAccess.Generic.GetByIdIntType<DTO.Veterinarian>(id);
+            DTO.Veterinarian veterinarian = DataAccess.Generic.GetById<DTO.Veterinarian>(id);
             return veterinarian;
         }
 

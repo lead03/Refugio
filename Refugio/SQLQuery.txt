@@ -130,3 +130,18 @@ INSERT INTO Veterinarian(UserName, UserPassword, FirstName, LastName, StreetAddr
 ('DrBianchi', 'bianchi123', 'Diego', 'Bianchi', 'Av. San Martin', '246', 'Córdoba', 'Córdoba', '5000', '+543514567890', '+543514567891', 3, 0, 2500.25, 2, 'JKL012', 'Especialista en caninos'),
 ('VeterinariaRodriguez', 'pets456', 'Ana', 'Rodriguez', 'Calle Lavalle', '345', 'Tucumán', 'Tucumán', '4000', '+543814567890', NULL, 18, 1, 2800.50, 1, 'MNO345', 'Especialista en aves');
 
+ALTER TABLE Veterinarian ADD [RowVersion] rowversion NOT NULL;
+
+GO
+
+ALTER TABLE Veterinarian ALTER COLUMN UserName varchar(50) NULL;
+
+GO
+
+ALTER TABLE Veterinarian ALTER COLUMN UserPassword varchar(50) NULL;
+
+GO
+
+ALTER TABLE Veterinarian ALTER COLUMN ApartmentNumber varchar(50) NULL;
+
+GO

@@ -4,17 +4,16 @@
 }
 
 <h2>Details</h2>
-
+@if (Model.Message != null)
+{
+    @Html.Partial("_MessageAlert", Model.Message)
+}
 <div class="table-responsive">
     <table class="table table-striped">
         <tbody>
             <tr>
                 <th>@Html.DisplayNameFor(model => model.UserName)</th>
                 <td>@Html.DisplayFor(model => model.UserName)</td>
-            </tr>
-            <tr>
-                <th>@Html.DisplayNameFor(model => model.UserPassword)</th>
-                <td>@Html.DisplayFor(model => model.UserPassword)</td>
             </tr>
             <tr>
                 <th>@Html.DisplayNameFor(model => model.FirstName)</th>
