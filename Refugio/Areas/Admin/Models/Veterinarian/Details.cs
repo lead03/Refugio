@@ -23,7 +23,7 @@ namespace Refugio.Areas.Admin.Models.Veterinarian
         public string SpecialityName { get; set; }
         public bool IsPermanent { get; set; }
         public decimal? Salary { get; set; }
-        public int? TimeSlot { get; set; }
+        public string TimeSlot { get; set; }
         public string ProfessionalLicense { get; set; }
         public string Description { get; set; }
         public Refugio.Models.Shared.Message Message { get; set; } = null;
@@ -43,7 +43,7 @@ namespace Refugio.Areas.Admin.Models.Veterinarian
             this.SpecialityName = veterinarian.VeterinarianSpeciality.SpecialityName;
             this.IsPermanent = veterinarian.IsPermanent;
             this.Salary = veterinarian.Salary;
-            this.TimeSlot = veterinarian.TimeSlot;
+            this.TimeSlot = veterinarian.TimeSlotRange.TimeRange;
             this.ProfessionalLicense = veterinarian.ProfessionalLicense;
             this.Description = veterinarian.ForDescription;
         }

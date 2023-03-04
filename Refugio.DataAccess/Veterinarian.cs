@@ -24,12 +24,16 @@ namespace Refugio.DataAccess
             return query.ToList();
         }
 
-        public static int GetCount(string keyword = null)
+        public static int GetCount(string keyword = null, int selectedVeterinarianSpecialityId = 0)
         {
             IQueryable<DTO.Veterinarian> query = Common.DataContext.Veterinarian;
             if (!string.IsNullOrWhiteSpace(keyword))
             {
                 query = query.Where(x => x.LastName.Contains(keyword) || x.FirstName.Contains(keyword) || x.ForDescription.Contains(keyword));
+            }
+            if (selectedVeterinarianSpecialityId != 0)
+            {
+                query = query.Where(x => x.Speciality == selectedVeterinarianSpecialityId);
             }
             return query.Count();
         }

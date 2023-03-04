@@ -53,7 +53,8 @@ namespace Refugio.Areas.Admin.Models.Veterinarian
         [MaxLength(10, ErrorMessage = "La licencia no puede ser mayor a 10 caracteres")]
         public string ProfessionalLicense { get; set; }
         public string Description { get; set; }
-        public SelectList VeterinarianSpeciality { get; set; }
+        public SelectList VeterinarianSpecialityList { get; set; }
+        public SelectList TimeSlotRangeList { get; set; }
         public byte[] RowVersion { get; set; }
         public bool IsNewUser
         {

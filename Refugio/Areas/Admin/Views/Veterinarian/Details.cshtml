@@ -57,7 +57,7 @@
             </tr>
             <tr>
                 <th>@Html.DisplayNameFor(model => model.IsPermanent)</th>
-                <td>@Html.DisplayFor(model => model.IsPermanent)</td>
+                <td>@(Model.IsPermanent ? "Sí" : "No")</td>
             </tr>
             <tr>
                 <th>@Html.DisplayNameFor(model => model.Salary)</th>
@@ -80,5 +80,34 @@
 
     <a href="@Url.Action("Edit", "Veterinarian", new { area = "Admin", id = Model.Id})" class="btn btn-primary">Editar</a>
     <a href="@Url.Action("Index", "Veterinarian", new { area = "Admin" })" class="btn btn-success">Volver al listado</a>
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-delete">Borrar veterinario</button>
 </div>
 
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="modal-delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar veterinario</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    ¿Está seguro que quiere eliminar el veterinario?
+                </p>
+                <p>
+                    Nombre: @Model.LastName, @Model.FirstName<br />
+                    Especialidad: @Model.SpecialityName<br />
+                    Matrícula: @Model.ProfessionalLicense
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a href="@Url.Action("Delete", "Veterinarian", new { area = "Admin", id = Model.Id })" class="btn btn-success">Eliminar</a>
+            </div>
+        </div>
+    </div>
+</div>

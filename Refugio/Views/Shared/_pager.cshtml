@@ -15,11 +15,11 @@
     {
         if (i == Model.CurrentPage)
         {
-            @i
+            <span class="btn btn-light">@i </span>
         }
         else
         {
-            <button type="button" class="btn btn-default pager-index" data-page-index="@i">@i</button>
+            <button type="button" class="btn btn-info pager-index" data-page-index="@i">@i</button>
         }
     }
     @if (Model.CurrentPage + Model.PrevPageButtonsToShow < Model.TotalPages)

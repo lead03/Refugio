@@ -64,5 +64,10 @@ namespace Refugio.DataAccess
         {
             return Common.DataContext.Set<T>().ToList();
         }
+
+        public static void Delete<T>(T entity) where T : class
+        {
+            Common.DataContext.Set<T>().Remove(entity);
+        }
     }
 }

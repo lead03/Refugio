@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,9 @@ namespace Refugio.Business
             return totalPages;
         }
 
-        public static int GetTotalPages(int pageSize, string keyword = null)
+        public static int GetTotalPages(int pageSize, string keyword = null, int selectedVeterinarianSpecialityId = 0)
         {
-            int totalPages = (int)Math.Ceiling((double)GetCountFiltered(keyword) / pageSize);
+            int totalPages = (int)Math.Ceiling((double)GetCountFiltered(keyword, selectedVeterinarianSpecialityId) / pageSize);
             return totalPages;
         }
 
@@ -38,16 +39,35 @@ namespace Refugio.Business
             return total;
         }
 
-        public static int GetCountFiltered(string keyword = null)
+        public static int GetCountFiltered(string keyword = null, int selectedVeterinarianSpecialityId = 0)
         {
-            int total = DataAccess.Veterinarian.GetCount(keyword);
+            int total = DataAccess.Veterinarian.GetCount(keyword, selectedVeterinarianSpecialityId);
             return total;
         }
 
-        public static int Save (DTO.Veterinarian veterinarian)
+        public static int Save(DTO.Veterinarian veterinarian)
         {
-            DataAccess.Generic.UpdateOrCreate<DTO.Veterinarian>(veterinarian, veterinarian.Id);
-            return veterinarian.Id;
+            try
+            {
+                DataAccess.Generic.UpdateOrCreate<DTO.Veterinarian>(veterinarian, veterinarian.Id);
+                return veterinarian.Id;
+            }
+            catch
+            {
+                throw new DbUpdateException("No se puede actualizar el registro en la base de datos");
+            }
+        }
+
+        public static void Delete(DTO.Veterinarian veterinarian)
+        {
+            try
+            {
+                DataAccess.Generic.Delete<DTO.Veterinarian>(veterinarian);
+            }
+            catch
+            {
+                throw new DbUpdateException("No se puede eliminar el registro en la base de datos");
+            }
         }
     }
 }
