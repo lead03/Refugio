@@ -2,9 +2,13 @@
 @{
     ViewBag.Title = "Index";
 }
+<h1>Veterinarians</h1>
+@if (Model.Message != null)
+{
+    @Html.Partial("_MessageAlert", Model.Message)
+}
 @using (Html.BeginForm("Index", "Veterinarian", FormMethod.Post, new { @id = "form-veterinarian-list" }))
 {
-    <h1>Veterinarians</h1>
     <div>
         <h2>Filters</h2>
         Buscar:

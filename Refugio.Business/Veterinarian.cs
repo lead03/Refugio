@@ -44,9 +44,10 @@ namespace Refugio.Business
             return total;
         }
 
-        public static void Save (DTO.Veterinarian veterinarian)
+        public static int Save (DTO.Veterinarian veterinarian)
         {
             DataAccess.Generic.UpdateOrCreate<DTO.Veterinarian>(veterinarian, veterinarian.Id);
+            return veterinarian.Id;
         }
     }
 }

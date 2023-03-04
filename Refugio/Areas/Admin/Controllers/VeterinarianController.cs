@@ -12,6 +12,10 @@ namespace Refugio.Areas.Admin.Controllers
         public ActionResult Index()
         {
             Models.Veterinarian.List model = new Models.Veterinarian.List();
+            if (TempData["ShowMessage"] != null)
+            {
+                model.Message = new Refugio.Models.Shared.Message(TempData);
+            }
             model.Pager.CurrentPage = 1;
             model.Pager.TotalPages = Business.Veterinarian.GetTotalPages(model.Pager.PageSize);
             model.Filters.VeterinarianSpeciality = new SelectList(Business.VeterinarianSpeciality.GetAll(), "Id", "SpecialityName");
@@ -32,7 +36,6 @@ namespace Refugio.Areas.Admin.Controllers
 
         public ActionResult Details(Refugio.Models.Shared.RequestById request)
         {
-
             Models.Veterinarian.Details model = new Models.Veterinarian.Details();
             if (TempData["ShowMessage"] != null)
             {
@@ -75,14 +78,23 @@ namespace Refugio.Areas.Admin.Controllers
                     veterinarian.UserPassword = Business.Common.DefaultPassword;
                 }
                 model.SetValues(veterinarian);
-                Business.Veterinarian.Save(veterinarian);
-                Business.AlertMessage.Set(TempData, true, "Los datos han sido guardados correctamente", (int)Business.Common.AlertMessageType.Success);
+                try
+                {
+                    model.Id = Business.Veterinarian.Save(veterinarian);
+                    Business.AlertMessage.Set(TempData, true, "Los datos han sido guardados correctamente", (int)Business.Common.AlertMessageType.Success);
+                    return RedirectToAction("Details", new { id = model.Id });
+                }
+                catch (Exception ex)
+                {
+                    Business.AlertMessage.Set(TempData, true, "Error al guardar el registro: " + ex.Message, (int)Business.Common.AlertMessageType.Error);
+                    return RedirectToAction("Index");
+                }
             }
             catch (Exception ex)
             {
-                Business.AlertMessage.Set(TempData, true, "Los datos no han podido ser guardados correctamente: " + ex.Message, (int)Business.Common.AlertMessageType.Error);
+                Business.AlertMessage.Set(TempData, true, "Error al guardar el registro: " + ex.Message, (int)Business.Common.AlertMessageType.Error);
+                return RedirectToAction("Details", new { id = model.Id });
             }
-            return RedirectToAction("Details", new { id = model.Id });
         }
     }
 }
