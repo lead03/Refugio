@@ -68,6 +68,7 @@ namespace Refugio.DataAccess
         public static void Delete<T>(T entity) where T : class
         {
             Common.DataContext.Set<T>().Remove(entity);
+            Common.DataContext.SaveChanges();
         }
     }
 }
