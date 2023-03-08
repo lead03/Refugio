@@ -12,7 +12,7 @@ namespace Refugio.Business
         {
             if(!modelVersion.SequenceEqual(DTOVersion))
             {
-                throw new InvalidOperationException("Hubo modificaciones mientras usted realizaba la operación. Vuelva a cargar la página e inténtelo nuevamente.");
+                throw new InvalidOperationException();
             }
         }
 

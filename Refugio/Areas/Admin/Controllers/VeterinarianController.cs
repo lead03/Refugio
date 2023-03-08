@@ -44,7 +44,7 @@ namespace Refugio.Areas.Admin.Controllers
             }
             catch
             {
-                Business.AlertMessage.Set(TempData, true, "Error al procesar el listado. Vuelva a intentarlo. Si el error persiste contacte con soporte", (int)Business.Common.AlertMessageType.Error);
+                Business.AlertMessage.Set(TempData, true, Refugio.App_Resources.Global.ErrorProcessingListing + ". " + Refugio.App_Resources.Global.TryAgainContactSupport, (int)Business.Common.AlertMessageType.Error);
             }
             return View(model);
         }
@@ -63,24 +63,24 @@ namespace Refugio.Areas.Admin.Controllers
                     DTO.Veterinarian veterinarian = Business.Veterinarian.GetVeterinarianById(request.Id.Value);
                     if (veterinarian == null)
                     {
-                        throw new KeyNotFoundException("No se encuentra ningún veterinario con este identificador");
+                        throw new KeyNotFoundException(Refugio.App_Resources.Global.VeterinarianNotFoundById);
                     }
                     model.GetValues(veterinarian);
                     return View(model);
                 }
                 else
                 {
-                    throw new KeyNotFoundException("No se ha brindado el identificador");
+                    throw new KeyNotFoundException(Refugio.App_Resources.Global.IdNotProvided);
                 }
             }
             catch (KeyNotFoundException ex)
             {
-                Business.AlertMessage.Set(TempData, true, "Error al mostrar los detalles. " + ex.Message, (int)Business.Common.AlertMessageType.Error);
+                Business.AlertMessage.Set(TempData, true, Refugio.App_Resources.Global.ErrorDisplayingDetails + ". " + ex.Message, (int)Business.Common.AlertMessageType.Error);
                 return RedirectToAction("Index");
             }
             catch
             {
-                Business.AlertMessage.Set(TempData, true, "Error al mostrar los detalles. Vuelva a intentarlo. Si el error persiste contacte con soporte", (int)Business.Common.AlertMessageType.Error);
+                Business.AlertMessage.Set(TempData, true, Refugio.App_Resources.Global.ErrorDisplayingDetails + ". " + Refugio.App_Resources.Global.TryAgainContactSupport, (int)Business.Common.AlertMessageType.Error);
                 return RedirectToAction("Index");
             }
         }
@@ -98,7 +98,7 @@ namespace Refugio.Areas.Admin.Controllers
                     DTO.Veterinarian veterinarian = Business.Veterinarian.GetVeterinarianById(request.Id.Value);
                     if (veterinarian == null)
                     {
-                        throw new KeyNotFoundException("No se encuentra ningún veterinario con este identificador");
+                        throw new KeyNotFoundException(Refugio.App_Resources.Global.VeterinarianNotFoundById);
                     }
                     model.GetValues(veterinarian);
                 }
@@ -106,12 +106,12 @@ namespace Refugio.Areas.Admin.Controllers
             }
             catch (KeyNotFoundException ex)
             {
-                Business.AlertMessage.Set(TempData, true, "Error al procesar la edición. " + ex.Message, (int)Business.Common.AlertMessageType.Error);
+                Business.AlertMessage.Set(TempData, true, Refugio.App_Resources.Global.ErrorProcessingEdit + ". " + ex.Message, (int)Business.Common.AlertMessageType.Error);
                 return RedirectToAction("Index");
             }
             catch
             {
-                Business.AlertMessage.Set(TempData, true, "Error al procesar la edición. Vuelva a intentarlo. Si el error persiste contacte con soporte", (int)Business.Common.AlertMessageType.Error);
+                Business.AlertMessage.Set(TempData, true, Refugio.App_Resources.Global.ErrorProcessingEdit + ". " + Refugio.App_Resources.Global.TryAgainContactSupport, (int)Business.Common.AlertMessageType.Error);
                 return RedirectToAction("Index");
             }
         }
@@ -139,22 +139,22 @@ namespace Refugio.Areas.Admin.Controllers
                 }
                 model.SetValues(veterinarian);
                 model.Id = Business.Veterinarian.Save(veterinarian);
-                Business.AlertMessage.Set(TempData, true, "Los datos han sido guardados correctamente", (int)Business.Common.AlertMessageType.Success);
+                Business.AlertMessage.Set(TempData, true, Refugio.App_Resources.Global.SuccessDataSave, (int)Business.Common.AlertMessageType.Success);
                 return RedirectToAction("Details", new { id = model.Id });
             }
-            catch (InvalidOperationException ex)
+            catch (InvalidOperationException)
             {
-                Business.AlertMessage.Set(TempData, true, "Error al realizar el guardado. " + ex.Message, (int)Business.Common.AlertMessageType.Error);
+                Business.AlertMessage.Set(TempData, true, Refugio.App_Resources.Global.ErrorProcessingEdit + ". "+ Refugio.App_Resources.Global.ThereWereModifications, (int)Business.Common.AlertMessageType.Error);
                 return RedirectToAction("Index");
             }
             catch (DbUpdateException ex)
             {
-                Business.AlertMessage.Set(TempData, true, "Error al realizar el guardado. " + ex.Message, (int)Business.Common.AlertMessageType.Error);
+                Business.AlertMessage.Set(TempData, true, Refugio.App_Resources.Global.ErrorProcessingEdit + ". " + Refugio.App_Resources.Global.ErrorProcesingUpdate, (int)Business.Common.AlertMessageType.Error);
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
-                Business.AlertMessage.Set(TempData, true, "Error al realizar el guardado. Vuelva a intentarlo. Si el error persiste contacte con soporte" + ex.Message, (int)Business.Common.AlertMessageType.Error);
+                Business.AlertMessage.Set(TempData, true, Refugio.App_Resources.Global.ErrorProcessingEdit + ". " + Refugio.App_Resources.Global.TryAgainContactSupport, (int)Business.Common.AlertMessageType.Error);
                 return RedirectToAction("Details", new { id = model.Id });
             }
         }
@@ -168,27 +168,27 @@ namespace Refugio.Areas.Admin.Controllers
                     DTO.Veterinarian veterinarian = Business.Veterinarian.GetVeterinarianById(request.Id.Value);
                     if (veterinarian == null)
                     {
-                        throw new KeyNotFoundException("No se encuentra ningún veterinario con este identificador");
+                        throw new KeyNotFoundException(Refugio.App_Resources.Global.VeterinarianNotFoundById);
                     }
                     Business.Veterinarian.Delete(veterinarian);
-                    Business.AlertMessage.Set(TempData, true, "El registro ha sido eliminado correctamente", (int)Business.Common.AlertMessageType.Success);
+                    Business.AlertMessage.Set(TempData, true, Refugio.App_Resources.Global.SuccessDataDelete, (int)Business.Common.AlertMessageType.Success);
                 }
                 else
                 {
-                    throw new KeyNotFoundException("No se ha brindado el identificador");
+                    throw new KeyNotFoundException(Refugio.App_Resources.Global.IdNotProvided);
                 }
             }
             catch (KeyNotFoundException ex)
             {
-                Business.AlertMessage.Set(TempData, true, "Error al borrar el registro. " + ex.Message, (int)Business.Common.AlertMessageType.Error);
+                Business.AlertMessage.Set(TempData, true, Refugio.App_Resources.Global.ErrorDeletingRegister + ".  " + ex.Message, (int)Business.Common.AlertMessageType.Error);
             }
             catch (DbUpdateException ex)
             {
-                Business.AlertMessage.Set(TempData, true, "Error al borrar el registro. " + ex.Message, (int)Business.Common.AlertMessageType.Error);
+                Business.AlertMessage.Set(TempData, true, Refugio.App_Resources.Global.ErrorDeletingRegister + ". " + Refugio.App_Resources.Global.ErrorProcesingUpdate, (int)Business.Common.AlertMessageType.Error);
             }
             catch (Exception ex)
             {
-                Business.AlertMessage.Set(TempData, true, "Error al borrar el registro. Vuelva a intentarlo. Si el error persiste contacte con soporte" + ex.Message, (int)Business.Common.AlertMessageType.Error);
+                Business.AlertMessage.Set(TempData, true, Refugio.App_Resources.Global.ErrorDeletingRegister + ". " + Refugio.App_Resources.Global.TryAgainContactSupport, (int)Business.Common.AlertMessageType.Error);
             }
             return RedirectToAction("Index");
         }

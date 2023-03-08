@@ -54,7 +54,7 @@ namespace Refugio.Business
             }
             catch
             {
-                throw new DbUpdateException("No se puede actualizar el registro en la base de datos");
+                throw new DbUpdateException();
             }
         }
 
@@ -66,7 +66,7 @@ namespace Refugio.Business
             }
             catch
             {
-                throw new DbUpdateException("No se puede eliminar el registro en la base de datos");
+                throw new DbUpdateException();
             }
         }
     }
