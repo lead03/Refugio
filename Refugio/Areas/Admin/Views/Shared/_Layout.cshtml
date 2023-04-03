@@ -6,7 +6,7 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -20,14 +20,28 @@
                 <a class="nav-item nav-link" href="#">Features</a>
                 <a class="nav-item nav-link" href="#">Pricing</a>
                 <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                <a  href="@Url.Action("ChangeLanguage", "Language", new { area ="" , language = "en", returnUrl = Request.Path })">English</a>
+                <a  href="@Url.Action("ChangeLanguage", "Language", new { area ="" , language = "es", returnUrl = Request.Path })">Español</a>
+
+                <div class="nav-item dropdown">
+                    <button class="nav-link dropdown-toggle" href="#" role="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        Cambiar Idioma
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="languageDropdown">
+                        <a class="dropdown-item" href="@Url.Action("ChangeLanguage", "Language", new { area ="" , language = "en", returnUrl = Request.Path })">English</a>
+                        <a class="dropdown-item" href="@Url.Action("ChangeLanguage", "Language", new { area ="" , language = "es", returnUrl = Request.Path })">Español</a>
+                    </div>
+                </div>
             </div>
+
+
         </div>
     </nav>
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Refugio "Mi Refugio"</p>
         </footer>
     </div>
 

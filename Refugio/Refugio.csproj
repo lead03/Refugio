@@ -138,6 +138,7 @@
     <Compile Include="Areas\Admin\Models\Veterinarian\Filter.cs" />
     <Compile Include="Areas\Admin\Models\Veterinarian\List.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LanguageController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -245,6 +246,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Scripts\Shared\" />
+    <Folder Include="Views\Language\" />
     <Folder Include="Views\Staff\" />
   </ItemGroup>
   <ItemGroup>
