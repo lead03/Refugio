@@ -36,7 +36,7 @@
                         <td><a href="@Url.Action("Details", "Veterinarian", new { area = "Admin", Id = veterinarian.Id })">@veterinarian.Id</a></td>
                         <td>@veterinarian.FirstName</td>
                         <td>@veterinarian.LastName</td>
-                        <td>@veterinarian.Speciality</td>
+                        <td>@veterinarian.VeterinarianSpeciality.SpecialityName</td>
                         <td>@veterinarian.Salary</td>
                     </tr>
                 }
