@@ -9,39 +9,51 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="#">Features</a>
-                <a class="nav-item nav-link" href="#">Pricing</a>
-                <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                <a  href="@Url.Action("ChangeLanguage", "Language", new { area ="" , language = "en", returnUrl = Request.Path })">English</a>
-                <a  href="@Url.Action("ChangeLanguage", "Language", new { area ="" , language = "es", returnUrl = Request.Path })">Español</a>
-
-                <div class="nav-item dropdown">
-                    <button class="nav-link dropdown-toggle" href="#" role="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        Cambiar Idioma
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="languageDropdown">
-                        <a class="dropdown-item" href="@Url.Action("ChangeLanguage", "Language", new { area ="" , language = "en", returnUrl = Request.Path })">English</a>
-                        <a class="dropdown-item" href="@Url.Action("ChangeLanguage", "Language", new { area ="" , language = "es", returnUrl = Request.Path })">Español</a>
-                    </div>
-                </div>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Refugio "Mi refugio"</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarsExample03">
+                <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">¿Quienes somos?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Nuestro equipo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Nuestras mascotas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Casos exitosos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Ayúdanos</a>
+                    </li>
+                </ul>
             </div>
-
-
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dropdown button
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Refugio "Mi Refugio"</p>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
 
