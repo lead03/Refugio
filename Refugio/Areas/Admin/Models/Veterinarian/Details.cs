@@ -26,7 +26,6 @@ namespace Refugio.Areas.Admin.Models.Veterinarian
         public string TimeSlot { get; set; }
         public string ProfessionalLicense { get; set; }
         public string Description { get; set; }
-        public Refugio.Models.Shared.Message Message { get; set; } = null;
         public void GetValues(DTO.Veterinarian veterinarian)
         {
             this.Id = veterinarian.Id;

@@ -137,13 +137,13 @@
     <Compile Include="Areas\Admin\Models\Veterinarian\Edit.cs" />
     <Compile Include="Areas\Admin\Models\Veterinarian\Filter.cs" />
     <Compile Include="Areas\Admin\Models\Veterinarian\List.cs" />
+    <Compile Include="Controllers\AlertMessageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LanguageController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Shared\Message.cs" />
     <Compile Include="Models\Shared\Pager.cs" />
     <Compile Include="Models\Shared\RequestById.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -223,6 +223,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Shared\alertMessages.js" />
     <Content Include="Scripts\Views\Index.js" />
     <Content Include="SQLQuery.txt" />
     <Content Include="Views\Web.config" />
@@ -245,7 +246,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Scripts\Shared\" />
+    <Folder Include="Views\AlertMessage\" />
     <Folder Include="Views\Language\" />
     <Folder Include="Views\Staff\" />
   </ItemGroup>

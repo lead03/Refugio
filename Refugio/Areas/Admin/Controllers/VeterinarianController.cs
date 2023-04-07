@@ -15,10 +15,6 @@ namespace Refugio.Areas.Admin.Controllers
             try
             {
                 Models.Veterinarian.List model = new Models.Veterinarian.List();
-                if (TempData["ShowMessage"] != null)
-                {
-                    model.Message = new Refugio.Models.Shared.Message(TempData);
-                }
                 model.Pager.CurrentPage = 1;
                 model.Pager.TotalPages = Business.Veterinarian.GetTotalPages(model.Pager.PageSize);
                 model.Filters.VeterinarianSpeciality = new SelectList(Business.VeterinarianSpeciality.GetAll(), "Id", "SpecialityName");
@@ -54,10 +50,6 @@ namespace Refugio.Areas.Admin.Controllers
             try
             {
                 Models.Veterinarian.Details model = new Models.Veterinarian.Details();
-                if (TempData["ShowMessage"] != null)
-                {
-                    model.Message = new Refugio.Models.Shared.Message(TempData);
-                }
                 if (request.Id.HasValue)
                 {
                     DTO.Veterinarian veterinarian = Business.Veterinarian.GetVeterinarianById(request.Id.Value);
@@ -147,12 +139,12 @@ namespace Refugio.Areas.Admin.Controllers
                 Business.AlertMessage.Set(TempData, true, Refugio.App_Resources.Global.ErrorProcessingEdit + ". "+ Refugio.App_Resources.Global.ThereWereModifications, (int)Business.Common.AlertMessageType.Error);
                 return RedirectToAction("Index");
             }
-            catch (DbUpdateException ex)
+            catch (DbUpdateException)
             {
                 Business.AlertMessage.Set(TempData, true, Refugio.App_Resources.Global.ErrorProcessingEdit + ". " + Refugio.App_Resources.Global.ErrorProcesingUpdate, (int)Business.Common.AlertMessageType.Error);
                 return RedirectToAction("Index");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Business.AlertMessage.Set(TempData, true, Refugio.App_Resources.Global.ErrorProcessingEdit + ". " + Refugio.App_Resources.Global.TryAgainContactSupport, (int)Business.Common.AlertMessageType.Error);
                 return RedirectToAction("Details", new { id = model.Id });
@@ -182,11 +174,11 @@ namespace Refugio.Areas.Admin.Controllers
             {
                 Business.AlertMessage.Set(TempData, true, Refugio.App_Resources.Global.ErrorDeletingRegister + ".  " + ex.Message, (int)Business.Common.AlertMessageType.Error);
             }
-            catch (DbUpdateException ex)
+            catch (DbUpdateException)
             {
                 Business.AlertMessage.Set(TempData, true, Refugio.App_Resources.Global.ErrorDeletingRegister + ". " + Refugio.App_Resources.Global.ErrorProcesingUpdate, (int)Business.Common.AlertMessageType.Error);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Business.AlertMessage.Set(TempData, true, Refugio.App_Resources.Global.ErrorDeletingRegister + ". " + Refugio.App_Resources.Global.TryAgainContactSupport, (int)Business.Common.AlertMessageType.Error);
             }

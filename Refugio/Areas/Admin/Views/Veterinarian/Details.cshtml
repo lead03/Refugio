@@ -4,10 +4,7 @@
 }
 
 <h2>Details</h2>
-@if (Model.Message != null)
-{
-    @Html.Partial("_MessageAlert", Model.Message)
-}
+<div id="container-alert-message"></div>
 <div class="table-responsive">
     <table class="table table-striped">
         <tbody>
@@ -111,3 +108,5 @@
         </div>
     </div>
 </div>
+
+<script src="~/Scripts/Areas/Admin/Views/VeterinarianList.js"></script>
