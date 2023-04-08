@@ -1,19 +1,22 @@
 ﻿$(document).ready(function () {
     $('#btn-search').click(loadFilters);
-    $('.pager-index').click(loadPage);
-    $('.filter').change(setFilterIsModified);
+    $(document).on('click', '.pager-index', loadPage);
     $('#btn-reset-filters').click(cleanFilters);
+    $('.filter').change(setFilterIsModified);
+    submitForm();
 });
 
 function loadFilters() {
+    event.preventDefault();
     $('#hdn-pager-index').val(1);
-    $('#form-veterinarian-list').submit();
+    submitForm();
 }
 
 function loadPage() {
-    var pageSelected = parseInt($(this).data('page-index'));
-    $('#hdn-pager-index').val(pageSelected);
-    $('#form-veterinarian-list').submit();
+    event.preventDefault();
+    var targetPage = parseInt($(this).data('page-index'));
+    $('#hdn-pager-index').val(targetPage);
+    submitForm();
 }
 
 function setFilterIsModified() {
@@ -21,8 +24,22 @@ function setFilterIsModified() {
 }
 
 function cleanFilters() {
-    $('.filter').each(function () {
-        $(this).val("");
+    event.preventDefault();
+    $('#form-veterinarian-list').trigger("reset");
+    $('#hdn-pager-index').val(1);
+    $('#hdn-filter-modified-indicator').val(true);
+    submitForm();
+}
+
+function submitForm() {
+    $.ajax({
+        url: "/Veterinarian/VeterinarianList",
+        data: $("#form-veterinarian-list").serialize(),
+        success: function (result) {
+            $("#veterinarian-list-container").html(result);
+        },
+        error: function (xhr, status, error) {
+            alert(xhr + "status: " + status);
+        }
     });
-    $('#form-veterinarian-list').submit();
 }

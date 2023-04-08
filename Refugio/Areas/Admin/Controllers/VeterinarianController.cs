@@ -15,10 +15,7 @@ namespace Refugio.Areas.Admin.Controllers
             try
             {
                 Models.Veterinarian.List model = new Models.Veterinarian.List();
-                model.Pager.CurrentPage = 1;
-                model.Pager.TotalPages = Business.Veterinarian.GetTotalPages(model.Pager.PageSize);
                 model.Filters.VeterinarianSpeciality = new SelectList(Business.VeterinarianSpeciality.GetAll(), "Id", "SpecialityName");
-                model.Veterinarians = Business.Veterinarian.GetVeterinariansFilteredAndPaged(model.Pager.CurrentPage, model.Pager.PageSize);
                 return View(model);
             }
             catch
@@ -27,22 +24,21 @@ namespace Refugio.Areas.Admin.Controllers
             }
         }
 
-        [HttpPost]
-        public ActionResult Index(Models.Veterinarian.List model)
+        public ActionResult VeterinarianList(Models.Veterinarian.List model)
         {
             try
             {
                 model.Pager.TotalPages = Business.Veterinarian.GetTotalPages(model.Pager.PageSize, model.Filters.Keyword, model.Filters.SelectedVeterinarianSpecialityId);
                 model.Pager.CurrentPage = (model.Pager.TotalPages < model.Pager.CurrentPage || model.Filters.FilterModified) ? 1 : model.Pager.CurrentPage;
-                model.Filters.VeterinarianSpeciality = new SelectList(Business.VeterinarianSpeciality.GetAll(), "Id", "SpecialityName");
                 model.Filters.FilterModified = false;
                 model.Veterinarians = Business.Veterinarian.GetVeterinariansFilteredAndPaged(model.Pager.CurrentPage, model.Pager.PageSize, model.Filters.Keyword, model.Filters.SelectedVeterinarianSpecialityId);
+                return PartialView("~/Areas/Admin/Views/Veterinarian/Partials/_List.cshtml", model);
             }
-            catch
+            catch (Exception)
             {
                 Business.AlertMessage.Set(TempData, true, Refugio.App_Resources.Global.ErrorProcessingListing + ". " + Refugio.App_Resources.Global.TryAgainContactSupport, (int)Business.Common.AlertMessageType.Error);
+                return RedirectToAction("Index");
             }
-            return View(model);
         }
 
         public ActionResult Details(Refugio.Models.Shared.RequestById request)
