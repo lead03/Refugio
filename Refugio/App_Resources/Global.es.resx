@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ClearFilters" xml:space="preserve">
+    <value>Quitar filtros</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Detalles</value>
+  </data>
   <data name="ErrorDeletingRegister" xml:space="preserve">
     <value>Error eliminando el registro</value>
   </data>
@@ -135,11 +141,35 @@
   <data name="ErrorProcessingSave" xml:space="preserve">
     <value>Error al realizar el guardado</value>
   </data>
+  <data name="Filters" xml:space="preserve">
+    <value>Filtros</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
   <data name="IdNotProvided" xml:space="preserve">
     <value>No se ha brindado el identificador</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Idioma</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Apellido</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>Nuevo</value>
+  </data>
+  <data name="OptionSelect" xml:space="preserve">
+    <value>-- Seleccionar --</value>
+  </data>
+  <data name="Salary" xml:space="preserve">
+    <value>Salario</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="Speciality" xml:space="preserve">
+    <value>Especialidad</value>
   </data>
   <data name="SuccessDataDelete" xml:space="preserve">
     <value>El registro ha sido eliminado correctamente</value>

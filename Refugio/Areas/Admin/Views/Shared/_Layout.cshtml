@@ -7,6 +7,8 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="~/Content/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/font-awesome.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
@@ -42,8 +44,8 @@
                     @Refugio.App_Resources.Global.Language
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a href="@Url.Action("ChangeLanguage", "Language", new { language = "es-ES", areaToRedirect = "Admin", Area="" })" class="dropdown-item">ES</a></li>
-                    <li><a href="@Url.Action("ChangeLanguage", "Language", new { language = "en-US", areaToRedirect = "Admin", Area="" })" class="dropdown-item">EN</a></li>
+                    <li><a href="@Url.Action("ChangeLanguage", "Language", new { language = "es-ES", Area="", returnUrl = Request.Path })" class="dropdown-item">ES</a></li>
+                    <li><a href="@Url.Action("ChangeLanguage", "Language", new { language = "en-US", Area="", returnUrl = Request.Path })" class="dropdown-item">EN</a></li>
                 </ul>
             </div>
         </div>

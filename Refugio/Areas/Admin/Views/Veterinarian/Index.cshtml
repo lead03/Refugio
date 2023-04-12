@@ -1,23 +1,23 @@
 ﻿@model Refugio.Areas.Admin.Models.Veterinarian.List
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = Refugio.App_Resources.Global.Veterinarians;
 }
-<h1>Veterinarians</h1>
+<h1>@Refugio.App_Resources.Global.Veterinarians</h1>
 @Html.Partial("_MessageAlert")
 @using (Html.BeginForm("Index", "Veterinarian", FormMethod.Post, new { id = "form-veterinarian-list" }))
 {
     <div>
-        <h2>Filters</h2>
-        Buscar:
-        @Html.TextBoxFor(x => x.Filters.Keyword, new { @class = "filter" })
-        @Html.DropDownListFor(x => x.Filters.SelectedVeterinarianSpecialityId, Model.Filters.VeterinarianSpeciality, "-- Select --", new { @class = "filter" })
-        <button type="submit" class="btn btn-primary" id="btn-search">Buscar</button>
-        <button type="button" class="btn btn-secondary" id="btn-reset-filters">Quitar filtros</button>
+        <h2>@Refugio.App_Resources.Global.Filters</h2>
+        @Refugio.App_Resources.Global.Search:
+        @Html.TextBoxFor(x => x.Filters.Keyword, new { @class = "form-control filter" })
+        @Html.DropDownListFor(x => x.Filters.SelectedVeterinarianSpecialityId, Model.Filters.VeterinarianSpeciality, Refugio.App_Resources.Global.OptionSelect, new { @class = "form-select filter" })
+        <button type="submit" class="btn btn-primary" id="btn-search">@Refugio.App_Resources.Global.Search</button>
+        <button type="button" class="btn btn-secondary" id="btn-reset-filters">@Refugio.App_Resources.Global.ClearFilters</button>
         @Html.HiddenFor(x => x.Pager.CurrentPage, new { @id = "hdn-pager-index" })
     </div>
     <div id="veterinarian-list-container"></div>
     <div>
-        <a class="btn btn-outline-info" href="@Url.Action("Edit", "Veterinarian", new { area = "Admin" })">Nuevo</a>
+        <a class="btn btn-outline-info" href="@Url.Action("Edit", "Veterinarian", new { area = "Admin" })">@Refugio.App_Resources.Global.New</a>
     </div>
 }
 

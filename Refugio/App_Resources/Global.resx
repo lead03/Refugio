@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ClearFilters" xml:space="preserve">
+    <value>Clear filters</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
   <data name="ErrorDeletingRegister" xml:space="preserve">
     <value>Error deleting register</value>
   </data>
@@ -135,11 +141,35 @@
   <data name="ErrorProcessingSave" xml:space="preserve">
     <value>Error occurred while saving</value>
   </data>
+  <data name="Filters" xml:space="preserve">
+    <value>Filters</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>First name</value>
+  </data>
   <data name="IdNotProvided" xml:space="preserve">
     <value>No identifier has been provided</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Language</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="OptionSelect" xml:space="preserve">
+    <value>-- Select --</value>
+  </data>
+  <data name="Salary" xml:space="preserve">
+    <value>Salary</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Speciality" xml:space="preserve">
+    <value>Speciality</value>
   </data>
   <data name="SuccessDataDelete" xml:space="preserve">
     <value>Record deleted successfully</value>

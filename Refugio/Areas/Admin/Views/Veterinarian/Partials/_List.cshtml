@@ -3,23 +3,33 @@
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
-            <th>Id</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Speciality</th>
-            <th>Salary</th>
+            <th>@Refugio.App_Resources.Global.FirstName</th>
+            <th>@Refugio.App_Resources.Global.LastName</th>
+            <th>@Refugio.App_Resources.Global.Speciality</th>
+            <th>@Refugio.App_Resources.Global.Salary</th>
+            <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var veterinarian in Model.Veterinarians)
         {
-            <tr>
-                <td><a href="@Url.Action("Details", "Veterinarian", new { area = "Admin", Id = veterinarian.Id })">@veterinarian.Id</a></td>
-                <td>@veterinarian.FirstName</td>
-                <td>@veterinarian.LastName</td>
-                <td>@veterinarian.VeterinarianSpeciality.SpecialityName</td>
-                <td>@veterinarian.Salary</td>
-            </tr>
+        <tr>
+            <td>@veterinarian.FirstName</td>
+            <td>@veterinarian.LastName</td>
+            <td>@veterinarian.VeterinarianSpeciality.SpecialityName</td>
+            <td>@veterinarian.Salary</td>
+            <th>
+                <a href="@Url.Action("Edit", "Veterinarian", new { area = "Admin", Id = veterinarian.Id })">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                </a>
+            </th>
+            <th>
+                <a href="@Url.Action("Details", "Veterinarian", new { area = "Admin", Id = veterinarian.Id })">
+                    <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                </a>
+            </th>
+        </tr>
         }
     </tbody>
 </table>

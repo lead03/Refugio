@@ -8,21 +8,14 @@ namespace Refugio.Controllers
 {
     public class LanguageController : Controller
     {
-        public ActionResult ChangeLanguage(string language, string areaToRedirect)
+        public ActionResult ChangeLanguage(string language, string returnUrl)
         {
             System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.CreateSpecificCulture(language);
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(language);
             HttpCookie cookie = new HttpCookie("Language", language);
             cookie.Expires = DateTime.Now.AddYears(1);
             Response.Cookies.Add(cookie);
-            if(areaToRedirect == "Admin")
-            {
-                return RedirectToAction("Index", "Veterinarian", new { Area = "Admin" });
-            }
-            else
-            {
-                return RedirectToAction("Index", "Home", new { Area = "" });
-            }
+            return Redirect(returnUrl);
         }
     }
 }
