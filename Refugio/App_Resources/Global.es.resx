@@ -138,6 +138,9 @@
   <data name="IdNotProvided" xml:space="preserve">
     <value>No se ha brindado el identificador</value>
   </data>
+  <data name="Language" xml:space="preserve">
+    <value>Idioma</value>
+  </data>
   <data name="SuccessDataDelete" xml:space="preserve">
     <value>El registro ha sido eliminado correctamente</value>
   </data>

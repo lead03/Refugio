@@ -9,6 +9,17 @@ namespace Refugio.Areas.Admin.Controllers
 {
     public class VeterinarianController : Controller
     {
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            var cookieCulture = Request.Cookies["Language"]?.Value;
+            if (!string.IsNullOrEmpty(cookieCulture))
+            {
+                var cultureInfo = new System.Globalization.CultureInfo(cookieCulture);
+                System.Threading.Thread.CurrentThread.CurrentCulture = cultureInfo;
+                System.Threading.Thread.CurrentThread.CurrentUICulture = cultureInfo;
+            }
+            base.OnActionExecuting(filterContext);
+        }
         [HttpGet]
         public ActionResult Index()
         {

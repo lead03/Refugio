@@ -138,6 +138,9 @@
   <data name="IdNotProvided" xml:space="preserve">
     <value>No identifier has been provided</value>
   </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
   <data name="SuccessDataDelete" xml:space="preserve">
     <value>Record deleted successfully</value>
   </data>

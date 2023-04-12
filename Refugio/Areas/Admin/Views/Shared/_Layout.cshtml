@@ -18,7 +18,7 @@
             <div class="collapse navbar-collapse" id="navbarsExample03">
                 <ul class="navbar-nav me-auto mb-2 mb-sm-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="@Url.Action("Index", "Home", new { Area="" })" >Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">¿Quienes somos?</a>
@@ -39,12 +39,11 @@
             </div>
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown button
+                    @Refugio.App_Resources.Global.Language
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <li><a href="@Url.Action("ChangeLanguage", "Language", new { language = "es-ES", areaToRedirect = "Admin", Area="" })" class="dropdown-item">ES</a></li>
+                    <li><a href="@Url.Action("ChangeLanguage", "Language", new { language = "en-US", areaToRedirect = "Admin", Area="" })" class="dropdown-item">EN</a></li>
                 </ul>
             </div>
         </div>

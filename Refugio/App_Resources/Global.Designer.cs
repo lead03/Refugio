@@ -22,7 +22,7 @@ namespace Refugio.App_Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Global {
+    public class Global {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Refugio.App_Resources {
         ///   Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Refugio.App_Resources.Global", typeof(Global).Assembly);
@@ -51,7 +51,7 @@ namespace Refugio.App_Resources {
         ///   búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Refugio.App_Resources {
         /// <summary>
         ///   Busca una cadena traducida similar a Error deleting register.
         /// </summary>
-        internal static string ErrorDeletingRegister {
+        public static string ErrorDeletingRegister {
             get {
                 return ResourceManager.GetString("ErrorDeletingRegister", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Refugio.App_Resources {
         /// <summary>
         ///   Busca una cadena traducida similar a Error displaying details.
         /// </summary>
-        internal static string ErrorDisplayingDetails {
+        public static string ErrorDisplayingDetails {
             get {
                 return ResourceManager.GetString("ErrorDisplayingDetails", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace Refugio.App_Resources {
         /// <summary>
         ///   Busca una cadena traducida similar a The register in the database cannot be updated.
         /// </summary>
-        internal static string ErrorProcesingUpdate {
+        public static string ErrorProcesingUpdate {
             get {
                 return ResourceManager.GetString("ErrorProcesingUpdate", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Refugio.App_Resources {
         /// <summary>
         ///   Busca una cadena traducida similar a Error processing edit.
         /// </summary>
-        internal static string ErrorProcessingEdit {
+        public static string ErrorProcessingEdit {
             get {
                 return ResourceManager.GetString("ErrorProcessingEdit", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Refugio.App_Resources {
         /// <summary>
         ///   Busca una cadena traducida similar a Error processing listing.
         /// </summary>
-        internal static string ErrorProcessingListing {
+        public static string ErrorProcessingListing {
             get {
                 return ResourceManager.GetString("ErrorProcessingListing", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace Refugio.App_Resources {
         /// <summary>
         ///   Busca una cadena traducida similar a Error occurred while saving.
         /// </summary>
-        internal static string ErrorProcessingSave {
+        public static string ErrorProcessingSave {
             get {
                 return ResourceManager.GetString("ErrorProcessingSave", resourceCulture);
             }
@@ -117,16 +117,25 @@ namespace Refugio.App_Resources {
         /// <summary>
         ///   Busca una cadena traducida similar a No identifier has been provided.
         /// </summary>
-        internal static string IdNotProvided {
+        public static string IdNotProvided {
             get {
                 return ResourceManager.GetString("IdNotProvided", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Language.
+        /// </summary>
+        public static string Language {
+            get {
+                return ResourceManager.GetString("Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Record deleted successfully.
         /// </summary>
-        internal static string SuccessDataDelete {
+        public static string SuccessDataDelete {
             get {
                 return ResourceManager.GetString("SuccessDataDelete", resourceCulture);
             }
@@ -135,7 +144,7 @@ namespace Refugio.App_Resources {
         /// <summary>
         ///   Busca una cadena traducida similar a Data has been saved successfully.
         /// </summary>
-        internal static string SuccessDataSave {
+        public static string SuccessDataSave {
             get {
                 return ResourceManager.GetString("SuccessDataSave", resourceCulture);
             }
@@ -144,7 +153,7 @@ namespace Refugio.App_Resources {
         /// <summary>
         ///   Busca una cadena traducida similar a There were modifications while you were performing the operation. Please reload the page and try again.
         /// </summary>
-        internal static string ThereWereModifications {
+        public static string ThereWereModifications {
             get {
                 return ResourceManager.GetString("ThereWereModifications", resourceCulture);
             }
@@ -153,7 +162,7 @@ namespace Refugio.App_Resources {
         /// <summary>
         ///   Busca una cadena traducida similar a In case of persistent errors, please try again or contact support.
         /// </summary>
-        internal static string TryAgainContactSupport {
+        public static string TryAgainContactSupport {
             get {
                 return ResourceManager.GetString("TryAgainContactSupport", resourceCulture);
             }
@@ -162,7 +171,7 @@ namespace Refugio.App_Resources {
         /// <summary>
         ///   Busca una cadena traducida similar a Veterinarian.
         /// </summary>
-        internal static string Veterinarian {
+        public static string Veterinarian {
             get {
                 return ResourceManager.GetString("Veterinarian", resourceCulture);
             }
@@ -171,7 +180,7 @@ namespace Refugio.App_Resources {
         /// <summary>
         ///   Busca una cadena traducida similar a No veterinarian found with this identifier.
         /// </summary>
-        internal static string VeterinarianNotFoundById {
+        public static string VeterinarianNotFoundById {
             get {
                 return ResourceManager.GetString("VeterinarianNotFoundById", resourceCulture);
             }
@@ -180,7 +189,7 @@ namespace Refugio.App_Resources {
         /// <summary>
         ///   Busca una cadena traducida similar a Veterinarians.
         /// </summary>
-        internal static string Veterinarians {
+        public static string Veterinarians {
             get {
                 return ResourceManager.GetString("Veterinarians", resourceCulture);
             }
