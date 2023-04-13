@@ -162,6 +162,9 @@
   <data name="OptionSelect" xml:space="preserve">
     <value>-- Seleccionar --</value>
   </data>
+  <data name="Professionals" xml:space="preserve">
+    <value>Profesionales</value>
+  </data>
   <data name="Salary" xml:space="preserve">
     <value>Salario</value>
   </data>

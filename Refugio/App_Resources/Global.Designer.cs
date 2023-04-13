@@ -196,6 +196,15 @@ namespace Refugio.App_Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Professionals.
+        /// </summary>
+        public static string Professionals {
+            get {
+                return ResourceManager.GetString("Professionals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Salary.
         /// </summary>
         public static string Salary {

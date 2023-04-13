@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Mi Refugio</title>
+    <link rel="shortcut icon" type="image/png" href="~/Content/Images/browser-logo-icons8-dog-paw-32.png">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -13,14 +14,21 @@
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Refugio "Mi refugio"</a>
+            <a class="navbar-brand" href="@Url.Action("Index", "Home", new { Area="" })">Refugio "Mi refugio"</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarsExample03">
                 <ul class="navbar-nav me-auto mb-2 mb-sm-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="@Url.Action("Index", "Home", new { Area="" })" >Home</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            @Refugio.App_Resources.Global.Veterinarians
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="@Url.Action("Index", "Veterinarian", new { Area="Admin" })">@Refugio.App_Resources.Global.Professionals</a></li>
+                            <li><a class="dropdown-item" href="#">Especialidades</a></li>
+                            <li><a class="dropdown-item" href="#">Consultas</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">¿Quienes somos?</a>
@@ -38,15 +46,16 @@
                         <a class="nav-link" href="#">Ayúdanos</a>
                     </li>
                 </ul>
-            </div>
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    @Refugio.App_Resources.Global.Language
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a href="@Url.Action("ChangeLanguage", "Language", new { language = "es-ES", Area="", returnUrl = Request.Path })" class="dropdown-item">ES</a></li>
-                    <li><a href="@Url.Action("ChangeLanguage", "Language", new { language = "en-US", Area="", returnUrl = Request.Path })" class="dropdown-item">EN</a></li>
-                </ul>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        @Refugio.App_Resources.Global.Language
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a href="@Url.Action("ChangeLanguage", "Language", new { language = "es-ES", Area="", returnUrl = Request.Path })" class="dropdown-item">ES</a></li>
+                        <li><a href="@Url.Action("ChangeLanguage", "Language", new { language = "en-US", Area="", returnUrl = Request.Path })" class="dropdown-item">EN</a></li>
+                    </ul>
+                </div>
+
             </div>
         </div>
     </nav>
