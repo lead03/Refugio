@@ -28,6 +28,8 @@ namespace Refugio.Areas.Admin.Models.Veterinarian
         public string Description { get; set; }
         public void GetValues(DTO.Veterinarian veterinarian)
         {
+            var language = System.Threading.Thread.CurrentThread.CurrentCulture;
+
             this.Id = veterinarian.Id;
             this.UserName = veterinarian.UserName;
             this.FirstName = veterinarian.FirstName;
@@ -39,7 +41,7 @@ namespace Refugio.Areas.Admin.Models.Veterinarian
             this.Province = veterinarian.Province;
             this.PhoneNumberMain = veterinarian.PhoneNumberMain;
             this.PhoneNumberAditional = veterinarian.PhoneNumberAditional;
-            this.SpecialityName = veterinarian.VeterinarianSpeciality.SpecialityName;
+            this.SpecialityName = veterinarian.VeterinarianSpeciality.SpecialityNameEN;
             this.IsPermanent = veterinarian.IsPermanent;
             this.Salary = veterinarian.Salary;
             this.TimeSlot = veterinarian.TimeSlotRange.TimeRange;

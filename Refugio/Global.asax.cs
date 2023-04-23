@@ -30,10 +30,8 @@ namespace Refugio
             }
             else
             {
-                string defaultLanguage = ConfigurationManager.AppSettings["defaultLanguage"];
-                System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.CreateSpecificCulture("es-ES");
-                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("es-ES");
-
+                System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.CreateSpecificCulture(Refugio.Resources.Language.SpanishKey);
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(Refugio.Resources.Language.SpanishKey);
             }
         }
     }

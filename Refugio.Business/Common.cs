@@ -15,15 +15,5 @@ namespace Refugio.Business
                 throw new InvalidOperationException();
             }
         }
-
-        public static string DefaultPassword { get; set; } = "Refugio1234";
-
-        public enum AlertMessageType
-        {
-            Default = 0,
-            Error = 1,
-            Warning = 2,
-            Success = 3,
-        }
     }
 }

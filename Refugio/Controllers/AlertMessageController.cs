@@ -16,7 +16,7 @@ namespace Refugio.Controllers
             {
                 ShowMessage = info["ShowMessage"] != null && (bool)info["ShowMessage"],
                 MessageToShow = info["MessageToShow"] != null ? (string)info["MessageToShow"] : "No hay detalles del alerta",
-                TypeMessage = info["TypeMessage"] != null ? (int)info["TypeMessage"] : (int)Business.Common.AlertMessageType.Default,
+                TypeMessage = info["TypeMessage"] != null ? (int)info["TypeMessage"] : (int)Refugio.Resources.AlertMessage.Type.Default,
             };
             return Json(tempData, JsonRequestBehavior.AllowGet);
         }

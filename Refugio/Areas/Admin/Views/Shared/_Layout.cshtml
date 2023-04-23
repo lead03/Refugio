@@ -22,10 +22,10 @@
                 <ul class="navbar-nav me-auto mb-2 mb-sm-0">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            @Refugio.App_Resources.Global.Veterinarians
+                            @Refugio.Resources.Languages.Global.Veterinarians
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="@Url.Action("Index", "Veterinarian", new { Area="Admin" })">@Refugio.App_Resources.Global.Professionals</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("Index", "Veterinarian", new { Area="Admin" })">@Refugio.Resources.Languages.Global.Professionals</a></li>
                             <li><a class="dropdown-item" href="#">Especialidades</a></li>
                             <li><a class="dropdown-item" href="#">Consultas</a></li>
                         </ul>
@@ -48,7 +48,7 @@
                 </ul>
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        @Refugio.App_Resources.Global.Language
+                        @Refugio.Resources.Languages.Global.Language
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                         <li><a href="@Url.Action("ChangeLanguage", "Language", new { language = "es-ES", Area="", returnUrl = Request.Path })" class="dropdown-item">ES</a></li>

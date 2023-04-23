@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Refugio.App_Resources {
+namespace Refugio.Resources.Languages {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Refugio.App_Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Refugio.App_Resources.Global", typeof(Global).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Refugio.Resources.Languages.Global", typeof(Global).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

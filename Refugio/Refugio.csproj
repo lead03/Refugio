@@ -123,16 +123,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Resources\Global.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Global.resx</DependentUpon>
-    </Compile>
-    <Compile Include="App_Resources\Global.es.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Global.es.resx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -260,6 +250,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="App_Resources\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Views\AlertMessage\" />
     <Folder Include="Views\Language\" />
@@ -277,16 +268,10 @@
       <Project>{b99da13b-a9d2-4036-a781-f0fb15e8c285}</Project>
       <Name>Refugio.DTO</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="App_Resources\Global.es.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Global.es.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="App_Resources\Global.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Global.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
+    <ProjectReference Include="..\Refugio.Resources\Refugio.Resources.csproj">
+      <Project>{0f1a2950-4545-4130-87be-c2646a3228f3}</Project>
+      <Name>Refugio.Resources</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

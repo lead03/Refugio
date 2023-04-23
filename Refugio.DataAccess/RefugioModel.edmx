@@ -63,7 +63,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="SpecialityName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="SpecialityNameES" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="SpecialityNameEN" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <Association Name="FK_Veterinarian_TimeSlotRange">
           <End Role="TimeSlotRange" Type="Self.TimeSlotRange" Multiplicity="0..1" />
@@ -111,11 +112,11 @@
           <EntitySet Name="Staff" EntityType="RefugioModel.Staff" />
           <EntitySet Name="TimeSlotRange" EntityType="RefugioModel.TimeSlotRange" />
           <EntitySet Name="Veterinarian" EntityType="RefugioModel.Veterinarian" />
-          <EntitySet Name="VeterinarianSpeciality" EntityType="RefugioModel.VeterinarianSpeciality" />
           <AssociationSet Name="FK_Veterinarian_TimeSlotRange" Association="RefugioModel.FK_Veterinarian_TimeSlotRange">
             <End Role="TimeSlotRange" EntitySet="TimeSlotRange" />
             <End Role="Veterinarian" EntitySet="Veterinarian" />
           </AssociationSet>
+          <EntitySet Name="VeterinarianSpeciality" EntityType="RefugioModel.VeterinarianSpeciality" />
           <AssociationSet Name="FK_Veterinarian_VeterinarianSpeciality" Association="RefugioModel.FK_Veterinarian_VeterinarianSpeciality">
             <End Role="VeterinarianSpeciality" EntitySet="VeterinarianSpeciality" />
             <End Role="Veterinarian" EntitySet="Veterinarian" />
@@ -174,16 +175,8 @@
           <Property Name="ProfessionalLicense" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="ForDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="TimeSlotRange" Relationship="RefugioModel.FK_Veterinarian_TimeSlotRange" FromRole="Veterinarian" ToRole="TimeSlotRange" />
-          <NavigationProperty Name="VeterinarianSpeciality" Relationship="RefugioModel.FK_Veterinarian_VeterinarianSpeciality" FromRole="Veterinarian" ToRole="VeterinarianSpeciality" />
           <Property Name="RowVersion" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
-        </EntityType>
-        <EntityType Name="VeterinarianSpeciality">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SpecialityName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Veterinarian" Relationship="RefugioModel.FK_Veterinarian_VeterinarianSpeciality" FromRole="VeterinarianSpeciality" ToRole="Veterinarian" />
+          <NavigationProperty Name="VeterinarianSpeciality" Relationship="RefugioModel.FK_Veterinarian_VeterinarianSpeciality" FromRole="Veterinarian" ToRole="VeterinarianSpeciality" />
         </EntityType>
         <Association Name="FK_Veterinarian_TimeSlotRange">
           <End Type="RefugioModel.TimeSlotRange" Role="TimeSlotRange" Multiplicity="0..1" />
@@ -197,6 +190,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="VeterinarianSpeciality">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SpecialityNameES" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SpecialityNameEN" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Veterinarian" Relationship="RefugioModel.FK_Veterinarian_VeterinarianSpeciality" FromRole="VeterinarianSpeciality" ToRole="Veterinarian" />
+        </EntityType>
         <Association Name="FK_Veterinarian_VeterinarianSpeciality">
           <End Type="RefugioModel.VeterinarianSpeciality" Role="VeterinarianSpeciality" Multiplicity="1" />
           <End Type="RefugioModel.Veterinarian" Role="Veterinarian" Multiplicity="*" />
@@ -274,7 +276,8 @@
           <EntitySetMapping Name="VeterinarianSpeciality">
             <EntityTypeMapping TypeName="RefugioModel.VeterinarianSpeciality">
               <MappingFragment StoreEntitySet="VeterinarianSpeciality">
-                <ScalarProperty Name="SpecialityName" ColumnName="SpecialityName" />
+                <ScalarProperty Name="SpecialityNameEN" ColumnName="SpecialityNameEN" />
+                <ScalarProperty Name="SpecialityNameES" ColumnName="SpecialityNameES" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

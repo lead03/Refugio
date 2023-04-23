@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refugio.Business", "..\Refu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refugio.DataAccess", "..\Refugio.DataAccess\Refugio.DataAccess.csproj", "{BF5FD5D0-51E3-4664-BB53-6D539038463C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refugio.Resources", "..\Refugio.Resources\Refugio.Resources.csproj", "{0F1A2950-4545-4130-87BE-C2646A3228F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{BF5FD5D0-51E3-4664-BB53-6D539038463C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF5FD5D0-51E3-4664-BB53-6D539038463C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF5FD5D0-51E3-4664-BB53-6D539038463C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F1A2950-4545-4130-87BE-C2646A3228F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F1A2950-4545-4130-87BE-C2646A3228F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F1A2950-4545-4130-87BE-C2646A3228F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F1A2950-4545-4130-87BE-C2646A3228F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

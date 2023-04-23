@@ -8,8 +8,8 @@
         <EntityTypeShape EntityType="RefugioModel.Staff" Width="1.5" PointX="4.375" PointY="0.5" />
         <EntityTypeShape EntityType="RefugioModel.TimeSlotRange" Width="1.5" PointX="0.625" PointY="3.5" />
         <EntityTypeShape EntityType="RefugioModel.Veterinarian" Width="1.5" PointX="2.5" PointY="0.5" />
-        <EntityTypeShape EntityType="RefugioModel.VeterinarianSpeciality" Width="1.5" PointX="0.625" PointY="0.5" />
         <AssociationConnector Association="RefugioModel.FK_Veterinarian_TimeSlotRange" />
+        <EntityTypeShape EntityType="RefugioModel.VeterinarianSpeciality" Width="1.5" PointX="0.625" PointY="0.5" />
         <AssociationConnector Association="RefugioModel.FK_Veterinarian_VeterinarianSpeciality" />
       </Diagram>
     </edmx:Diagrams>

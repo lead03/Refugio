@@ -9,24 +9,13 @@ namespace Refugio.Areas.Admin.Controllers
 {
     public class VeterinarianController : Controller
     {
-        protected override void OnActionExecuting(ActionExecutingContext filterContext)
-        {
-            var cookieCulture = Request.Cookies["Language"]?.Value;
-            if (!string.IsNullOrEmpty(cookieCulture))
-            {
-                var cultureInfo = new System.Globalization.CultureInfo(cookieCulture);
-                System.Threading.Thread.CurrentThread.CurrentCulture = cultureInfo;
-                System.Threading.Thread.CurrentThread.CurrentUICulture = cultureInfo;
-            }
-            base.OnActionExecuting(filterContext);
-        }
         [HttpGet]
         public ActionResult Index()
         {
             try
             {
                 Models.Veterinarian.List model = new Models.Veterinarian.List();
-                model.Filters.VeterinarianSpeciality = new SelectList(Business.VeterinarianSpeciality.GetAll(), "Id", "SpecialityName");
+                model.Filters.VeterinarianSpeciality = Business.VeterinarianSpeciality.GetSelectListForVeterinarianSpeciality();
                 return View(model);
             }
             catch
@@ -47,7 +36,7 @@ namespace Refugio.Areas.Admin.Controllers
             }
             catch (Exception)
             {
-                Business.AlertMessage.Set(TempData, true, Refugio.App_Resources.Global.ErrorProcessingListing + ". " + Refugio.App_Resources.Global.TryAgainContactSupport, (int)Business.Common.AlertMessageType.Error);
+                Business.AlertMessage.Set(TempData, true, Refugio.Resources.Languages.Global.ErrorProcessingListing + ". " + Refugio.Resources.Languages.Global.TryAgainContactSupport, (int)Refugio.Resources.AlertMessage.Type.Error);
                 return RedirectToAction("Index");
             }
         }
@@ -62,24 +51,24 @@ namespace Refugio.Areas.Admin.Controllers
                     DTO.Veterinarian veterinarian = Business.Veterinarian.GetVeterinarianById(request.Id.Value);
                     if (veterinarian == null)
                     {
-                        throw new KeyNotFoundException(Refugio.App_Resources.Global.VeterinarianNotFoundById);
+                        throw new KeyNotFoundException(Refugio.Resources.Languages.Global.VeterinarianNotFoundById);
                     }
                     model.GetValues(veterinarian);
                     return View(model);
                 }
                 else
                 {
-                    throw new KeyNotFoundException(Refugio.App_Resources.Global.IdNotProvided);
+                    throw new KeyNotFoundException(Refugio.Resources.Languages.Global.IdNotProvided);
                 }
             }
             catch (KeyNotFoundException ex)
             {
-                Business.AlertMessage.Set(TempData, true, Refugio.App_Resources.Global.ErrorDisplayingDetails + ". " + ex.Message, (int)Business.Common.AlertMessageType.Error);
+                Business.AlertMessage.Set(TempData, true, Refugio.Resources.Languages.Global.ErrorDisplayingDetails + ". " + ex.Message, (int)Refugio.Resources.AlertMessage.Type.Error);
                 return RedirectToAction("Index");
             }
             catch
             {
-                Business.AlertMessage.Set(TempData, true, Refugio.App_Resources.Global.ErrorDisplayingDetails + ". " + Refugio.App_Resources.Global.TryAgainContactSupport, (int)Business.Common.AlertMessageType.Error);
+                Business.AlertMessage.Set(TempData, true, Refugio.Resources.Languages.Global.ErrorDisplayingDetails + ". " + Refugio.Resources.Languages.Global.TryAgainContactSupport, (int)Refugio.Resources.AlertMessage.Type.Error);
                 return RedirectToAction("Index");
             }
         }
@@ -90,14 +79,14 @@ namespace Refugio.Areas.Admin.Controllers
             try
             {
                 Models.Veterinarian.Edit model = new Models.Veterinarian.Edit();
-                model.VeterinarianSpecialityList = new SelectList(Business.VeterinarianSpeciality.GetAll(), "Id", "SpecialityName");
+                model.VeterinarianSpecialityList = Business.VeterinarianSpeciality.GetSelectListForVeterinarianSpeciality();
                 model.TimeSlotRangeList = new SelectList(Business.TimeSlotRange.GetAll(), "Id", "TimeRange");
                 if (request.Id.HasValue)
                 {
                     DTO.Veterinarian veterinarian = Business.Veterinarian.GetVeterinarianById(request.Id.Value);
                     if (veterinarian == null)
                     {
-                        throw new KeyNotFoundException(Refugio.App_Resources.Global.VeterinarianNotFoundById);
+                        throw new KeyNotFoundException(Refugio.Resources.Languages.Global.VeterinarianNotFoundById);
                     }
                     model.GetValues(veterinarian);
                 }
@@ -105,12 +94,12 @@ namespace Refugio.Areas.Admin.Controllers
             }
             catch (KeyNotFoundException ex)
             {
-                Business.AlertMessage.Set(TempData, true, Refugio.App_Resources.Global.ErrorProcessingEdit + ". " + ex.Message, (int)Business.Common.AlertMessageType.Error);
+                Business.AlertMessage.Set(TempData, true, Refugio.Resources.Languages.Global.ErrorProcessingEdit + ". " + ex.Message, (int)Refugio.Resources.AlertMessage.Type.Error);
                 return RedirectToAction("Index");
             }
             catch
             {
-                Business.AlertMessage.Set(TempData, true, Refugio.App_Resources.Global.ErrorProcessingEdit + ". " + Refugio.App_Resources.Global.TryAgainContactSupport, (int)Business.Common.AlertMessageType.Error);
+                Business.AlertMessage.Set(TempData, true, Refugio.Resources.Languages.Global.ErrorProcessingEdit + ". " + Refugio.Resources.Languages.Global.TryAgainContactSupport, (int)Refugio.Resources.AlertMessage.Type.Error);
                 return RedirectToAction("Index");
             }
         }
@@ -122,7 +111,7 @@ namespace Refugio.Areas.Admin.Controllers
             {
                 if (!ModelState.IsValid)
                 {
-                    model.VeterinarianSpecialityList = new SelectList(Business.VeterinarianSpeciality.GetAll(), "Id", "SpecialityName");
+                    model.VeterinarianSpecialityList = Business.VeterinarianSpeciality.GetSelectListForVeterinarianSpeciality();
                     model.TimeSlotRangeList = new SelectList(Business.TimeSlotRange.GetAll(), "Id", "TimeRange");
                     return View(model);
                 }
@@ -134,26 +123,26 @@ namespace Refugio.Areas.Admin.Controllers
                 }
                 else
                 {
-                    veterinarian.UserPassword = Business.Common.DefaultPassword;
+                    veterinarian.UserPassword = Refugio.Resources.Common.DefaultPassword;
                 }
                 model.SetValues(veterinarian);
                 model.Id = Business.Veterinarian.Save(veterinarian);
-                Business.AlertMessage.Set(TempData, true, Refugio.App_Resources.Global.SuccessDataSave, (int)Business.Common.AlertMessageType.Success);
+                Business.AlertMessage.Set(TempData, true, Refugio.Resources.Languages.Global.SuccessDataSave, (int)Refugio.Resources.AlertMessage.Type.Success);
                 return RedirectToAction("Details", new { id = model.Id });
             }
             catch (InvalidOperationException)
             {
-                Business.AlertMessage.Set(TempData, true, Refugio.App_Resources.Global.ErrorProcessingEdit + ". "+ Refugio.App_Resources.Global.ThereWereModifications, (int)Business.Common.AlertMessageType.Error);
+                Business.AlertMessage.Set(TempData, true, Refugio.Resources.Languages.Global.ErrorProcessingEdit + ". "+ Refugio.Resources.Languages.Global.ThereWereModifications, (int)Refugio.Resources.AlertMessage.Type.Error);
                 return RedirectToAction("Index");
             }
             catch (DbUpdateException)
             {
-                Business.AlertMessage.Set(TempData, true, Refugio.App_Resources.Global.ErrorProcessingEdit + ". " + Refugio.App_Resources.Global.ErrorProcesingUpdate, (int)Business.Common.AlertMessageType.Error);
+                Business.AlertMessage.Set(TempData, true, Refugio.Resources.Languages.Global.ErrorProcessingEdit + ". " + Refugio.Resources.Languages.Global.ErrorProcesingUpdate, (int)Refugio.Resources.AlertMessage.Type.Error);
                 return RedirectToAction("Index");
             }
             catch (Exception)
             {
-                Business.AlertMessage.Set(TempData, true, Refugio.App_Resources.Global.ErrorProcessingEdit + ". " + Refugio.App_Resources.Global.TryAgainContactSupport, (int)Business.Common.AlertMessageType.Error);
+                Business.AlertMessage.Set(TempData, true, Refugio.Resources.Languages.Global.ErrorProcessingEdit + ". " + Refugio.Resources.Languages.Global.TryAgainContactSupport, (int)Refugio.Resources.AlertMessage.Type.Error);
                 return RedirectToAction("Details", new { id = model.Id });
             }
         }
@@ -167,27 +156,27 @@ namespace Refugio.Areas.Admin.Controllers
                     DTO.Veterinarian veterinarian = Business.Veterinarian.GetVeterinarianById(request.Id.Value);
                     if (veterinarian == null)
                     {
-                        throw new KeyNotFoundException(Refugio.App_Resources.Global.VeterinarianNotFoundById);
+                        throw new KeyNotFoundException(Refugio.Resources.Languages.Global.VeterinarianNotFoundById);
                     }
                     Business.Veterinarian.Delete(veterinarian);
-                    Business.AlertMessage.Set(TempData, true, Refugio.App_Resources.Global.SuccessDataDelete, (int)Business.Common.AlertMessageType.Success);
+                    Business.AlertMessage.Set(TempData, true, Refugio.Resources.Languages.Global.SuccessDataDelete, (int)Refugio.Resources.AlertMessage.Type.Success);
                 }
                 else
                 {
-                    throw new KeyNotFoundException(Refugio.App_Resources.Global.IdNotProvided);
+                    throw new KeyNotFoundException(Refugio.Resources.Languages.Global.IdNotProvided);
                 }
             }
             catch (KeyNotFoundException ex)
             {
-                Business.AlertMessage.Set(TempData, true, Refugio.App_Resources.Global.ErrorDeletingRegister + ".  " + ex.Message, (int)Business.Common.AlertMessageType.Error);
+                Business.AlertMessage.Set(TempData, true, Refugio.Resources.Languages.Global.ErrorDeletingRegister + ".  " + ex.Message, (int)Refugio.Resources.AlertMessage.Type.Error);
             }
             catch (DbUpdateException)
             {
-                Business.AlertMessage.Set(TempData, true, Refugio.App_Resources.Global.ErrorDeletingRegister + ". " + Refugio.App_Resources.Global.ErrorProcesingUpdate, (int)Business.Common.AlertMessageType.Error);
+                Business.AlertMessage.Set(TempData, true, Refugio.Resources.Languages.Global.ErrorDeletingRegister + ". " + Refugio.Resources.Languages.Global.ErrorProcesingUpdate, (int)Refugio.Resources.AlertMessage.Type.Error);
             }
             catch (Exception)
             {
-                Business.AlertMessage.Set(TempData, true, Refugio.App_Resources.Global.ErrorDeletingRegister + ". " + Refugio.App_Resources.Global.TryAgainContactSupport, (int)Business.Common.AlertMessageType.Error);
+                Business.AlertMessage.Set(TempData, true, Refugio.Resources.Languages.Global.ErrorDeletingRegister + ". " + Refugio.Resources.Languages.Global.TryAgainContactSupport, (int)Refugio.Resources.AlertMessage.Type.Error);
             }
             return RedirectToAction("Index");
         }

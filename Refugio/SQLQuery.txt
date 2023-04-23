@@ -145,3 +145,173 @@ GO
 ALTER TABLE Veterinarian ALTER COLUMN ApartmentNumber varchar(50) NULL;
 
 GO
+
+ALTER TABLE [VeterinarianSpeciality]
+ADD SpecialityNameEN VARCHAR
+
+GO
+
+ALTER TABLE [VeterinarianSpeciality]
+ALTER COLUMN SpecialityNameEN VARCHAR(100)
+
+GO
+
+UPDATE [VeterinarianSpeciality]
+SET SpecialityNameEN = 'Allergology'
+WHERE Id = 1;
+
+GO
+
+UPDATE [VeterinarianSpeciality]
+SET SpecialityNameEN = 'Anesthesiology'
+WHERE Id = 2;
+
+GO
+
+UPDATE [VeterinarianSpeciality]
+SET SpecialityNameEN = 'Cardiology'
+WHERE Id = 3;
+
+GO
+
+UPDATE [VeterinarianSpeciality]
+SET SpecialityNameEN = 'Dermatology'
+WHERE Id = 4;
+
+GO
+
+UPDATE [VeterinarianSpeciality]
+SET SpecialityNameEN = 'Endocrinology'
+WHERE Id = 5;
+
+GO
+
+UPDATE [VeterinarianSpeciality]
+SET SpecialityNameEN = 'Ethology'
+WHERE Id = 6;
+
+GO
+
+UPDATE [VeterinarianSpeciality]
+SET SpecialityNameEN = 'Gastroenterology'
+WHERE Id = 7;
+
+GO
+
+UPDATE [VeterinarianSpeciality]
+SET SpecialityNameEN = 'Hematology'
+WHERE Id = 8;
+
+GO
+
+UPDATE [VeterinarianSpeciality]
+SET SpecialityNameEN = 'Infectology'
+WHERE Id = 9;
+
+GO
+
+UPDATE [VeterinarianSpeciality]
+SET SpecialityNameEN = 'Neurology'
+WHERE Id = 10;
+
+GO
+
+UPDATE [VeterinarianSpeciality]
+SET SpecialityNameEN = 'Nutrition'
+WHERE Id = 11;
+
+GO
+
+UPDATE [VeterinarianSpeciality]
+SET SpecialityNameEN = 'Ophthalmology'
+WHERE Id = 12;
+
+GO
+
+UPDATE [VeterinarianSpeciality]
+SET SpecialityNameEN = 'Oncology'
+WHERE Id = 13;
+
+GO
+
+UPDATE [VeterinarianSpeciality]
+SET SpecialityNameEN = 'Orthopedics'
+WHERE Id = 14;
+
+GO
+
+UPDATE [VeterinarianSpeciality]
+SET SpecialityNameEN = 'Pathology'
+WHERE Id = 15;
+
+GO
+
+UPDATE [VeterinarianSpeciality]
+SET SpecialityNameEN = 'Radiology'
+WHERE Id = 16;
+
+GO
+
+UPDATE [VeterinarianSpeciality]
+SET SpecialityNameEN = 'Rehabilitation'
+WHERE Id = 17;
+
+GO
+
+UPDATE [VeterinarianSpeciality]
+SET SpecialityNameEN = 'Intensive therapy'
+WHERE Id = 18;
+
+GO
+
+UPDATE [VeterinarianSpeciality]
+SET SpecialityNameEN = 'Urology'
+WHERE Id = 19;
+
+GO
+
+UPDATE [VeterinarianSpeciality]
+SET SpecialityNameEN = 'Zoology'
+WHERE Id = 20;
+
+GO
+
+UPDATE [VeterinarianSpeciality]
+SET SpecialityNameEN = 'Internal Medicine'
+WHERE Id = 21;
+
+GO
+
+UPDATE [VeterinarianSpeciality]
+SET SpecialityNameEN = 'Emergency Medicine'
+WHERE Id = 22;
+
+GO
+
+UPDATE [VeterinarianSpeciality]
+SET SpecialityNameEN = 'Preventive medicine'
+WHERE Id = 23;
+
+GO
+
+UPDATE [VeterinarianSpeciality]
+SET SpecialityNameEN = 'General Surgery'
+WHERE Id = 24;
+
+GO
+
+UPDATE [VeterinarianSpeciality]
+SET SpecialityNameEN = 'Specialized Surgery'
+WHERE Id = 25;
+
+GO
+
+UPDATE [VeterinarianSpeciality]
+SET SpecialityNameEN = 'Exotic animals'
+WHERE Id = 26;
+
+GO
+
+EXEC sp_rename 'VeterinarianSpeciality.SpecialityName', 'SpecialityNameES', 'COLUMN';
+
+GO
