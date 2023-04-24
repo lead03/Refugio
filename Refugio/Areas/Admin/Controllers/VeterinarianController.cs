@@ -53,7 +53,8 @@ namespace Refugio.Areas.Admin.Controllers
                     {
                         throw new KeyNotFoundException(Refugio.Resources.Languages.Global.VeterinarianNotFoundById);
                     }
-                    model.GetValues(veterinarian);
+                    Business.Common.Map<DTO.Veterinarian, Models.Veterinarian.Details>(veterinarian, model);
+                    model.SpecialityName = Business.Veterinarian.GetSpecialityName(veterinarian);
                     return View(model);
                 }
                 else

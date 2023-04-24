@@ -9,98 +9,117 @@
     <table class="table table-striped">
         <tbody>
             <tr>
-                <th>@Html.DisplayNameFor(model => model.UserName)</th>
+                <th>@Refugio.Resources.Languages.Global.UserName</th>
                 <td>@Html.DisplayFor(model => model.UserName)</td>
             </tr>
             <tr>
-                <th>@Html.DisplayNameFor(model => model.FirstName)</th>
+                <th>@Refugio.Resources.Languages.Global.FirstName</th>
                 <td>@Html.DisplayFor(model => model.FirstName)</td>
             </tr>
             <tr>
-                <th>@Html.DisplayNameFor(model => model.LastName)</th>
+                <th>@Refugio.Resources.Languages.Global.LastName</th>
                 <td>@Html.DisplayFor(model => model.LastName)</td>
             </tr>
             <tr>
-                <th>@Html.DisplayNameFor(model => model.StreetAddress)</th>
+                <th>@Refugio.Resources.Languages.Global.Email</th>
+                <td>@Html.DisplayFor(model => model.Email)</td>
+            </tr>
+            <tr>
+                <th>@Refugio.Resources.Languages.Global.StreetAddress</th>
                 <td>@Html.DisplayFor(model => model.StreetAddress)</td>
             </tr>
             <tr>
-                <th>@Html.DisplayNameFor(model => model.ApartmentNumber)</th>
+                <th>@Refugio.Resources.Languages.Global.ApartmentNumber</th>
                 <td>@Html.DisplayFor(model => model.ApartmentNumber)</td>
             </tr>
             <tr>
-                <th>@Html.DisplayNameFor(model => model.City)</th>
+                <th>@Refugio.Resources.Languages.Global.City</th>
                 <td>@Html.DisplayFor(model => model.City)</td>
             </tr>
             <tr>
-                <th>@Html.DisplayNameFor(model => model.ZipCode)</th>
+                <th>@Refugio.Resources.Languages.Global.ZipCode</th>
                 <td>@Html.DisplayFor(model => model.ZipCode)</td>
             </tr>
             <tr>
-                <th>@Html.DisplayNameFor(model => model.Province)</th>
+                <th>@Refugio.Resources.Languages.Global.Province</th>
                 <td>@Html.DisplayFor(model => model.Province)</td>
             </tr>
             <tr>
-                <th>@Html.DisplayNameFor(model => model.PhoneNumberMain)</th>
+                <th>@Refugio.Resources.Languages.Global.PhoneNumberMain</th>
                 <td>@Html.DisplayFor(model => model.PhoneNumberMain)</td>
             </tr>
             <tr>
-                <th>@Html.DisplayNameFor(model => model.PhoneNumberAditional)</th>
+                <th>@Refugio.Resources.Languages.Global.PhoneNomberAditional</th>
                 <td>@Html.DisplayFor(model => model.PhoneNumberAditional)</td>
             </tr>
             <tr>
-                <th>@Html.DisplayNameFor(model => model.SpecialityName)</th>
+                <th>@Refugio.Resources.Languages.Global.Speciality</th>
                 <td>@Html.DisplayFor(model => model.SpecialityName)</td>
             </tr>
             <tr>
-                <th>@Html.DisplayNameFor(model => model.IsPermanent)</th>
+                <th>@Refugio.Resources.Languages.Global.IsPermanent</th>
                 <td>@(Model.IsPermanent ? "Sí" : "No")</td>
             </tr>
+            @if (Model.IsPermanent)
+            {
+                <tr>
+                    <th>@Refugio.Resources.Languages.Global.Salary</th>
+                    <td>@Html.DisplayFor(model => model.Salary)</td>
+                </tr>
+            }
+            else
+            {
+                <tr>
+                    <th>@Refugio.Resources.Languages.Global.ConsultationFee</th>
+                    <td>@Html.DisplayFor(model => model.Fee)</td>
+                </tr>
+            }
             <tr>
-                <th>@Html.DisplayNameFor(model => model.Salary)</th>
-                <td>@Html.DisplayFor(model => model.Salary)</td>
-            </tr>
-            <tr>
-                <th>@Html.DisplayNameFor(model => model.TimeSlot)</th>
+                <th>@Refugio.Resources.Languages.Global.TimeSlot</th>
                 <td>@Html.DisplayFor(model => model.TimeSlot)</td>
             </tr>
             <tr>
-                <th>@Html.DisplayNameFor(model => model.ProfessionalLicense)</th>
+                <th>@Refugio.Resources.Languages.Global.ProfessionalLicense</th>
                 <td>@Html.DisplayFor(model => model.ProfessionalLicense)</td>
             </tr>
             <tr>
-                <th>@Html.DisplayNameFor(model => model.Description)</th>
-                <td>@Html.DisplayFor(model => model.Description)</td>
+                <th>@Refugio.Resources.Languages.Global.Description - @Refugio.Resources.Languages.Global.English</th>
+                <td>@(!string.IsNullOrWhiteSpace(Model.DescriptionEN) ? Html.DisplayFor(model => model.DescriptionEN).ToString() : " - ")</td>
+            </tr>
+
+            <tr>
+                <th>@Refugio.Resources.Languages.Global.Description - @Refugio.Resources.Languages.Global.Spanish</th>
+                <td>@(!string.IsNullOrWhiteSpace(Model.DescriptionES) ? Html.DisplayFor(model => model.DescriptionEN).ToString() : " - ")</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="@Url.Action("Edit", "Veterinarian", new { area = "Admin", id = Model.Id})" class="btn btn-primary">Editar</a>
-    <a href="@Url.Action("Index", "Veterinarian", new { area = "Admin" })" class="btn btn-success">Volver al listado</a>
-    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-delete">Borrar veterinario</button>
+    <a href="@Url.Action("Edit", "Veterinarian", new { area = "Admin", id = Model.Id})" class="btn btn-primary">@Refugio.Resources.Languages.Global.Edit</a>
+    <a href="@Url.Action("Index", "Veterinarian", new { area = "Admin" })" class="btn btn-success">@Refugio.Resources.Languages.Global.BackToList</a>
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-delete">@Refugio.Resources.Languages.Global.Delete @Refugio.Resources.Languages.Global.Veterinarian.ToLower()</button>
 </div>
 
-<!-- Modal -->
+<!-- Delete modal -->
 <div class="modal fade" id="modal-delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar veterinario</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">@Refugio.Resources.Languages.Global.Delete @Refugio.Resources.Languages.Global.Veterinarian.ToLower()</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <p>
-                    ¿Está seguro que quiere eliminar el veterinario?
+                    @Refugio.Resources.Languages.Global.SureDelete @Refugio.Resources.Languages.Global.Veterinarian.ToLower()?
                 </p>
                 <p>
-                    Nombre: @Model.LastName, @Model.FirstName<br />
-                    Especialidad: @Model.SpecialityName<br />
-                    Matrícula: @Model.ProfessionalLicense
+                    @Refugio.Resources.Languages.Global.Name: @Model.LastName, @Model.FirstName<br />
+                    @Refugio.Resources.Languages.Global.Speciality: @Model.SpecialityName<br />
+                    @Refugio.Resources.Languages.Global.ProfessionalLicense: @Model.ProfessionalLicense
                 </p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <a href="@Url.Action("Delete", "Veterinarian", new { area = "Admin", id = Model.Id })" class="btn btn-success">Eliminar</a>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Refugio.Resources.Languages.Global.Close</button>
+                <a href="@Url.Action("Delete", "Veterinarian", new { area = "Admin", id = Model.Id })" class="btn btn-success">@Refugio.Resources.Languages.Global.Delete</a>
             </div>
         </div>
     </div>

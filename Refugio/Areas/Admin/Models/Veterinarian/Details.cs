@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace Refugio.Areas.Admin.Models.Veterinarian
 {
@@ -11,6 +8,7 @@ namespace Refugio.Areas.Admin.Models.Veterinarian
         public string UserName { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string Email { get; set; }
         public string StreetAddress { get; set; }
         public string ApartmentNumber { get; set; }
         public string City { get; set; }
@@ -23,13 +21,17 @@ namespace Refugio.Areas.Admin.Models.Veterinarian
         public string SpecialityName { get; set; }
         public bool IsPermanent { get; set; }
         public decimal? Salary { get; set; }
+        public decimal? Fee { get; set; }
         public string TimeSlot { get; set; }
         public string ProfessionalLicense { get; set; }
-        public string Description { get; set; }
+        public string DescriptionEN { get; set; }
+        public string DescriptionES { get; set; }
+        public bool InLanding { get; set; }
+        public Guid? ProfileImageId { get; set; }
+
         public void GetValues(DTO.Veterinarian veterinarian)
         {
-            var language = System.Threading.Thread.CurrentThread.CurrentCulture;
-
+            var language = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
             this.Id = veterinarian.Id;
             this.UserName = veterinarian.UserName;
             this.FirstName = veterinarian.FirstName;
@@ -46,7 +48,17 @@ namespace Refugio.Areas.Admin.Models.Veterinarian
             this.Salary = veterinarian.Salary;
             this.TimeSlot = veterinarian.TimeSlotRange.TimeRange;
             this.ProfessionalLicense = veterinarian.ProfessionalLicense;
-            this.Description = veterinarian.ForDescription;
+            this.DescriptionEN = veterinarian.DescriptionEN;
+            this.DescriptionES = veterinarian.DescriptionEN;
+            switch (language)
+            {
+                case Refugio.Resources.Language.EnglishKey:
+                    this.SpecialityName = veterinarian.VeterinarianSpeciality.SpecialityNameEN;
+                    break;
+                case Refugio.Resources.Language.SpanishKey:
+                    this.SpecialityName = veterinarian.VeterinarianSpeciality.SpecialityNameES;
+                    break;
+            }
         }
     }
 }

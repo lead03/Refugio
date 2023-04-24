@@ -55,8 +55,9 @@
           <Property Name="Salary" Type="decimal" Precision="18" Scale="2" />
           <Property Name="TimeSlot" Type="int" />
           <Property Name="ProfessionalLicense" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="ForDescription" Type="varchar(max)" />
+          <Property Name="DescriptionES" Type="varchar(max)" />
           <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="DescriptionEN" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="VeterinarianSpeciality">
           <Key>
@@ -111,12 +112,12 @@
         <EntityContainer Name="RefugioEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Staff" EntityType="RefugioModel.Staff" />
           <EntitySet Name="TimeSlotRange" EntityType="RefugioModel.TimeSlotRange" />
+          <EntitySet Name="VeterinarianSpeciality" EntityType="RefugioModel.VeterinarianSpeciality" />
           <EntitySet Name="Veterinarian" EntityType="RefugioModel.Veterinarian" />
           <AssociationSet Name="FK_Veterinarian_TimeSlotRange" Association="RefugioModel.FK_Veterinarian_TimeSlotRange">
             <End Role="TimeSlotRange" EntitySet="TimeSlotRange" />
             <End Role="Veterinarian" EntitySet="Veterinarian" />
           </AssociationSet>
-          <EntitySet Name="VeterinarianSpeciality" EntityType="RefugioModel.VeterinarianSpeciality" />
           <AssociationSet Name="FK_Veterinarian_VeterinarianSpeciality" Association="RefugioModel.FK_Veterinarian_VeterinarianSpeciality">
             <End Role="VeterinarianSpeciality" EntitySet="VeterinarianSpeciality" />
             <End Role="Veterinarian" EntitySet="Veterinarian" />
@@ -152,6 +153,15 @@
           <Property Name="TimeRange" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Veterinarian" Relationship="RefugioModel.FK_Veterinarian_TimeSlotRange" FromRole="TimeSlotRange" ToRole="Veterinarian" />
         </EntityType>
+        <EntityType Name="VeterinarianSpeciality">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SpecialityNameES" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SpecialityNameEN" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Veterinarian" Relationship="RefugioModel.FK_Veterinarian_VeterinarianSpeciality" FromRole="VeterinarianSpeciality" ToRole="Veterinarian" />
+        </EntityType>
         <EntityType Name="Veterinarian">
           <Key>
             <PropertyRef Name="Id" />
@@ -173,9 +183,10 @@
           <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="TimeSlot" Type="Int32" />
           <Property Name="ProfessionalLicense" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="ForDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="TimeSlotRange" Relationship="RefugioModel.FK_Veterinarian_TimeSlotRange" FromRole="Veterinarian" ToRole="TimeSlotRange" />
+          <Property Name="DescriptionES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="RowVersion" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="DescriptionEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TimeSlotRange" Relationship="RefugioModel.FK_Veterinarian_TimeSlotRange" FromRole="Veterinarian" ToRole="TimeSlotRange" />
           <NavigationProperty Name="VeterinarianSpeciality" Relationship="RefugioModel.FK_Veterinarian_VeterinarianSpeciality" FromRole="Veterinarian" ToRole="VeterinarianSpeciality" />
         </EntityType>
         <Association Name="FK_Veterinarian_TimeSlotRange">
@@ -190,15 +201,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="VeterinarianSpeciality">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SpecialityNameES" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="SpecialityNameEN" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Veterinarian" Relationship="RefugioModel.FK_Veterinarian_VeterinarianSpeciality" FromRole="VeterinarianSpeciality" ToRole="Veterinarian" />
-        </EntityType>
         <Association Name="FK_Veterinarian_VeterinarianSpeciality">
           <End Type="RefugioModel.VeterinarianSpeciality" Role="VeterinarianSpeciality" Multiplicity="1" />
           <End Type="RefugioModel.Veterinarian" Role="Veterinarian" Multiplicity="*" />
@@ -248,11 +250,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="VeterinarianSpeciality">
+            <EntityTypeMapping TypeName="RefugioModel.VeterinarianSpeciality">
+              <MappingFragment StoreEntitySet="VeterinarianSpeciality">
+                <ScalarProperty Name="SpecialityNameEN" ColumnName="SpecialityNameEN" />
+                <ScalarProperty Name="SpecialityNameES" ColumnName="SpecialityNameES" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Veterinarian">
             <EntityTypeMapping TypeName="RefugioModel.Veterinarian">
               <MappingFragment StoreEntitySet="Veterinarian">
+                <ScalarProperty Name="DescriptionEN" ColumnName="DescriptionEN" />
                 <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
-                <ScalarProperty Name="ForDescription" ColumnName="ForDescription" />
+                <ScalarProperty Name="DescriptionES" ColumnName="DescriptionES" />
                 <ScalarProperty Name="ProfessionalLicense" ColumnName="ProfessionalLicense" />
                 <ScalarProperty Name="TimeSlot" ColumnName="TimeSlot" />
                 <ScalarProperty Name="Salary" ColumnName="Salary" />
@@ -269,15 +281,6 @@
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="VeterinarianSpeciality">
-            <EntityTypeMapping TypeName="RefugioModel.VeterinarianSpeciality">
-              <MappingFragment StoreEntitySet="VeterinarianSpeciality">
-                <ScalarProperty Name="SpecialityNameEN" ColumnName="SpecialityNameEN" />
-                <ScalarProperty Name="SpecialityNameES" ColumnName="SpecialityNameES" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

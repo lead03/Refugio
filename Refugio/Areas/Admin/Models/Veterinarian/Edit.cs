@@ -52,7 +52,9 @@ namespace Refugio.Areas.Admin.Models.Veterinarian
         [Required(ErrorMessage = "Debe especificar la licencia del profesional")]
         [MaxLength(10, ErrorMessage = "La licencia no puede ser mayor a 10 caracteres")]
         public string ProfessionalLicense { get; set; }
-        public string Description { get; set; }
+        public string DescriptionEN { get; set; }
+        public string DescriptionES { get; set; }
+
         public SelectList VeterinarianSpecialityList { get; set; }
         public SelectList TimeSlotRangeList { get; set; }
         public byte[] RowVersion { get; set; }
@@ -81,7 +83,8 @@ namespace Refugio.Areas.Admin.Models.Veterinarian
             this.Salary = veterinarian.Salary;
             this.TimeSlot = veterinarian.TimeSlot;
             this.ProfessionalLicense = veterinarian.ProfessionalLicense;
-            this.Description = veterinarian.ForDescription;
+            this.DescriptionES = veterinarian.DescriptionES;
+            this.DescriptionEN = veterinarian.DescriptionEN;
             this.RowVersion = veterinarian.RowVersion;
         }
 
@@ -103,7 +106,8 @@ namespace Refugio.Areas.Admin.Models.Veterinarian
             veterinarian.Salary = this.Salary;
             veterinarian.TimeSlot = this.TimeSlot;
             veterinarian.ProfessionalLicense = this.ProfessionalLicense;
-            veterinarian.ForDescription = this.Description;
+            veterinarian.DescriptionEN = this.DescriptionEN;
+            veterinarian.DescriptionES = this.DescriptionES;
             veterinarian.RowVersion = this.RowVersion;
         }
     }

@@ -117,11 +117,41 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ApartmentNumber" xml:space="preserve">
+    <value>Apartment number</value>
+  </data>
+  <data name="BackToList" xml:space="preserve">
+    <value>Back to list</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>City</value>
+  </data>
   <data name="ClearFilters" xml:space="preserve">
     <value>Clear filters</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="ConsultationFee" xml:space="preserve">
+    <value>Consultation fee</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
   <data name="Details" xml:space="preserve">
     <value>Details</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>English</value>
   </data>
   <data name="ErrorDeletingRegister" xml:space="preserve">
     <value>Error deleting register</value>
@@ -150,11 +180,17 @@
   <data name="IdNotProvided" xml:space="preserve">
     <value>No identifier has been provided</value>
   </data>
+  <data name="IsPermanent" xml:space="preserve">
+    <value>Is permanent</value>
+  </data>
   <data name="Language" xml:space="preserve">
     <value>Language</value>
   </data>
   <data name="LastName" xml:space="preserve">
     <value>Last name</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
   </data>
   <data name="New" xml:space="preserve">
     <value>New</value>
@@ -162,8 +198,20 @@
   <data name="OptionSelect" xml:space="preserve">
     <value>-- Select --</value>
   </data>
+  <data name="PhoneNomberAditional" xml:space="preserve">
+    <value>Aditional phone number</value>
+  </data>
+  <data name="PhoneNumberMain" xml:space="preserve">
+    <value>Main phone number</value>
+  </data>
+  <data name="ProfessionalLicense" xml:space="preserve">
+    <value>Professional license</value>
+  </data>
   <data name="Professionals" xml:space="preserve">
     <value>Professionals</value>
+  </data>
+  <data name="Province" xml:space="preserve">
+    <value>Province</value>
   </data>
   <data name="Salary" xml:space="preserve">
     <value>Salary</value>
@@ -171,8 +219,14 @@
   <data name="Search" xml:space="preserve">
     <value>Search</value>
   </data>
+  <data name="Spanish" xml:space="preserve">
+    <value>Spanish</value>
+  </data>
   <data name="Speciality" xml:space="preserve">
     <value>Speciality</value>
+  </data>
+  <data name="StreetAddress" xml:space="preserve">
+    <value>Street address</value>
   </data>
   <data name="SuccessDataDelete" xml:space="preserve">
     <value>Record deleted successfully</value>
@@ -180,11 +234,20 @@
   <data name="SuccessDataSave" xml:space="preserve">
     <value>Data has been saved successfully</value>
   </data>
+  <data name="SureDelete" xml:space="preserve">
+    <value>Are you sure to delete this</value>
+  </data>
   <data name="ThereWereModifications" xml:space="preserve">
     <value>There were modifications while you were performing the operation. Please reload the page and try again</value>
   </data>
+  <data name="TimeSlot" xml:space="preserve">
+    <value>Time slot</value>
+  </data>
   <data name="TryAgainContactSupport" xml:space="preserve">
     <value>In case of persistent errors, please try again or contact support</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>User name</value>
   </data>
   <data name="Veterinarian" xml:space="preserve">
     <value>Veterinarian</value>
@@ -194,5 +257,8 @@
   </data>
   <data name="Veterinarians" xml:space="preserve">
     <value>Veterinarians</value>
+  </data>
+  <data name="ZipCode" xml:space="preserve">
+    <value>Zip Code</value>
   </data>
 </root>

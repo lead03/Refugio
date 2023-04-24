@@ -9,7 +9,7 @@
             <th>@Refugio.Resources.Languages.Global.FirstName</th>
             <th>@Refugio.Resources.Languages.Global.LastName</th>
             <th>@Refugio.Resources.Languages.Global.Speciality</th>
-            <th>@Refugio.Resources.Languages.Global.Salary</th>
+            <th>@Refugio.Resources.Languages.Global.PhoneNumberMain</th>
             <th></th>
             <th></th>
         </tr>
@@ -31,7 +31,7 @@
                             break;
                     }
                 </td>
-                <td>@veterinarian.Salary</td>
+                <td>@veterinarian.PhoneNumberMain</td>
                 <th>
                     <a href="@Url.Action("Edit", "Veterinarian", new { area = "Admin", Id = veterinarian.Id })">
                         <i class="fa fa-pencil" aria-hidden="true"></i>

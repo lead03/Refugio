@@ -11,7 +11,7 @@ namespace Refugio.Business
     {
         public static List<DTO.Veterinarian> GetVeterinariansFilteredAndPaged(int currentPage, int pageSize, string keyword = null, int selectedVeterinarianSpecialityId = 0)
         {
-            List<DTO.Veterinarian> veterinarians = DataAccess.Veterinarian.GetAllPaged(currentPage, pageSize, keyword, selectedVeterinarianSpecialityId);
+            List<DTO.Veterinarian> veterinarians = DataAccess.Veterinarian.GetFilteredPaged(currentPage, pageSize, keyword, selectedVeterinarianSpecialityId);
             return veterinarians;
         }
 
@@ -68,6 +68,22 @@ namespace Refugio.Business
             {
                 throw new DbUpdateException();
             }
+        }
+
+        public static string GetSpecialityName(DTO.Veterinarian veterinarian)
+        {
+            string specialityName = string.Empty;
+            var language = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
+            switch (language)
+            {
+                case Refugio.Resources.Language.EnglishKey:
+                    specialityName = veterinarian.VeterinarianSpeciality.SpecialityNameEN;
+                    break;
+                case Refugio.Resources.Language.SpanishKey:
+                    specialityName = veterinarian.VeterinarianSpeciality.SpecialityNameES;
+                    break;
+            }
+            return specialityName;
         }
     }
 }

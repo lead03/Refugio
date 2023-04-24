@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
 
 namespace Refugio.Business
 {
@@ -14,6 +12,25 @@ namespace Refugio.Business
             {
                 throw new InvalidOperationException();
             }
+        }
+
+        public static TTarget Map<TSource, TTarget>(TSource source, TTarget target)
+        {
+            var sourceType = typeof(TSource);
+            var targetType = typeof(TTarget);
+            var sourceProperties = sourceType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            var targetProperties = targetType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            foreach (var sourceProperty in sourceProperties)
+            {
+                var targetProperty = targetProperties.FirstOrDefault(x => x.Name == sourceProperty.Name && x.PropertyType == sourceProperty.PropertyType);
+
+                if (targetProperty != null)
+                {
+                    var value = sourceProperty.GetValue(source);
+                    targetProperty.SetValue(target, value);
+                }
+            }
+            return target;
         }
     }
 }

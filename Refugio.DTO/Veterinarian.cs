@@ -31,8 +31,9 @@ namespace Refugio.DTO
         public Nullable<decimal> Salary { get; set; }
         public Nullable<int> TimeSlot { get; set; }
         public string ProfessionalLicense { get; set; }
-        public string ForDescription { get; set; }
+        public string DescriptionES { get; set; }
         public byte[] RowVersion { get; set; }
+        public string DescriptionEN { get; set; }
     
         public virtual TimeSlotRange TimeSlotRange { get; set; }
         public virtual VeterinarianSpeciality VeterinarianSpeciality { get; set; }
