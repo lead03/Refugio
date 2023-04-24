@@ -34,6 +34,10 @@ namespace Refugio.DTO
         public string DescriptionES { get; set; }
         public byte[] RowVersion { get; set; }
         public string DescriptionEN { get; set; }
+        public Nullable<decimal> Fee { get; set; }
+        public string Email { get; set; }
+        public bool InLanding { get; set; }
+        public Nullable<System.Guid> ProfileImageId { get; set; }
     
         public virtual TimeSlotRange TimeSlotRange { get; set; }
         public virtual VeterinarianSpeciality VeterinarianSpeciality { get; set; }

@@ -223,6 +223,15 @@ namespace Refugio.Resources.Languages {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a This field must be between 0 and 9999999999999999.
+        /// </summary>
+        public static string FieldDecimalBetween {
+            get {
+                return ResourceManager.GetString("FieldDecimalBetween", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Filters.
         /// </summary>
         public static string Filters {
@@ -246,6 +255,15 @@ namespace Refugio.Resources.Languages {
         public static string IdNotProvided {
             get {
                 return ResourceManager.GetString("IdNotProvided", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a In landing.
+        /// </summary>
+        public static string InLanding {
+            get {
+                return ResourceManager.GetString("InLanding", resourceCulture);
             }
         }
         
@@ -277,6 +295,51 @@ namespace Refugio.Resources.Languages {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a This field must be shorter than 10 characters.
+        /// </summary>
+        public static string MaxNumberOfCharacters10 {
+            get {
+                return ResourceManager.GetString("MaxNumberOfCharacters10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a This field must be shorter than 100 characters.
+        /// </summary>
+        public static string MaxNumberOfCharacters100 {
+            get {
+                return ResourceManager.GetString("MaxNumberOfCharacters100", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a This field must be shorter than 15 characters.
+        /// </summary>
+        public static string MaxNumberOfCharacters15 {
+            get {
+                return ResourceManager.GetString("MaxNumberOfCharacters15", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a This field must be shorter than 50 characters.
+        /// </summary>
+        public static string MaxNumberOfCharacters50 {
+            get {
+                return ResourceManager.GetString("MaxNumberOfCharacters50", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a This field must be longer than 4 characters.
+        /// </summary>
+        public static string MinNumberOfCharacters4 {
+            get {
+                return ResourceManager.GetString("MinNumberOfCharacters4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Name.
         /// </summary>
         public static string Name {
@@ -291,6 +354,15 @@ namespace Refugio.Resources.Languages {
         public static string New {
             get {
                 return ResourceManager.GetString("New", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No.
+        /// </summary>
+        public static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
             }
         }
         
@@ -349,11 +421,29 @@ namespace Refugio.Resources.Languages {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a This field is required.
+        /// </summary>
+        public static string RequieredField {
+            get {
+                return ResourceManager.GetString("RequieredField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Salary.
         /// </summary>
         public static string Salary {
             get {
                 return ResourceManager.GetString("Salary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Save.
+        /// </summary>
+        public static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
             }
         }
         
@@ -480,6 +570,15 @@ namespace Refugio.Resources.Languages {
         public static string Veterinarians {
             get {
                 return ResourceManager.GetString("Veterinarians", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Yes.
+        /// </summary>
+        public static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
         

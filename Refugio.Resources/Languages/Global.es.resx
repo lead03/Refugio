@@ -171,6 +171,9 @@
   <data name="ErrorProcessingSave" xml:space="preserve">
     <value>Error al realizar el guardado</value>
   </data>
+  <data name="FieldDecimalBetween" xml:space="preserve">
+    <value>El valor de este campo debe estar entre 0 y 9999999999999999</value>
+  </data>
   <data name="Filters" xml:space="preserve">
     <value>Filtros</value>
   </data>
@@ -179,6 +182,9 @@
   </data>
   <data name="IdNotProvided" xml:space="preserve">
     <value>No se ha brindado el identificador</value>
+  </data>
+  <data name="InLanding" xml:space="preserve">
+    <value>En página de visita</value>
   </data>
   <data name="IsPermanent" xml:space="preserve">
     <value>Es permanente</value>
@@ -189,11 +195,29 @@
   <data name="LastName" xml:space="preserve">
     <value>Apellido</value>
   </data>
+  <data name="MaxNumberOfCharacters10" xml:space="preserve">
+    <value>Este campo debe ser menor a 10 caracteres</value>
+  </data>
+  <data name="MaxNumberOfCharacters100" xml:space="preserve">
+    <value>Este campo debe ser menor a 100 caracteres</value>
+  </data>
+  <data name="MaxNumberOfCharacters15" xml:space="preserve">
+    <value>Este campo debe ser menor a 15 caracteres</value>
+  </data>
+  <data name="MaxNumberOfCharacters50" xml:space="preserve">
+    <value>Este campo debe ser menor a 50 caracteres</value>
+  </data>
+  <data name="MinNumberOfCharacters4" xml:space="preserve">
+    <value>Este campo debe ser mayor a 4 caracteres</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Nombre</value>
   </data>
   <data name="New" xml:space="preserve">
     <value>Nuevo</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
   </data>
   <data name="OptionSelect" xml:space="preserve">
     <value>-- Seleccionar --</value>
@@ -213,8 +237,14 @@
   <data name="Province" xml:space="preserve">
     <value>Provincia</value>
   </data>
+  <data name="RequieredField" xml:space="preserve">
+    <value>Este campo es obligatorio</value>
+  </data>
   <data name="Salary" xml:space="preserve">
     <value>Salario</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Guardar</value>
   </data>
   <data name="Search" xml:space="preserve">
     <value>Buscar</value>
@@ -257,6 +287,9 @@
   </data>
   <data name="Veterinarians" xml:space="preserve">
     <value>Veterinarios</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Sí</value>
   </data>
   <data name="ZipCode" xml:space="preserve">
     <value>Código postal</value>

@@ -58,6 +58,10 @@
           <Property Name="DescriptionES" Type="varchar(max)" />
           <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
           <Property Name="DescriptionEN" Type="varchar(max)" />
+          <Property Name="Fee" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Email" Type="varchar" MaxLength="320" />
+          <Property Name="InLanding" Type="bit" Nullable="false" />
+          <Property Name="ProfileImageId" Type="uniqueidentifier" />
         </EntityType>
         <EntityType Name="VeterinarianSpeciality">
           <Key>
@@ -122,7 +126,7 @@
             <End Role="VeterinarianSpeciality" EntitySet="VeterinarianSpeciality" />
             <End Role="Veterinarian" EntitySet="Veterinarian" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="Staff">
           <Key>
             <PropertyRef Name="Id" />
@@ -186,6 +190,10 @@
           <Property Name="DescriptionES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="RowVersion" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
           <Property Name="DescriptionEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Fee" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Email" Type="String" MaxLength="320" FixedLength="false" Unicode="false" />
+          <Property Name="InLanding" Type="Boolean" Nullable="false" />
+          <Property Name="ProfileImageId" Type="Guid" />
           <NavigationProperty Name="TimeSlotRange" Relationship="RefugioModel.FK_Veterinarian_TimeSlotRange" FromRole="Veterinarian" ToRole="TimeSlotRange" />
           <NavigationProperty Name="VeterinarianSpeciality" Relationship="RefugioModel.FK_Veterinarian_VeterinarianSpeciality" FromRole="Veterinarian" ToRole="VeterinarianSpeciality" />
         </EntityType>
@@ -262,6 +270,10 @@
           <EntitySetMapping Name="Veterinarian">
             <EntityTypeMapping TypeName="RefugioModel.Veterinarian">
               <MappingFragment StoreEntitySet="Veterinarian">
+                <ScalarProperty Name="ProfileImageId" ColumnName="ProfileImageId" />
+                <ScalarProperty Name="InLanding" ColumnName="InLanding" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Fee" ColumnName="Fee" />
                 <ScalarProperty Name="DescriptionEN" ColumnName="DescriptionEN" />
                 <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
                 <ScalarProperty Name="DescriptionES" ColumnName="DescriptionES" />

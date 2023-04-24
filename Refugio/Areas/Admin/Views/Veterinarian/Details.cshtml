@@ -22,7 +22,7 @@
             </tr>
             <tr>
                 <th>@Refugio.Resources.Languages.Global.Email</th>
-                <td>@Html.DisplayFor(model => model.Email)</td>
+                <td>@(!string.IsNullOrWhiteSpace(Model.Email) ? Html.DisplayFor(model => model.Email).ToString() : " - ")</td>
             </tr>
             <tr>
                 <th>@Refugio.Resources.Languages.Global.StreetAddress</th>
@@ -89,8 +89,13 @@
 
             <tr>
                 <th>@Refugio.Resources.Languages.Global.Description - @Refugio.Resources.Languages.Global.Spanish</th>
-                <td>@(!string.IsNullOrWhiteSpace(Model.DescriptionES) ? Html.DisplayFor(model => model.DescriptionEN).ToString() : " - ")</td>
+                <td>@(!string.IsNullOrWhiteSpace(Model.DescriptionES) ? Html.DisplayFor(model => model.DescriptionES).ToString() : " - ")</td>
             </tr>
+            <tr>
+                <th>@Refugio.Resources.Languages.Global.InLanding</th>
+                <td>@(Model.InLanding ? "Sí" : "No")</td>
+            </tr>
+
         </tbody>
     </table>
 

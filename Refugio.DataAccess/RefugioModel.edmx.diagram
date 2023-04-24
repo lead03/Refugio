@@ -11,7 +11,7 @@
         <EntityTypeShape EntityType="RefugioModel.Veterinarian" Width="1.5" PointX="2.5" PointY="0.5" />
         <AssociationConnector Association="RefugioModel.FK_Veterinarian_TimeSlotRange" />
         <AssociationConnector Association="RefugioModel.FK_Veterinarian_VeterinarianSpeciality" />
-      </Diagram>
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

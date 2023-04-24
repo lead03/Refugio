@@ -55,6 +55,7 @@ namespace Refugio.Areas.Admin.Controllers
                     }
                     Business.Common.Map<DTO.Veterinarian, Models.Veterinarian.Details>(veterinarian, model);
                     model.SpecialityName = Business.Veterinarian.GetSpecialityName(veterinarian);
+                    model.TimeSlot = veterinarian.TimeSlotRange.TimeRange;
                     return View(model);
                 }
                 else
@@ -89,7 +90,7 @@ namespace Refugio.Areas.Admin.Controllers
                     {
                         throw new KeyNotFoundException(Refugio.Resources.Languages.Global.VeterinarianNotFoundById);
                     }
-                    model.GetValues(veterinarian);
+                    Business.Common.Map<DTO.Veterinarian, Models.Veterinarian.Edit>(veterinarian, model);
                 }
                 return View(model);
             }
@@ -126,7 +127,7 @@ namespace Refugio.Areas.Admin.Controllers
                 {
                     veterinarian.UserPassword = Refugio.Resources.Common.DefaultPassword;
                 }
-                model.SetValues(veterinarian);
+                Business.Common.Map<Models.Veterinarian.Edit, DTO.Veterinarian>(model, veterinarian);
                 model.Id = Business.Veterinarian.Save(veterinarian);
                 Business.AlertMessage.Set(TempData, true, Refugio.Resources.Languages.Global.SuccessDataSave, (int)Refugio.Resources.AlertMessage.Type.Success);
                 return RedirectToAction("Details", new { id = model.Id });
