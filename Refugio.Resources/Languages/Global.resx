@@ -222,7 +222,7 @@
   <data name="OptionSelect" xml:space="preserve">
     <value>-- Select --</value>
   </data>
-  <data name="PhoneNomberAditional" xml:space="preserve">
+  <data name="PhoneNumberAditional" xml:space="preserve">
     <value>Aditional phone number</value>
   </data>
   <data name="PhoneNumberMain" xml:space="preserve">

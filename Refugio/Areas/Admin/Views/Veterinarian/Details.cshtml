@@ -49,8 +49,8 @@
                 <td>@Html.DisplayFor(model => model.PhoneNumberMain)</td>
             </tr>
             <tr>
-                <th>@Refugio.Resources.Languages.Global.PhoneNomberAditional</th>
-                <td>@Html.DisplayFor(model => model.PhoneNumberAditional)</td>
+                <th>@Refugio.Resources.Languages.Global.PhoneNumberAditional</th>
+                <td>@(!string.IsNullOrWhiteSpace(Model.PhoneNumberAditional) ? Html.DisplayFor(model => model.PhoneNumberAditional).ToString() : " - ")</td>
             </tr>
             <tr>
                 <th>@Refugio.Resources.Languages.Global.Speciality</th>

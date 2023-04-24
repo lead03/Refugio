@@ -378,9 +378,9 @@ namespace Refugio.Resources.Languages {
         /// <summary>
         ///   Busca una cadena traducida similar a Aditional phone number.
         /// </summary>
-        public static string PhoneNomberAditional {
+        public static string PhoneNumberAditional {
             get {
-                return ResourceManager.GetString("PhoneNomberAditional", resourceCulture);
+                return ResourceManager.GetString("PhoneNumberAditional", resourceCulture);
             }
         }
         
