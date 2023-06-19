@@ -12,6 +12,7 @@ namespace Refugio.Business
         public static List<DTO.Veterinarian> GetVeterinariansFilteredAndPaged(int currentPage, int pageSize, string keyword = null, int selectedVeterinarianSpecialityId = 0)
         {
             List<DTO.Veterinarian> veterinarians = DataAccess.Veterinarian.GetFilteredPaged(currentPage, pageSize, keyword, selectedVeterinarianSpecialityId);
+            // comentario
             return veterinarians;
         }
 
