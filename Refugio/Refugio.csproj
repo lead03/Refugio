@@ -160,6 +160,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Areas\Admin\Custom\Styles\general.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\Images\banner-bunny.jpg" />
@@ -173,6 +174,7 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\Areas\Admin\general.js" />
     <Content Include="Scripts\Areas\Admin\Views\VeterinarianList.js" />
     <Content Include="libman.json" />
     <Content Include="Areas\Admin\Views\web.config" />
