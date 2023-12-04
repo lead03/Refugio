@@ -3,7 +3,7 @@
     string language = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
 }
 <input type="hidden" name="Filters.FilterModified" id="hdn-filter-modified-indicator" value="@Model.Filters.FilterModified" />
-<table class="table table-striped table-bordered">
+<table class="table-highlight">
     <thead>
         <tr>
             <th>@Refugio.Resources.Languages.Global.FirstName</th>
@@ -32,16 +32,17 @@
                     }
                 </td>
                 <td>@veterinarian.PhoneNumberMain</td>
-                <th>
-                    <a href="@Url.Action("Edit", "Veterinarian", new { area = "Admin", Id = veterinarian.Id })">
+                <td>
+                    <a href="@Url.Action("Edit", "Veterinarian", new { area = "Admin", Id = veterinarian.Id })" class="button-link">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
+                         Editar
                     </a>
-                </th>
-                <th>
-                    <a href="@Url.Action("Details", "Veterinarian", new { area = "Admin", Id = veterinarian.Id })">
+                </td>
+                <td>
+                    <a href="@Url.Action("Details", "Veterinarian", new { area = "Admin", Id = veterinarian.Id })" class="button-link">
                         <i class="fa fa-file-text-o" aria-hidden="true"></i>
                     </a>
-                </th>
+                </td>
             </tr>
         }
     </tbody>
@@ -50,6 +51,7 @@
 <div class="text-center">
     @Html.Partial("_pager", Model.Pager)
 </div>
+
 
 
 

@@ -144,6 +144,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Styles\Areas\Admin\general.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -160,7 +161,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
-    <Content Include="Content\Areas\Admin\Custom\Styles\general.css" />
+    <Content Include="Content\Styles\Shared\sidebar.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\Images\banner-bunny.jpg" />
@@ -170,6 +171,7 @@
     <Content Include="Content\Images\browser-logo-icons8-dog-paw-32.png" />
     <Content Include="Content\Images\Bunny_on_Grass_Background-853.jpg" />
     <Content Include="Content\Images\petting-dog.jpg" />
+    <Content Include="Content\Styles\Shared\table-highlight.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
@@ -217,6 +219,7 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\Admin\Views\Shared\_Sidebar.cshtml" />
     <None Include="Scripts\jquery-3.6.3.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.3.js" />
     <Content Include="Scripts\jquery-3.6.3.min.js" />

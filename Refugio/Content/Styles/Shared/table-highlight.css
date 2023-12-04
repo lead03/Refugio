@@ -1,0 +1,79 @@
+﻿:root {
+    --title-font-color: #fff;
+    --title-background-color: #55608f;
+    --data-font-color: #fff;
+    --data-font-color-hover: #fff;
+    --data-background-color: rgba(255,255,255,0.2);
+    --data-background-color-hover: orange;
+    --data-link-color: gray;
+    --data-link-color-hover: #fff;
+}
+
+.table-highlight {
+    width: 1000px;
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+/*    table-layout: fixed;*/
+}
+
+    .table-highlight icon-button {
+        width: auto;
+    }
+
+    .table-highlight th, td {
+        padding: 15px;
+    }
+
+    .table-highlight thead th {
+        text-align: left;
+        color: var(--title-font-color);
+        background-color: var(--title-background-color);
+    }
+
+    .table-highlight tbody td {
+        background-color: var(--data-background-color);
+        color: var(--data-font-color);
+        position: relative;
+        transition: 0.2s linear;
+        transition-delay: 0.3s, 0s;
+    }
+
+        .table-highlight tbody td:hover:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: -9999px;
+            bottom: -9999px;
+            background-color: rgba(255,255,255,0.2);
+            z-index: -1;
+        }
+
+        .table-highlight tbody td .button-link {
+            color: var(--data-link-color);
+            text-decoration: none;
+        }
+
+            .table-highlight tbody td .button-link:hover {
+                color: var(--data-link-color-hover);
+                text-decoration: none;
+            }
+
+    .table-highlight tbody tr:hover {
+        background-color: var(--data-background-color-hover);
+    }
+
+        .table-highlight tbody tr:hover td {
+            color: var(--data-font-color-hover);
+            font-size: larger;
+            transition-delay: 0s, 0s;
+        }
+
+    .table-highlight td {
+        /* 3. Scale the text using transform on hover */
+        /*        transform-origin: center left;*/
+        transition-property: transform;
+        transition-duration: 0.4s;
+        transition-timing-function: ease-in-out;
+    }
