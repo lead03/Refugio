@@ -14,12 +14,8 @@
     border-collapse: collapse;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0,0,0,0.1);
-/*    table-layout: fixed;*/
+    table-layout: fixed;
 }
-
-    .table-highlight icon-button {
-        width: auto;
-    }
 
     .table-highlight th, td {
         padding: 15px;
@@ -50,12 +46,13 @@
             z-index: -1;
         }
 
-        .table-highlight tbody td .button-link {
+        .table-highlight tbody td .icon-button {
+            visibility: hidden;
             color: var(--data-link-color);
             text-decoration: none;
         }
 
-            .table-highlight tbody td .button-link:hover {
+            .table-highlight tbody td .icon-button:hover {
                 color: var(--data-link-color-hover);
                 text-decoration: none;
             }
@@ -69,11 +66,16 @@
             font-size: larger;
             transition-delay: 0s, 0s;
         }
+            .table-highlight tbody tr:hover td .icon-button {
+                visibility: visible;
+            }
 
     .table-highlight td {
-        /* 3. Scale the text using transform on hover */
-        /*        transform-origin: center left;*/
         transition-property: transform;
         transition-duration: 0.4s;
         transition-timing-function: ease-in-out;
+    }
+
+    .table-highlight .icon-buttons-col {
+        width: 10rem;
     }
