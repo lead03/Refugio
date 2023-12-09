@@ -35,7 +35,7 @@
         transition-delay: 0.3s, 0s;
     }
 
-        .table-highlight tbody td:hover:before {
+        .table-highlight tbody td:not(.icon-buttons-col):hover:before {
             content: "";
             position: absolute;
             left: 0;
