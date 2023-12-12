@@ -16,20 +16,20 @@
     <tbody>
         @foreach (var veterinarian in Model.Veterinarians)
         {
+            string veterinarianSpeciality = string.Empty;
+            switch (language)
+            {
+                case (Refugio.Resources.Language.SpanishKey):
+                    veterinarianSpeciality = @veterinarian.VeterinarianSpeciality.SpecialityNameES;
+                    break;
+                case (Refugio.Resources.Language.EnglishKey):
+                    veterinarianSpeciality = @veterinarian.VeterinarianSpeciality.SpecialityNameEN;
+                    break;
+            }
             <tr>
                 <td>@veterinarian.FirstName</td>
                 <td>@veterinarian.LastName</td>
-                <td>
-                    @switch (language)
-                    {
-                        case (Refugio.Resources.Language.SpanishKey):
-                            @veterinarian.VeterinarianSpeciality.SpecialityNameES
-                            break;
-                        case (Refugio.Resources.Language.EnglishKey):
-                            @veterinarian.VeterinarianSpeciality.SpecialityNameEN
-                            break;
-                    }
-                </td>
+                <td>@veterinarianSpeciality</td>
                 <td>@veterinarian.PhoneNumberMain</td>
                 <td class="text-center icon-buttons-col">
                     <a href="@Url.Action("Details", "Veterinarian", new { area = "Admin", Id = veterinarian.Id })" class="icon-button">
@@ -38,9 +38,14 @@
                     <a href="@Url.Action("Edit", "Veterinarian", new { area = "Admin", Id = veterinarian.Id })" class="icon-button">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                     </a>
-                    <a href="" class="icon-button">
+                    <span class="icon-button delete"
+                          data-complete-name="@veterinarian.LastName, @veterinarian.FirstName"
+                          data-speciality="@veterinarianSpeciality"
+                          data-professional-licence="@veterinarian.ProfessionalLicense"
+                          data-id="@veterinarian.Id"
+                          >
                         <i class="fa fa-trash" aria-hidden="true"></i>
-                    </a>
+                    </span>
                 </td>
             </tr>
         }
@@ -51,33 +56,4 @@
     @Html.Partial("_pager", Model.Pager)
 </div>
 
-<!-- Delete modal -->
-<div class="modal fade" id="modal-delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">@Refugio.Resources.Languages.Global.Delete @Refugio.Resources.Languages.Global.Veterinarian.ToLower()</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>
-                    @Refugio.Resources.Languages.Global.SureDelete @Refugio.Resources.Languages.Global.Veterinarian.ToLower()?
-                </p>
-                <p>
-                    @Refugio.Resources.Languages.Global.Name: <br />
-                    @Refugio.Resources.Languages.Global.Speciality: <br />
-                    @Refugio.Resources.Languages.Global.ProfessionalLicense:
-                </p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Refugio.Resources.Languages.Global.Close</button>
-                <a href="" class="btn btn-success">@Refugio.Resources.Languages.Global.Delete</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-
+@Html.Partial("~/Areas/Admin/Views/Shared/_Modal.cshtml")

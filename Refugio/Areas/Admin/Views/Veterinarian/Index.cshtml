@@ -21,5 +21,15 @@
     </div>
 }
 
+<script>
+    var modalDeleteConfiguration = {
+        modalDeleteTitle: '@Refugio.Resources.Languages.Global.Delete ' + '@Refugio.Resources.Languages.Global.Veterinarian.ToLower()',
+        modalDeleteBodyAnswer: '@Refugio.Resources.Languages.Global.SureDelete ' + '@Refugio.Resources.Languages.Global.Veterinarian.ToLower()' + '?',
+        modalNameSection: '@Refugio.Resources.Languages.Global.Name',
+        modalSpecialitySection: '@Refugio.Resources.Languages.Global.Speciality',
+        modalLicenceSection: '@Refugio.Resources.Languages.Global.ProfessionalLicense',
+        modalUrlAction: "/Admin/Veterinarian/Delete/",
+    };
+</script>
 <script src="~/Scripts/Areas/Admin/Views/VeterinarianList.js"></script>
 @Styles.Render(("~/Content/Styles/Shared/table-highlight.css"))

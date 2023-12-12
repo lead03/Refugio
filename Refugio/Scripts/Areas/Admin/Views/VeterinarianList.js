@@ -3,9 +3,7 @@
     $(document).on('click', '.pager-index', loadPage);
     $('#btn-reset-filters').click(cleanFilters);
     $('.filter').change(setFilterIsModified);
-    $('.icon-button.delete').on('click', function (e) {
-        deleteFromList()
-    });
+    $(document).on('click', '.delete', deleteFromList);
     submitForm();
 });
 
@@ -48,24 +46,21 @@ function submitForm() {
 }
 
 function deleteFromList() {
-    e.preventDefault();
-
     // Obtén los datos de la fila actual
-    var firstName = $(this).closest('tr').find('td:eq(0)').text();
-    var lastName = $(this).closest('tr').find('td:eq(1)').text();
-    var speciality = $(this).closest('tr').find('td:eq(2)').text();
-    var professionalLicense = $(this).closest('tr').find('td:eq(3)').text();
-
+    var completeName = $(this).data('complete-name');
+    var speciality = $(this).data('speciality');
+    var professionalLicense = $(this).data('professional-licence');
+    var veterinarianId = $(this).data('id');
     // Actualiza el contenido del modal
-    $('#modal-delete .modal-title').html('@Refugio.Resources.Languages.Global.Delete @Refugio.Resources.Languages.Global.Veterinarian.ToLower()');
-    $('#modal-delete .modal-body p:eq(0)').html('@Refugio.Resources.Languages.Global.SureDelete @Refugio.Resources.Languages.Global.Veterinarian.ToLower()?');
-    $('#modal-delete .modal-body p:eq(1)').html('@Refugio.Resources.Languages.Global.Name: ' + lastName + ', ' + firstName + '<br />' +
-        '@Refugio.Resources.Languages.Global.Speciality: ' + speciality + '<br />' +
-        '@Refugio.Resources.Languages.Global.ProfessionalLicense: ' + professionalLicense);
+    $('#generic-admin-modal .modal-title').html(modalDeleteConfiguration.modalDeleteTitle);
+    $('#generic-admin-modal .modal-body p:eq(0)').html(modalDeleteConfiguration.modalDeleteBodyAnswer);
+    $('#generic-admin-modal .modal-body p:eq(1)').html(modalDeleteConfiguration.modalNameSection + ': '+ completeName + '<br />' +
+        modalDeleteConfiguration.modalSpecialitySection + ': ' + speciality + '<br />' +
+        modalDeleteConfiguration.modalLicenceSection + ': ' + professionalLicense);
 
     // Actualiza el enlace de eliminación dentro del modal
-    $('#modal-delete .modal-footer a').attr('href', $(this).attr('href'));
+    $('#generic-admin-modal .modal-footer a').attr('href', modalDeleteConfiguration.modalUrlAction + veterinarianId);
 
     // Muestra el modal
-    $('#modal-delete').modal('show');
+    $('#generic-admin-modal').modal('show');
 }
