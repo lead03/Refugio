@@ -11,9 +11,10 @@
     <link rel="stylesheet" href="~/Content/font-awesome.min.css">
     <link rel="stylesheet" href="~/Content/font-awesome.css">
     @Styles.Render("~/Content/Areas/Admin/Custom/Styles/general.css")
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900">
 </head>
 <body>
-    @Html.Partial("_Sidebar")
+    @*@Html.Partial("_Sidebar")*@
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -27,6 +28,6 @@
     @RenderSection("scripts", required: false)
     @Scripts.Render("~/Scripts/Areas/Admin/general.js")
     @Styles.Render("~/Content/Styles/Areas/Admin/general.css")
-    @Styles.Render("~/Content/Styles/Shared/sidebar.css")
+    @*@Styles.Render("~/Content/Styles/Shared/sidebar.css")*@
 </body>
 </html>

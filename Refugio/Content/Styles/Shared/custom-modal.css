@@ -1,0 +1,112 @@
+﻿:root {
+    --custom-modal-background-color: #FFF7F2;
+}
+
+#generic-admin-modal {
+    padding-top: 5rem;
+    z-index: 1055;
+}
+
+    #generic-admin-modal .custom-modal-content {
+        border-radius: 2rem;
+        overflow: hidden;
+        width: 100%;
+        pointer-events: auto;
+        position: relative;
+    }
+
+        #generic-admin-modal .custom-modal-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--custom-modal-background-color);
+            z-index: -1;
+        }
+
+        #generic-admin-modal .custom-modal-content .custom-modal-header {
+            padding: 2rem;
+            background-color: crimson;
+            display: flex;
+            flex-direction: column;
+        }
+
+            #generic-admin-modal .custom-modal-content .custom-modal-header h1, i {
+                color: #FFF7F2;
+                text-align: center;
+            }
+
+            #generic-admin-modal .custom-modal-content .custom-modal-header i {
+                font-size: 3rem;
+                margin-bottom: 1rem;
+            }
+
+            #generic-admin-modal .custom-modal-content .custom-modal-header h1 {
+                font: 200 2em/1em Raleway, Sans-Serif;
+                text-transform: initial;
+                margin: 0;
+            }
+
+        #generic-admin-modal .custom-modal-content .custom-modal-body {
+            padding: 2rem;
+            font: 200 2em/1em Raleway, Sans-Serif;
+        }
+
+            #generic-admin-modal .custom-modal-content .custom-modal-body p {
+                font: 200 Raleway, Sans-Serif;
+                letter-spacing: 0.015em;
+                font-size: 16px;
+                text-align: center;
+            }
+
+                #generic-admin-modal .custom-modal-content .custom-modal-body .text-title {
+                    font-weight: 400;
+                }
+
+                #generic-admin-modal .custom-modal-content .custom-modal-body .text-body {
+                    margin-bottom: 0;
+                }
+
+        #generic-admin-modal .custom-modal-content .custom-modal-footer {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+            #generic-admin-modal .custom-modal-content .custom-modal-footer .button-positive, .button-negative {
+                display: inline-block;
+                padding: 0.3rem 1rem;
+                box-sizing: border-box;
+                background: #ffffff;
+                color: #606060;
+                text-decoration: none;
+                letter-spacing: 0.075em;
+                line-height: 2rem;
+                font-family: Raleway, Open Sans, Arial;
+                font-weight: 300;
+                font-size: 0.85em;
+                border-radius: 4px;
+                border: 1px solid #e0e0e0;
+                transition: .1s all;
+                margin: 0 0.5rem;
+                border-radius: 1.5rem;
+            }
+
+                #generic-admin-modal .custom-modal-content .custom-modal-footer .button-positive:hover, .button-negative:hover {
+                    color: #a0a0a0;
+                    background: #f8f8f8;
+                    box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+                }
+
+            #generic-admin-modal .custom-modal-content .custom-modal-footer .button-positive {
+                border-color: #6199B7;
+                color: #6199B7;
+            }
+
+                #generic-admin-modal .custom-modal-content .custom-modal-footer .button-positive:hover {
+                    border-color: #468FB6;
+                    color: #fff;
+                    background-color: #468FB6;
+                }

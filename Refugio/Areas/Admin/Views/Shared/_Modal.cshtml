@@ -1,18 +1,21 @@
 ﻿<div class="modal fade" id="generic-admin-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5"></h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="custom-modal-content">
+            <div class="custom-modal-header">
+                <i class="custom-modal-title-icon"></i>
+                <h1 class="custom-modal-title"></h1>
             </div>
-            <div class="modal-body">
-                <p></p>
-                <p></p>
+            <div class="custom-modal-body">
+                <p class="text-title"></p>
+                <p class="text-body"></p>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Refugio.Resources.Languages.Global.Close</button>
-                <a href="" class="btn btn-success">@Refugio.Resources.Languages.Global.Delete</a>
+            <div class="custom-modal-footer">
+                <button type="button" class="button-positive"><i class="icon ion-ios-checkmark-empty"></i> Yes, let's do it!</button>
+                <button type="button" class="button-negative" data-bs-dismiss="modal"><i class="icon ion-ios-close-empty"></i> No, I'll reconsider</button>
+                @*<a href="" class="btn btn-success">@Refugio.Resources.Languages.Global.Delete</a>*@
             </div>
         </div>
     </div>
 </div>
+
+@Styles.Render("~/Content/Styles/Shared/custom-modal.css")

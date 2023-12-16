@@ -52,9 +52,10 @@ function deleteFromList() {
     var professionalLicense = $(this).data('professional-licence');
     var veterinarianId = $(this).data('id');
     // Actualiza el contenido del modal
-    $('#generic-admin-modal .modal-title').html(modalDeleteConfiguration.modalDeleteTitle);
-    $('#generic-admin-modal .modal-body p:eq(0)').html(modalDeleteConfiguration.modalDeleteBodyAnswer);
-    $('#generic-admin-modal .modal-body p:eq(1)').html(modalDeleteConfiguration.modalNameSection + ': '+ completeName + '<br />' +
+    $('#generic-admin-modal .custom-modal-title-icon').addClass('fa fa-exclamation-triangle');
+    $('#generic-admin-modal .custom-modal-title').html(modalDeleteConfiguration.modalDeleteTitle);
+    $('#generic-admin-modal .custom-modal-body p:eq(0)').html(modalDeleteConfiguration.modalDeleteBodyAnswer);
+    $('#generic-admin-modal .custom-modal-body p:eq(1)').html(modalDeleteConfiguration.modalNameSection + ': '+ completeName + '<br />' +
         modalDeleteConfiguration.modalSpecialitySection + ': ' + speciality + '<br />' +
         modalDeleteConfiguration.modalLicenceSection + ': ' + professionalLicense);
 
