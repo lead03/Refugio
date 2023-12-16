@@ -1,6 +1,11 @@
 ﻿:root {
     --danger-content-background-color: #FFF7F2;
     --danger-header-background-color: #DC143C;
+    --danger-primary-button-font-color: #DC143C;
+    --danger-primary-button-border-color: #DC143C;
+    --danger-primary-button-hover-background-color: #DC143C;
+    --danger-primary-button-hover-font-color: #FDFDFD;
+    --danger-primary-button-hover-border-color: #DC143C;
     --default-header-font-color: #FDFDFD;
     --default-button-background-color: #FDFDFD;
     --default-button-font-color: #606060;
@@ -95,17 +100,18 @@
                 margin: 0 0.5rem;
                 border-radius: 1.5rem;
                 border: 1px solid;
+                text-decoration: none;
             }
 
             #generic-admin-modal .custom-modal-content .custom-modal-footer .button-primary {
-                border-color: #DC143C;
-                color: #DC143C;
+                border-color: var(--danger-primary-button-border-color);
+                color: var(--danger-primary-button-font-color);
             }
 
                 #generic-admin-modal .custom-modal-content .custom-modal-footer .button-primary:hover {
-                    border-color: #DC143C;
-                    color: #fff;
-                    background-color: #DC143C;
+                    border-color: var(--danger-primary-button-hover-border-color);
+                    color: var(--danger-primary-button-hover-font-color);
+                    background-color: var(--danger-primary-button-hover-background-color);
                 }
 
             #generic-admin-modal .custom-modal-content .custom-modal-footer .button-secondary {
