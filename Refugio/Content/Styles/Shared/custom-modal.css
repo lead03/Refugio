@@ -1,5 +1,13 @@
 ﻿:root {
-    --custom-modal-background-color: #FFF7F2;
+    --danger-content-background-color: #FFF7F2;
+    --danger-header-background-color: #DC143C;
+    --default-header-font-color: #FDFDFD;
+    --default-button-background-color: #FDFDFD;
+    --default-button-font-color: #606060;
+    --default-button-border-color: #E0E0E0;
+    --default-secondary-button-hover-background-color: #DDDDDD;
+    --default-secondary-button-hover-font-color: #606060;
+    --default-secondary-button-hover-border-color: #606060;
 }
 
 #generic-admin-modal {
@@ -22,19 +30,19 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: var(--custom-modal-background-color);
+            background-color: var(--danger-content-background-color);
             z-index: -1;
         }
 
         #generic-admin-modal .custom-modal-content .custom-modal-header {
             padding: 2rem;
-            background-color: crimson;
+            background-color: var(--danger-header-background-color);
             display: flex;
             flex-direction: column;
         }
 
             #generic-admin-modal .custom-modal-content .custom-modal-header h1, i {
-                color: #FFF7F2;
+                color: var(--default-header-font-color);
                 text-align: center;
             }
 
@@ -61,13 +69,13 @@
                 text-align: center;
             }
 
-                #generic-admin-modal .custom-modal-content .custom-modal-body .text-title {
-                    font-weight: 400;
-                }
+            #generic-admin-modal .custom-modal-content .custom-modal-body .text-title {
+                font-weight: 400;
+            }
 
-                #generic-admin-modal .custom-modal-content .custom-modal-body .text-body {
-                    margin-bottom: 0;
-                }
+            #generic-admin-modal .custom-modal-content .custom-modal-body .text-body {
+                margin-bottom: 0;
+            }
 
         #generic-admin-modal .custom-modal-content .custom-modal-footer {
             display: flex;
@@ -75,38 +83,38 @@
             margin-bottom: 2rem;
         }
 
-            #generic-admin-modal .custom-modal-content .custom-modal-footer .button-positive, .button-negative {
-                display: inline-block;
+            #generic-admin-modal .custom-modal-content .custom-modal-footer .button-primary, .button-secondary {
                 padding: 0.3rem 1rem;
-                box-sizing: border-box;
-                background: #ffffff;
-                color: #606060;
-                text-decoration: none;
+                background: var(--default-button-background-color);
                 letter-spacing: 0.075em;
                 line-height: 2rem;
                 font-family: Raleway, Open Sans, Arial;
                 font-weight: 300;
                 font-size: 0.85em;
-                border-radius: 4px;
-                border: 1px solid #e0e0e0;
-                transition: .1s all;
+                transition: 0.75s all;
                 margin: 0 0.5rem;
                 border-radius: 1.5rem;
+                border: 1px solid;
             }
 
-                #generic-admin-modal .custom-modal-content .custom-modal-footer .button-positive:hover, .button-negative:hover {
-                    color: #a0a0a0;
-                    background: #f8f8f8;
-                    box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+            #generic-admin-modal .custom-modal-content .custom-modal-footer .button-primary {
+                border-color: #DC143C;
+                color: #DC143C;
+            }
+
+                #generic-admin-modal .custom-modal-content .custom-modal-footer .button-primary:hover {
+                    border-color: #DC143C;
+                    color: #fff;
+                    background-color: #DC143C;
                 }
 
-            #generic-admin-modal .custom-modal-content .custom-modal-footer .button-positive {
-                border-color: #6199B7;
-                color: #6199B7;
+            #generic-admin-modal .custom-modal-content .custom-modal-footer .button-secondary {
+                border-color: var(--default-button-border-color);
+                color: var(--default-button-font-color);
             }
 
-                #generic-admin-modal .custom-modal-content .custom-modal-footer .button-positive:hover {
-                    border-color: #468FB6;
-                    color: #fff;
-                    background-color: #468FB6;
+                #generic-admin-modal .custom-modal-content .custom-modal-footer .button-secondary:hover {
+                    border-color: var(--default-secondary-button-hover-border-color);
+                    color: var(--default-secondary-button-hover-font-color);
+                    background-color: var(--default-secondary-button-hover-background-color);
                 }

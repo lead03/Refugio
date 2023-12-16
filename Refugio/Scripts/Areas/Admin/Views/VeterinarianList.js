@@ -58,7 +58,8 @@ function deleteFromList() {
     $('#generic-admin-modal .custom-modal-body p:eq(1)').html(modalDeleteConfiguration.modalNameSection + ': '+ completeName + '<br />' +
         modalDeleteConfiguration.modalSpecialitySection + ': ' + speciality + '<br />' +
         modalDeleteConfiguration.modalLicenceSection + ': ' + professionalLicense);
-
+    $('#generic-admin-modal .button-primary-text').html(modalDeleteConfiguration.modalPrimaryButtonText);
+    $('#generic-admin-modal .button-secondary-text').html(modalDeleteConfiguration.modalSecondaryButtonText);
     // Actualiza el enlace de eliminación dentro del modal
     $('#generic-admin-modal .modal-footer a').attr('href', modalDeleteConfiguration.modalUrlAction + veterinarianId);
 
