@@ -61,6 +61,14 @@ function deleteFromList() {
     $('#generic-admin-modal .button-primary-text').html(modalDeleteConfiguration.modalPrimaryButtonText);
     $('#generic-admin-modal .button-secondary-text').html(modalDeleteConfiguration.modalSecondaryButtonText);
     // Actualiza el enlace de eliminación dentro del modal
+    if (modalDeleteConfiguration.modalType == 'danger') {
+        $('#generic-admin-modal .button-primary').removeClass('success');
+        $('#generic-admin-modal .button-primary').addClass('danger');
+    }
+    else if (modalDeleteConfiguration.modalType == 'success') {
+        $('#generic-admin-modal .button-primary').removeClass('danger');
+        $('#generic-admin-modal .button-primary').addClass('success');
+    }
     $('#generic-admin-modal .button-primary').attr('href', modalDeleteConfiguration.modalUrlAction + veterinarianId);
 
     // Muestra el modal

@@ -13,6 +13,11 @@
     --default-secondary-button-hover-background-color: #DDDDDD;
     --default-secondary-button-hover-font-color: #606060;
     --default-secondary-button-hover-border-color: #606060;
+    --success-primary-button-font-color: #14DC3C;
+    --success-primary-button-border-color: #14DC3C;
+    --success-primary-button-hover-background-color: #14DC3C;
+    --success-primary-button-hover-font-color: #FDFDFD;
+    --success-primary-button-hover-border-color: #14DC3C;
 }
 
 #generic-admin-modal {
@@ -103,16 +108,28 @@
                 text-decoration: none;
             }
 
-            #generic-admin-modal .custom-modal-content .custom-modal-footer .button-primary {
+            #generic-admin-modal .custom-modal-content .custom-modal-footer .danger.button-primary {
                 border-color: var(--danger-primary-button-border-color);
                 color: var(--danger-primary-button-font-color);
             }
 
-                #generic-admin-modal .custom-modal-content .custom-modal-footer .button-primary:hover {
+                #generic-admin-modal .custom-modal-content .custom-modal-footer .danger.button-primary:hover {
                     border-color: var(--danger-primary-button-hover-border-color);
                     color: var(--danger-primary-button-hover-font-color);
                     background-color: var(--danger-primary-button-hover-background-color);
                 }
+
+            #generic-admin-modal .custom-modal-content .custom-modal-footer .success.button-primary {
+                border-color: var(--success-primary-button-border-color);
+                color: var(--success-primary-button-font-color);
+            }
+
+                #generic-admin-modal .custom-modal-content .custom-modal-footer .success.button-primary:hover {
+                    border-color: var(--success-primary-button-hover-border-color);
+                    color: var(--success-primary-button-hover-font-color);
+                    background-color: var(--success-primary-button-hover-background-color);
+                }
+
 
             #generic-admin-modal .custom-modal-content .custom-modal-footer .button-secondary {
                 border-color: var(--default-button-border-color);
