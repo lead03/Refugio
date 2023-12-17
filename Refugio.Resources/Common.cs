@@ -26,4 +26,12 @@ namespace Refugio.Resources
             Success = 3,
         }
     }
+
+    public class CustomModalTypes
+    {
+        public const string DangerKey = "danger";
+        public const string SuccessKey = "success";
+        public const string WarningKey = "warning";
+        public const string InfoKey = "info";
+    }
 }

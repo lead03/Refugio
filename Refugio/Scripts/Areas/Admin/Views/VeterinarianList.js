@@ -51,75 +51,8 @@ function deleteFromList() {
     var speciality = $(this).data('speciality');
     var professionalLicense = $(this).data('professional-licence');
     var veterinarianId = $(this).data('id');
-    // Actualiza el contenido del modal
-    $('#custom-modal .custom-modal-title-icon').addClass(modalDeleteConfiguration.modalIcon);
-    $('#custom-modal .custom-modal-title').html(modalDeleteConfiguration.modalDeleteTitle);
-    $('#custom-modal .custom-modal-body p:eq(0)').html(modalDeleteConfiguration.modalDeleteBodyAnswer);
-    $('#custom-modal .custom-modal-body p:eq(1)').html(modalDeleteConfiguration.modalNameSection + ': '+ completeName + '<br />' +
-        modalDeleteConfiguration.modalSpecialitySection + ': ' + speciality + '<br />' +
-        modalDeleteConfiguration.modalLicenceSection + ': ' + professionalLicense);
-    $('#custom-modal .button-primary-text').html(modalDeleteConfiguration.modalPrimaryButtonText);
-    $('#custom-modal .button-secondary-text').html(modalDeleteConfiguration.modalSecondaryButtonText);
-
-    if (modalDeleteConfiguration.modalType == 'danger') {
-        $('#custom-modal .button-primary').removeClass('success');
-        $('#custom-modal .button-primary').removeClass('warning');
-        $('#custom-modal .button-primary').removeClass('info');
-        $('#custom-modal .button-primary').addClass('danger');
-        $('#custom-modal .custom-modal-header').removeClass('success');
-        $('#custom-modal .custom-modal-header').removeClass('warning');
-        $('#custom-modal .custom-modal-header').removeClass('info');
-        $('#custom-modal .custom-modal-header').addClass('danger');
-        $('#custom-modal .custom-modal-content').removeClass('success');
-        $('#custom-modal .custom-modal-content').removeClass('warning');
-        $('#custom-modal .custom-modal-content').removeClass('info');
-        $('#custom-modal .custom-modal-content').addClass('danger');
-    }
-    else if (modalDeleteConfiguration.modalType == 'success') {
-        $('#custom-modal .button-primary').removeClass('danger');
-        $('#custom-modal .button-primary').removeClass('warning');
-        $('#custom-modal .button-primary').removeClass('info');
-        $('#custom-modal .button-primary').addClass('success');
-        $('#custom-modal .custom-modal-header').removeClass('danger');
-        $('#custom-modal .custom-modal-header').removeClass('warning');
-        $('#custom-modal .custom-modal-header').removeClass('info');
-        $('#custom-modal .custom-modal-header').addClass('success');
-        $('#custom-modal .custom-modal-content').removeClass('danger');
-        $('#custom-modal .custom-modal-content').removeClass('warning');
-        $('#custom-modal .custom-modal-content').removeClass('info');
-        $('#custom-modal .custom-modal-content').addClass('success');
-    }
-    else if (modalDeleteConfiguration.modalType == 'warning') {
-        $('#custom-modal .button-primary').removeClass('danger');
-        $('#custom-modal .button-primary').removeClass('success');
-        $('#custom-modal .button-primary').removeClass('info');
-        $('#custom-modal .button-primary').addClass('warning');
-        $('#custom-modal .custom-modal-header').removeClass('danger');
-        $('#custom-modal .custom-modal-header').removeClass('success');
-        $('#custom-modal .custom-modal-header').removeClass('info');
-        $('#custom-modal .custom-modal-header').addClass('warning');
-        $('#custom-modal .custom-modal-content').removeClass('danger');
-        $('#custom-modal .custom-modal-content').removeClass('success');
-        $('#custom-modal .custom-modal-content').removeClass('info');
-        $('#custom-modal .custom-modal-content').addClass('warning');
-    }
-    else if (modalDeleteConfiguration.modalType == 'info') {
-        $('#custom-modal .button-primary').removeClass('danger');
-        $('#custom-modal .button-primary').removeClass('success');
-        $('#custom-modal .button-primary').removeClass('warning');
-        $('#custom-modal .button-primary').addClass('info');
-        $('#custom-modal .custom-modal-header').removeClass('danger');
-        $('#custom-modal .custom-modal-header').removeClass('success');
-        $('#custom-modal .custom-modal-header').removeClass('warning');
-        $('#custom-modal .custom-modal-header').addClass('info');
-        $('#custom-modal .custom-modal-content').removeClass('danger');
-        $('#custom-modal .custom-modal-content').removeClass('success');
-        $('#custom-modal .custom-modal-content').removeClass('warning');
-        $('#custom-modal .custom-modal-content').addClass('info');
-    }
-    // Actualiza el enlace de eliminación dentro del modal
-    $('#custom-modal .button-primary').attr('href', modalDeleteConfiguration.modalUrlAction + veterinarianId);
-
-    // Muestra el modal
+    modalConfiguration.bodyContent = customDataForModal.modalNameSection + ': ' + completeName + '<br />' + customDataForModal.modalSpecialitySection + ': ' + speciality + '<br />' + customDataForModal.modalLicenceSection + ': ' + professionalLicense;
+    modalConfiguration.footerPrimaryButtonUrlAction = customDataForModal.deleteUrl + veterinarianId;
+    setDataConfiguration();
     $('#custom-modal').modal('show');
 }

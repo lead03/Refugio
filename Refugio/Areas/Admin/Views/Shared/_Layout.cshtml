@@ -21,7 +21,8 @@
             <p>&copy; @DateTime.Now.Year - Refugio "Mi Refugio"</p>
         </footer>
     </div>
-    <script src="~/Scripts/Shared/alertMessages.js"></script>
+    @Scripts.Render("~/Scripts/Shared/alertMessages.js");
+    @Scripts.Render("~/Scripts/Shared/custom-modal.js")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

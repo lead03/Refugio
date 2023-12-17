@@ -141,8 +141,9 @@
             margin-bottom: 2rem;
         }
 
-            #custom-modal .custom-modal-content .custom-modal-footer .button-primary, 
-            #custom-modal .custom-modal-content .custom-modal-footer .button-secondary {
+            #custom-modal .custom-modal-content .custom-modal-footer .button-primary,
+            #custom-modal .custom-modal-content .custom-modal-footer .button-secondary,
+            #custom-modal .custom-modal-content .custom-modal-footer .button-additional {
                 padding: 0.3rem 1rem;
                 background: var(--default-button-background-color);
                 letter-spacing: 0.075em;
@@ -201,12 +202,14 @@
                     color: var(--default-primary-button-hover-font-color);
                 }
 
-            #custom-modal .custom-modal-content .custom-modal-footer .button-secondary {
+            #custom-modal .custom-modal-content .custom-modal-footer .button-secondary,
+            #custom-modal .custom-modal-content .custom-modal-footer .button-additional {
                 border-color: var(--default-button-border-color);
                 color: var(--default-button-font-color);
             }
 
-                #custom-modal .custom-modal-content .custom-modal-footer .button-secondary:hover {
+                #custom-modal .custom-modal-content .custom-modal-footer .button-secondary:hover,
+                #custom-modal .custom-modal-content .custom-modal-footer .button-additional:hover {
                     border-color: var(--default-secondary-button-hover-border-color);
                     background-color: var(--default-secondary-button-hover-background-color);
                     color: var(--default-secondary-button-hover-font-color);

@@ -56,3 +56,17 @@
 </div>
 
 @Html.Partial("~/Areas/Admin/Views/Shared/_Modal.cshtml")
+<script>
+    modalConfiguration.type = '@Refugio.Resources.CustomModalTypes.SuccessKey';
+    modalConfiguration.headerIcon = 'fa fa-exclamation-triangle';
+    modalConfiguration.headerTitle = '@Refugio.Resources.Languages.Global.Delete ' + '@Refugio.Resources.Languages.Global.Veterinarian.ToLower()';
+    modalConfiguration.bodyTitle = '@Refugio.Resources.Languages.Global.SureDelete ' + '@Refugio.Resources.Languages.Global.Veterinarian.ToLower()' + '?';
+    modalConfiguration.footerPrimaryButtonText = '@Refugio.Resources.Languages.Global.Yes' + ', ' + '@Refugio.Resources.Languages.Global.Delete.ToLower()';
+    modalConfiguration.footerSecondaryButtonText = '@Refugio.Resources.Languages.Global.No' + ', ' + '@Refugio.Resources.Languages.Global.Cancel.ToLower()';
+    var customDataForModal = {
+        modalNameSection: '@Refugio.Resources.Languages.Global.Name',
+        modalSpecialitySection: '@Refugio.Resources.Languages.Global.Speciality',
+        modalLicenceSection: '@Refugio.Resources.Languages.Global.ProfessionalLicense',
+        deleteUrl : '/Admin/Veterinarian/Delete/',
+    }
+</script>
