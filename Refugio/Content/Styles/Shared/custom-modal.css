@@ -141,7 +141,8 @@
             margin-bottom: 2rem;
         }
 
-            #generic-admin-modal .custom-modal-content .custom-modal-footer .button-primary, .button-secondary {
+            #generic-admin-modal .custom-modal-content .custom-modal-footer .button-primary, 
+            #generic-admin-modal .custom-modal-content .custom-modal-footer .button-secondary {
                 padding: 0.3rem 1rem;
                 background: var(--default-button-background-color);
                 letter-spacing: 0.075em;
