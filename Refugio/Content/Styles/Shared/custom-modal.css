@@ -1,23 +1,41 @@
 ﻿:root {
-    --danger-content-background-color: #FFF7F2;
-    --danger-header-background-color: #DC143C;
-    --danger-primary-button-font-color: #DC143C;
-    --danger-primary-button-border-color: #DC143C;
-    --danger-primary-button-hover-background-color: #DC143C;
-    --danger-primary-button-hover-font-color: #FDFDFD;
-    --danger-primary-button-hover-border-color: #DC143C;
+    /*Default variables*/
     --default-header-font-color: #FDFDFD;
     --default-button-background-color: #FDFDFD;
     --default-button-font-color: #606060;
     --default-button-border-color: #E0E0E0;
+    --default-primary-button-hover-font-color: #FDFDFD;
     --default-secondary-button-hover-background-color: #DDDDDD;
     --default-secondary-button-hover-font-color: #606060;
     --default-secondary-button-hover-border-color: #606060;
+    /*Danger variables*/
+    --danger-content-background-color: #FFF7F7;
+    --danger-header-background-color: #DC143C;
+    --danger-primary-button-font-color: #DC143C;
+    --danger-primary-button-border-color: #DC143C;
+    --danger-primary-button-hover-background-color: #DC143C;
+    --danger-primary-button-hover-border-color: #DC143C;
+    /*Success variables*/
+    --success-content-background-color: #F7FFF7;
+    --success-header-background-color: #14DC3C;
     --success-primary-button-font-color: #14DC3C;
     --success-primary-button-border-color: #14DC3C;
     --success-primary-button-hover-background-color: #14DC3C;
-    --success-primary-button-hover-font-color: #FDFDFD;
     --success-primary-button-hover-border-color: #14DC3C;
+    /*Warning variables*/
+    --warning-content-background-color: #F7FEFF;
+    --warning-header-background-color: #14CADC;
+    --warning-primary-button-font-color: #14CADC;
+    --warning-primary-button-border-color: #14CADC;
+    --warning-primary-button-hover-background-color: #14CADC;
+    --warning-primary-button-hover-border-color: #14CADC;
+    /*Info variables*/
+    --info-content-background-color: #FFFEF7;
+    --info-header-background-color: #DCA614;
+    --info-primary-button-font-color: #DCA614;
+    --info-primary-button-border-color: #DCA614;
+    --info-primary-button-hover-background-color: #DCA614;
+    --info-primary-button-hover-border-color: #DCA614;
 }
 
 #generic-admin-modal {
@@ -40,16 +58,46 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: var(--danger-content-background-color);
             z-index: -1;
         }
 
+            #generic-admin-modal  .danger.custom-modal-content::before {
+                background-color: var(--danger-content-background-color);
+            }
+
+    #generic-admin-modal .success.custom-modal-content::before {
+        background-color: var(--success-content-background-color);
+    }
+
+    #generic-admin-modal .warning.custom-modal-content::before {
+        background-color: var(--warning-content-background-color);
+    }
+
+    #generic-admin-modal .info.custom-modal-content::before {
+        background-color: var(--info-content-background-color);
+    }
+
         #generic-admin-modal .custom-modal-content .custom-modal-header {
             padding: 2rem;
-            background-color: var(--danger-header-background-color);
             display: flex;
             flex-direction: column;
         }
+
+            #generic-admin-modal .custom-modal-content .custom-modal-header.danger {
+                background-color: var(--danger-header-background-color);
+            }
+
+            #generic-admin-modal .custom-modal-content .custom-modal-header.success {
+                background-color: var(--success-header-background-color);
+            }
+
+            #generic-admin-modal .custom-modal-content .custom-modal-header.warning {
+                background-color: var(--warning-header-background-color);
+            }
+
+            #generic-admin-modal .custom-modal-content .custom-modal-header.info {
+                background-color: var(--info-header-background-color);
+            }
 
             #generic-admin-modal .custom-modal-content .custom-modal-header h1, i {
                 color: var(--default-header-font-color);
@@ -115,8 +163,8 @@
 
                 #generic-admin-modal .custom-modal-content .custom-modal-footer .danger.button-primary:hover {
                     border-color: var(--danger-primary-button-hover-border-color);
-                    color: var(--danger-primary-button-hover-font-color);
                     background-color: var(--danger-primary-button-hover-background-color);
+                    color: var(--default-primary-button-hover-font-color);
                 }
 
             #generic-admin-modal .custom-modal-content .custom-modal-footer .success.button-primary {
@@ -126,10 +174,31 @@
 
                 #generic-admin-modal .custom-modal-content .custom-modal-footer .success.button-primary:hover {
                     border-color: var(--success-primary-button-hover-border-color);
-                    color: var(--success-primary-button-hover-font-color);
                     background-color: var(--success-primary-button-hover-background-color);
+                    color: var(--default-primary-button-hover-font-color);
                 }
 
+            #generic-admin-modal .custom-modal-content .custom-modal-footer .warning.button-primary {
+                border-color: var(--warning-primary-button-border-color);
+                color: var(--warning-primary-button-font-color);
+            }
+
+                #generic-admin-modal .custom-modal-content .custom-modal-footer .warning.button-primary:hover {
+                    border-color: var(--warning-primary-button-hover-border-color);
+                    background-color: var(--warning-primary-button-hover-background-color);
+                    color: var(--default-primary-button-hover-font-color);
+                }
+
+            #generic-admin-modal .custom-modal-content .custom-modal-footer .info.button-primary {
+                border-color: var(--info-primary-button-border-color);
+                color: var(--info-primary-button-font-color);
+            }
+
+                #generic-admin-modal .custom-modal-content .custom-modal-footer .info.button-primary:hover {
+                    border-color: var(--info-primary-button-hover-border-color);
+                    background-color: var(--info-primary-button-hover-background-color);
+                    color: var(--default-primary-button-hover-font-color);
+                }
 
             #generic-admin-modal .custom-modal-content .custom-modal-footer .button-secondary {
                 border-color: var(--default-button-border-color);
@@ -138,6 +207,6 @@
 
                 #generic-admin-modal .custom-modal-content .custom-modal-footer .button-secondary:hover {
                     border-color: var(--default-secondary-button-hover-border-color);
-                    color: var(--default-secondary-button-hover-font-color);
                     background-color: var(--default-secondary-button-hover-background-color);
+                    color: var(--default-secondary-button-hover-font-color);
                 }

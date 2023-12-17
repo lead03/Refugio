@@ -60,15 +60,64 @@ function deleteFromList() {
         modalDeleteConfiguration.modalLicenceSection + ': ' + professionalLicense);
     $('#generic-admin-modal .button-primary-text').html(modalDeleteConfiguration.modalPrimaryButtonText);
     $('#generic-admin-modal .button-secondary-text').html(modalDeleteConfiguration.modalSecondaryButtonText);
-    // Actualiza el enlace de eliminación dentro del modal
+
     if (modalDeleteConfiguration.modalType == 'danger') {
         $('#generic-admin-modal .button-primary').removeClass('success');
+        $('#generic-admin-modal .button-primary').removeClass('warning');
+        $('#generic-admin-modal .button-primary').removeClass('info');
         $('#generic-admin-modal .button-primary').addClass('danger');
+        $('#generic-admin-modal .custom-modal-header').removeClass('success');
+        $('#generic-admin-modal .custom-modal-header').removeClass('warning');
+        $('#generic-admin-modal .custom-modal-header').removeClass('info');
+        $('#generic-admin-modal .custom-modal-header').addClass('danger');
+        $('#generic-admin-modal .custom-modal-content').removeClass('success');
+        $('#generic-admin-modal .custom-modal-content').removeClass('warning');
+        $('#generic-admin-modal .custom-modal-content').removeClass('info');
+        $('#generic-admin-modal .custom-modal-content').addClass('danger');
     }
     else if (modalDeleteConfiguration.modalType == 'success') {
         $('#generic-admin-modal .button-primary').removeClass('danger');
+        $('#generic-admin-modal .button-primary').removeClass('warning');
+        $('#generic-admin-modal .button-primary').removeClass('info');
         $('#generic-admin-modal .button-primary').addClass('success');
+        $('#generic-admin-modal .custom-modal-header').removeClass('danger');
+        $('#generic-admin-modal .custom-modal-header').removeClass('warning');
+        $('#generic-admin-modal .custom-modal-header').removeClass('info');
+        $('#generic-admin-modal .custom-modal-header').addClass('success');
+        $('#generic-admin-modal .custom-modal-content').removeClass('danger');
+        $('#generic-admin-modal .custom-modal-content').removeClass('warning');
+        $('#generic-admin-modal .custom-modal-content').removeClass('info');
+        $('#generic-admin-modal .custom-modal-content').addClass('success');
     }
+    else if (modalDeleteConfiguration.modalType == 'warning') {
+        $('#generic-admin-modal .button-primary').removeClass('danger');
+        $('#generic-admin-modal .button-primary').removeClass('success');
+        $('#generic-admin-modal .button-primary').removeClass('info');
+        $('#generic-admin-modal .button-primary').addClass('warning');
+        $('#generic-admin-modal .custom-modal-header').removeClass('danger');
+        $('#generic-admin-modal .custom-modal-header').removeClass('success');
+        $('#generic-admin-modal .custom-modal-header').removeClass('info');
+        $('#generic-admin-modal .custom-modal-header').addClass('warning');
+        $('#generic-admin-modal .custom-modal-content').removeClass('danger');
+        $('#generic-admin-modal .custom-modal-content').removeClass('success');
+        $('#generic-admin-modal .custom-modal-content').removeClass('info');
+        $('#generic-admin-modal .custom-modal-content').addClass('warning');
+    }
+    else if (modalDeleteConfiguration.modalType == 'info') {
+        $('#generic-admin-modal .button-primary').removeClass('danger');
+        $('#generic-admin-modal .button-primary').removeClass('success');
+        $('#generic-admin-modal .button-primary').removeClass('warning');
+        $('#generic-admin-modal .button-primary').addClass('info');
+        $('#generic-admin-modal .custom-modal-header').removeClass('danger');
+        $('#generic-admin-modal .custom-modal-header').removeClass('success');
+        $('#generic-admin-modal .custom-modal-header').removeClass('warning');
+        $('#generic-admin-modal .custom-modal-header').addClass('info');
+        $('#generic-admin-modal .custom-modal-content').removeClass('danger');
+        $('#generic-admin-modal .custom-modal-content').removeClass('success');
+        $('#generic-admin-modal .custom-modal-content').removeClass('warning');
+        $('#generic-admin-modal .custom-modal-content').addClass('info');
+    }
+    // Actualiza el enlace de eliminación dentro del modal
     $('#generic-admin-modal .button-primary').attr('href', modalDeleteConfiguration.modalUrlAction + veterinarianId);
 
     // Muestra el modal
