@@ -38,12 +38,12 @@
     --info-primary-button-hover-border-color: #DCA614;
 }
 
-#generic-admin-modal {
+#custom-modal {
     padding-top: 5rem;
     z-index: 1055;
 }
 
-    #generic-admin-modal .custom-modal-content {
+    #custom-modal .custom-modal-content {
         border-radius: 2rem;
         overflow: hidden;
         width: 100%;
@@ -51,7 +51,7 @@
         position: relative;
     }
 
-        #generic-admin-modal .custom-modal-content::before {
+        #custom-modal .custom-modal-content::before {
             content: '';
             position: absolute;
             top: 0;
@@ -61,88 +61,88 @@
             z-index: -1;
         }
 
-            #generic-admin-modal  .danger.custom-modal-content::before {
+            #custom-modal  .danger.custom-modal-content::before {
                 background-color: var(--danger-content-background-color);
             }
 
-    #generic-admin-modal .success.custom-modal-content::before {
+    #custom-modal .success.custom-modal-content::before {
         background-color: var(--success-content-background-color);
     }
 
-    #generic-admin-modal .warning.custom-modal-content::before {
+    #custom-modal .warning.custom-modal-content::before {
         background-color: var(--warning-content-background-color);
     }
 
-    #generic-admin-modal .info.custom-modal-content::before {
+    #custom-modal .info.custom-modal-content::before {
         background-color: var(--info-content-background-color);
     }
 
-        #generic-admin-modal .custom-modal-content .custom-modal-header {
+        #custom-modal .custom-modal-content .custom-modal-header {
             padding: 2rem;
             display: flex;
             flex-direction: column;
         }
 
-            #generic-admin-modal .custom-modal-content .custom-modal-header.danger {
+            #custom-modal .custom-modal-content .custom-modal-header.danger {
                 background-color: var(--danger-header-background-color);
             }
 
-            #generic-admin-modal .custom-modal-content .custom-modal-header.success {
+            #custom-modal .custom-modal-content .custom-modal-header.success {
                 background-color: var(--success-header-background-color);
             }
 
-            #generic-admin-modal .custom-modal-content .custom-modal-header.warning {
+            #custom-modal .custom-modal-content .custom-modal-header.warning {
                 background-color: var(--warning-header-background-color);
             }
 
-            #generic-admin-modal .custom-modal-content .custom-modal-header.info {
+            #custom-modal .custom-modal-content .custom-modal-header.info {
                 background-color: var(--info-header-background-color);
             }
 
-            #generic-admin-modal .custom-modal-content .custom-modal-header h1, i {
+            #custom-modal .custom-modal-content .custom-modal-header h1, i {
                 color: var(--default-header-font-color);
                 text-align: center;
             }
 
-            #generic-admin-modal .custom-modal-content .custom-modal-header i {
+            #custom-modal .custom-modal-content .custom-modal-header i {
                 font-size: 3rem;
                 margin-bottom: 1rem;
             }
 
-            #generic-admin-modal .custom-modal-content .custom-modal-header h1 {
+            #custom-modal .custom-modal-content .custom-modal-header h1 {
                 font: 200 2em/1em Raleway, Sans-Serif;
                 text-transform: initial;
                 margin: 0;
             }
 
-        #generic-admin-modal .custom-modal-content .custom-modal-body {
+        #custom-modal .custom-modal-content .custom-modal-body {
             padding: 2rem;
             font: 200 2em/1em Raleway, Sans-Serif;
         }
 
-            #generic-admin-modal .custom-modal-content .custom-modal-body p {
+            #custom-modal .custom-modal-content .custom-modal-body p {
                 font: 200 Raleway, Sans-Serif;
                 letter-spacing: 0.015em;
                 font-size: 16px;
                 text-align: center;
             }
 
-            #generic-admin-modal .custom-modal-content .custom-modal-body .text-title {
+            #custom-modal .custom-modal-content .custom-modal-body .text-title {
                 font-weight: 400;
             }
 
-            #generic-admin-modal .custom-modal-content .custom-modal-body .text-body {
+            #custom-modal .custom-modal-content .custom-modal-body .text-body {
                 margin-bottom: 0;
             }
 
-        #generic-admin-modal .custom-modal-content .custom-modal-footer {
+        #custom-modal .custom-modal-content .custom-modal-footer {
             display: flex;
             justify-content: center;
             margin-bottom: 2rem;
         }
 
-            #generic-admin-modal .custom-modal-content .custom-modal-footer .button-primary, 
-            #generic-admin-modal .custom-modal-content .custom-modal-footer .button-secondary {
+            #custom-modal .custom-modal-content .custom-modal-footer .button-primary, 
+            #custom-modal .custom-modal-content .custom-modal-footer .button-secondary {
                 padding: 0.3rem 1rem;
                 background: var(--default-button-background-color);
                 letter-spacing: 0.075em;
@@ -157,56 +157,56 @@
                 text-decoration: none;
             }
 
-            #generic-admin-modal .custom-modal-content .custom-modal-footer .danger.button-primary {
+            #custom-modal .custom-modal-content .custom-modal-footer .danger.button-primary {
                 border-color: var(--danger-primary-button-border-color);
                 color: var(--danger-primary-button-font-color);
             }
 
-                #generic-admin-modal .custom-modal-content .custom-modal-footer .danger.button-primary:hover {
+                #custom-modal .custom-modal-content .custom-modal-footer .danger.button-primary:hover {
                     border-color: var(--danger-primary-button-hover-border-color);
                     background-color: var(--danger-primary-button-hover-background-color);
                     color: var(--default-primary-button-hover-font-color);
                 }
 
-            #generic-admin-modal .custom-modal-content .custom-modal-footer .success.button-primary {
+            #custom-modal .custom-modal-content .custom-modal-footer .success.button-primary {
                 border-color: var(--success-primary-button-border-color);
                 color: var(--success-primary-button-font-color);
             }
 
-                #generic-admin-modal .custom-modal-content .custom-modal-footer .success.button-primary:hover {
+                #custom-modal .custom-modal-content .custom-modal-footer .success.button-primary:hover {
                     border-color: var(--success-primary-button-hover-border-color);
                     background-color: var(--success-primary-button-hover-background-color);
                     color: var(--default-primary-button-hover-font-color);
                 }
 
-            #generic-admin-modal .custom-modal-content .custom-modal-footer .warning.button-primary {
+            #custom-modal .custom-modal-content .custom-modal-footer .warning.button-primary {
                 border-color: var(--warning-primary-button-border-color);
                 color: var(--warning-primary-button-font-color);
             }
 
-                #generic-admin-modal .custom-modal-content .custom-modal-footer .warning.button-primary:hover {
+                #custom-modal .custom-modal-content .custom-modal-footer .warning.button-primary:hover {
                     border-color: var(--warning-primary-button-hover-border-color);
                     background-color: var(--warning-primary-button-hover-background-color);
                     color: var(--default-primary-button-hover-font-color);
                 }
 
-            #generic-admin-modal .custom-modal-content .custom-modal-footer .info.button-primary {
+            #custom-modal .custom-modal-content .custom-modal-footer .info.button-primary {
                 border-color: var(--info-primary-button-border-color);
                 color: var(--info-primary-button-font-color);
             }
 
-                #generic-admin-modal .custom-modal-content .custom-modal-footer .info.button-primary:hover {
+                #custom-modal .custom-modal-content .custom-modal-footer .info.button-primary:hover {
                     border-color: var(--info-primary-button-hover-border-color);
                     background-color: var(--info-primary-button-hover-background-color);
                     color: var(--default-primary-button-hover-font-color);
                 }
 
-            #generic-admin-modal .custom-modal-content .custom-modal-footer .button-secondary {
+            #custom-modal .custom-modal-content .custom-modal-footer .button-secondary {
                 border-color: var(--default-button-border-color);
                 color: var(--default-button-font-color);
             }
 
-                #generic-admin-modal .custom-modal-content .custom-modal-footer .button-secondary:hover {
+                #custom-modal .custom-modal-content .custom-modal-footer .button-secondary:hover {
                     border-color: var(--default-secondary-button-hover-border-color);
                     background-color: var(--default-secondary-button-hover-background-color);
                     color: var(--default-secondary-button-hover-font-color);
