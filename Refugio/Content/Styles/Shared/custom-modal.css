@@ -39,9 +39,13 @@
 }
 
 #custom-modal {
-    padding-top: 5rem;
     z-index: 1055;
 }
+
+    #custom-modal .modal-dialog.custom-modal-dialog {
+        margin-top: 10rem;
+        max-width:550px;
+    }
 
     #custom-modal .custom-modal-content {
         border-radius: 2rem;
@@ -61,9 +65,9 @@
             z-index: -1;
         }
 
-            #custom-modal  .danger.custom-modal-content::before {
-                background-color: var(--danger-content-background-color);
-            }
+    #custom-modal .danger.custom-modal-content::before {
+        background-color: var(--danger-content-background-color);
+    }
 
     #custom-modal .success.custom-modal-content::before {
         background-color: var(--success-content-background-color);
@@ -77,140 +81,140 @@
         background-color: var(--info-content-background-color);
     }
 
-        #custom-modal .custom-modal-content .custom-modal-header {
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
+    #custom-modal .custom-modal-content .custom-modal-header {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+        #custom-modal .custom-modal-content .custom-modal-header.danger {
+            background-color: var(--danger-header-background-color);
         }
 
-            #custom-modal .custom-modal-content .custom-modal-header.danger {
-                background-color: var(--danger-header-background-color);
-            }
+        #custom-modal .custom-modal-content .custom-modal-header.success {
+            background-color: var(--success-header-background-color);
+        }
 
-            #custom-modal .custom-modal-content .custom-modal-header.success {
-                background-color: var(--success-header-background-color);
-            }
+        #custom-modal .custom-modal-content .custom-modal-header.warning {
+            background-color: var(--warning-header-background-color);
+        }
 
-            #custom-modal .custom-modal-content .custom-modal-header.warning {
-                background-color: var(--warning-header-background-color);
-            }
+        #custom-modal .custom-modal-content .custom-modal-header.info {
+            background-color: var(--info-header-background-color);
+        }
 
-            #custom-modal .custom-modal-content .custom-modal-header.info {
-                background-color: var(--info-header-background-color);
-            }
+        #custom-modal .custom-modal-content .custom-modal-header h1, i {
+            color: var(--default-header-font-color);
+            text-align: center;
+        }
 
-            #custom-modal .custom-modal-content .custom-modal-header h1, i {
-                color: var(--default-header-font-color);
-                text-align: center;
-            }
+        #custom-modal .custom-modal-content .custom-modal-header i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
 
-            #custom-modal .custom-modal-content .custom-modal-header i {
-                font-size: 3rem;
-                margin-bottom: 1rem;
-            }
-
-            #custom-modal .custom-modal-content .custom-modal-header h1 {
-                font: 200 2em/1em Raleway, Sans-Serif;
-                text-transform: initial;
-                margin: 0;
-            }
-
-        #custom-modal .custom-modal-content .custom-modal-body {
-            padding: 2rem;
+        #custom-modal .custom-modal-content .custom-modal-header h1 {
             font: 200 2em/1em Raleway, Sans-Serif;
+            text-transform: initial;
+            margin: 0;
         }
 
-            #custom-modal .custom-modal-content .custom-modal-body p {
-                font: 200 Raleway, Sans-Serif;
-                letter-spacing: 0.015em;
-                font-size: 16px;
-                text-align: center;
-            }
+    #custom-modal .custom-modal-content .custom-modal-body {
+        padding: 2rem;
+        font: 200 2em/1em Raleway, Sans-Serif;
+    }
 
-            #custom-modal .custom-modal-content .custom-modal-body .text-title {
-                font-weight: 400;
-            }
-
-            #custom-modal .custom-modal-content .custom-modal-body .text-body {
-                margin-bottom: 0;
-            }
-
-        #custom-modal .custom-modal-content .custom-modal-footer {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 2rem;
+        #custom-modal .custom-modal-content .custom-modal-body p {
+            font: 200 Raleway, Sans-Serif;
+            letter-spacing: 0.015em;
+            font-size: 16px;
+            text-align: center;
         }
 
-            #custom-modal .custom-modal-content .custom-modal-footer .button-primary,
-            #custom-modal .custom-modal-content .custom-modal-footer .button-secondary,
-            #custom-modal .custom-modal-content .custom-modal-footer .button-additional {
-                padding: 0.3rem 1rem;
-                background: var(--default-button-background-color);
-                letter-spacing: 0.075em;
-                line-height: 2rem;
-                font-family: Raleway, Open Sans, Arial;
-                font-weight: 300;
-                font-size: 0.85em;
-                transition: 0.75s all;
-                margin: 0 0.5rem;
-                border-radius: 1.5rem;
-                border: 1px solid;
-                text-decoration: none;
+        #custom-modal .custom-modal-content .custom-modal-body .text-title {
+            font-weight: 400;
+        }
+
+        #custom-modal .custom-modal-content .custom-modal-body .text-body {
+            margin-bottom: 0;
+        }
+
+    #custom-modal .custom-modal-content .custom-modal-footer {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+
+        #custom-modal .custom-modal-content .custom-modal-footer .button-primary,
+        #custom-modal .custom-modal-content .custom-modal-footer .button-secondary,
+        #custom-modal .custom-modal-content .custom-modal-footer .button-additional {
+            padding: 0.3rem 1rem;
+            background: var(--default-button-background-color);
+            letter-spacing: 0.075em;
+            line-height: 2rem;
+            font-family: Raleway, Open Sans, Arial;
+            font-weight: 300;
+            font-size: 0.85em;
+            transition: 0.75s all;
+            margin: 0 0.5rem;
+            border-radius: 1.5rem;
+            border: 1px solid;
+            text-decoration: none;
+        }
+
+        #custom-modal .custom-modal-content .custom-modal-footer .danger.button-primary {
+            border-color: var(--danger-primary-button-border-color);
+            color: var(--danger-primary-button-font-color);
+        }
+
+            #custom-modal .custom-modal-content .custom-modal-footer .danger.button-primary:hover {
+                border-color: var(--danger-primary-button-hover-border-color);
+                background-color: var(--danger-primary-button-hover-background-color);
+                color: var(--default-primary-button-hover-font-color);
             }
 
-            #custom-modal .custom-modal-content .custom-modal-footer .danger.button-primary {
-                border-color: var(--danger-primary-button-border-color);
-                color: var(--danger-primary-button-font-color);
+        #custom-modal .custom-modal-content .custom-modal-footer .success.button-primary {
+            border-color: var(--success-primary-button-border-color);
+            color: var(--success-primary-button-font-color);
+        }
+
+            #custom-modal .custom-modal-content .custom-modal-footer .success.button-primary:hover {
+                border-color: var(--success-primary-button-hover-border-color);
+                background-color: var(--success-primary-button-hover-background-color);
+                color: var(--default-primary-button-hover-font-color);
             }
 
-                #custom-modal .custom-modal-content .custom-modal-footer .danger.button-primary:hover {
-                    border-color: var(--danger-primary-button-hover-border-color);
-                    background-color: var(--danger-primary-button-hover-background-color);
-                    color: var(--default-primary-button-hover-font-color);
-                }
+        #custom-modal .custom-modal-content .custom-modal-footer .warning.button-primary {
+            border-color: var(--warning-primary-button-border-color);
+            color: var(--warning-primary-button-font-color);
+        }
 
-            #custom-modal .custom-modal-content .custom-modal-footer .success.button-primary {
-                border-color: var(--success-primary-button-border-color);
-                color: var(--success-primary-button-font-color);
+            #custom-modal .custom-modal-content .custom-modal-footer .warning.button-primary:hover {
+                border-color: var(--warning-primary-button-hover-border-color);
+                background-color: var(--warning-primary-button-hover-background-color);
+                color: var(--default-primary-button-hover-font-color);
             }
 
-                #custom-modal .custom-modal-content .custom-modal-footer .success.button-primary:hover {
-                    border-color: var(--success-primary-button-hover-border-color);
-                    background-color: var(--success-primary-button-hover-background-color);
-                    color: var(--default-primary-button-hover-font-color);
-                }
+        #custom-modal .custom-modal-content .custom-modal-footer .info.button-primary {
+            border-color: var(--info-primary-button-border-color);
+            color: var(--info-primary-button-font-color);
+        }
 
-            #custom-modal .custom-modal-content .custom-modal-footer .warning.button-primary {
-                border-color: var(--warning-primary-button-border-color);
-                color: var(--warning-primary-button-font-color);
+            #custom-modal .custom-modal-content .custom-modal-footer .info.button-primary:hover {
+                border-color: var(--info-primary-button-hover-border-color);
+                background-color: var(--info-primary-button-hover-background-color);
+                color: var(--default-primary-button-hover-font-color);
             }
 
-                #custom-modal .custom-modal-content .custom-modal-footer .warning.button-primary:hover {
-                    border-color: var(--warning-primary-button-hover-border-color);
-                    background-color: var(--warning-primary-button-hover-background-color);
-                    color: var(--default-primary-button-hover-font-color);
-                }
+        #custom-modal .custom-modal-content .custom-modal-footer .button-secondary,
+        #custom-modal .custom-modal-content .custom-modal-footer .button-additional {
+            border-color: var(--default-button-border-color);
+            color: var(--default-button-font-color);
+        }
 
-            #custom-modal .custom-modal-content .custom-modal-footer .info.button-primary {
-                border-color: var(--info-primary-button-border-color);
-                color: var(--info-primary-button-font-color);
+            #custom-modal .custom-modal-content .custom-modal-footer .button-secondary:hover,
+            #custom-modal .custom-modal-content .custom-modal-footer .button-additional:hover {
+                border-color: var(--default-secondary-button-hover-border-color);
+                background-color: var(--default-secondary-button-hover-background-color);
+                color: var(--default-secondary-button-hover-font-color);
             }
-
-                #custom-modal .custom-modal-content .custom-modal-footer .info.button-primary:hover {
-                    border-color: var(--info-primary-button-hover-border-color);
-                    background-color: var(--info-primary-button-hover-background-color);
-                    color: var(--default-primary-button-hover-font-color);
-                }
-
-            #custom-modal .custom-modal-content .custom-modal-footer .button-secondary,
-            #custom-modal .custom-modal-content .custom-modal-footer .button-additional {
-                border-color: var(--default-button-border-color);
-                color: var(--default-button-font-color);
-            }
-
-                #custom-modal .custom-modal-content .custom-modal-footer .button-secondary:hover,
-                #custom-modal .custom-modal-content .custom-modal-footer .button-additional:hover {
-                    border-color: var(--default-secondary-button-hover-border-color);
-                    background-color: var(--default-secondary-button-hover-background-color);
-                    color: var(--default-secondary-button-hover-font-color);
-                }
