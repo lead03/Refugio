@@ -144,8 +144,8 @@ function configureButtonsVisibilityAndTexts() {
     if (modalConfiguration.footerAdditionalButtonText.length > 0) {
         $('#custom-modal .button-additional').html(modalConfiguration.footerAdditionalButtonText);
         $('#custom-modal .button-additional').show();
-        if (modalConfiguration.footeradditionalButtonUrlAction.length > 0) {
-            $('#custom-modal .button-additional').attr('href', modalConfiguration.footeradditionalButtonUrlAction);
+        if (modalConfiguration.footerAdditionalButtonUrlAction.length > 0) {
+            $('#custom-modal .button-additional').attr('href', modalConfiguration.footerAdditionalButtonUrlAction);
         }
         else {
             $('#custom-modal .button-additional').attr('href', '');
