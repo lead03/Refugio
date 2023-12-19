@@ -57,7 +57,8 @@
 
 @Html.Partial("~/Areas/Admin/Views/Shared/_Modal.cshtml")
 <script>
-    modalConfiguration.type = '@Refugio.Resources.CustomModalTypes.WarningKey';
+    modalConfiguration.size = '@Refugio.Resources.CustomModal.Size.Medium',
+    modalConfiguration.type = '@Refugio.Resources.CustomModal.Types.Info',
     modalConfiguration.headerIcon = 'fa fa-exclamation-triangle';
     modalConfiguration.headerTitle = '@Refugio.Resources.Languages.Global.Delete ' + '@Refugio.Resources.Languages.Global.Veterinarian.ToLower()';
     modalConfiguration.bodyTitle = '@Refugio.Resources.Languages.Global.SureDelete ' + '@Refugio.Resources.Languages.Global.Veterinarian.ToLower()' + '?';

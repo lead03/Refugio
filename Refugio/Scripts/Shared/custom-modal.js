@@ -10,31 +10,33 @@
     footerAdditionalButtonText: '',
     footerAdditionalButtonUrlAction: '',
     type: '',
+    size: '',
 }
 
 function setDataConfiguration() {
     setTextConfiguration();
     configureButtonsVisibilityAndTexts();
     setModalTypeConfiguration();
+    setSize();
 }
 
 function setModalTypeConfiguration() {
-    var modalTypes = ['danger', 'success', 'warning', 'info']; //Keys declaradas en Resources/Common/ModalTypes. TODO: Mejorar esto
     switch (modalConfiguration.type) {
-        case (modalTypes[0]):
+        case modalVariables.type.danger:
             setDangerConfiguration();
             break;
-        case (modalTypes[1]):
+        case modalVariables.type.success:
             setSuccessConfiguration();
             break;
-        case (modalTypes[2]):
+        case modalVariables.type.warning:
             setWarningConfiguration();
             break;
-        case (modalTypes[3]):
+        case modalVariables.type.info:
             setInfoConfiguration();
             break;
         default:
             console.log('Error: Modal type not found');
+            break;
     }
 }
 
@@ -159,4 +161,29 @@ function setTextConfiguration() {
     $('#custom-modal .custom-modal-title').html(modalConfiguration.headerTitle);
     $('#custom-modal .custom-modal-body p:eq(0)').html(modalConfiguration.bodyTitle);
     $('#custom-modal .custom-modal-body p:eq(1)').html(modalConfiguration.bodyContent);
+}
+
+function setSize() {
+    if (modalConfiguration.size.length > 0) {
+        switch (modalConfiguration.size) {
+            case modalVariables.size.small:
+                $('.modal-dialog.custom-modal-dialog').addClass('small-size');
+                $('.modal-dialog.custom-modal-dialog').removeClass('medium-size');
+                $('.modal-dialog.custom-modal-dialog').removeClass('large-size');
+                break;
+            case modalVariables.size.medium:
+                $('.modal-dialog.custom-modal-dialog').addClass('medium-size');
+                $('.modal-dialog.custom-modal-dialog').removeClass('small-size');
+                $('.modal-dialog.custom-modal-dialog').removeClass('large-size');
+                break;
+            case modalVariables.size.large:
+                $('.modal-dialog.custom-modal-dialog').addClass('large-size');
+                $('.modal-dialog.custom-modal-dialog').removeClass('small-size');
+                $('.modal-dialog.custom-modal-dialog').removeClass('medium-size');
+                break;
+            default:
+                console.log('Error: Modal size not found');
+                break;
+        }
+    }
 }

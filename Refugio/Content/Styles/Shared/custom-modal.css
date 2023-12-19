@@ -36,6 +36,10 @@
     --info-primary-button-border-color: #DCA614;
     --info-primary-button-hover-background-color: #DCA614;
     --info-primary-button-hover-border-color: #DCA614;
+    /*Modal dialog size*/
+    --large-modal: 1200px;
+    --medium-modal: 800px;
+    --small-modal: 550px;
 }
 
 #custom-modal {
@@ -44,8 +48,23 @@
 
     #custom-modal .modal-dialog.custom-modal-dialog {
         margin-top: 10rem;
-        max-width:550px;
+        max-width: 550px;
     }
+
+        #custom-modal .modal-dialog.custom-modal-dialog.small-size {
+            margin-top: 10rem;
+            max-width: var(--small-modal);
+        }
+
+        #custom-modal .modal-dialog.custom-modal-dialog.medium-size {
+            margin-top: 10rem;
+            max-width: var(--medium-modal);
+        }
+
+        #custom-modal .modal-dialog.custom-modal-dialog.large-size {
+            margin-top: 10rem;
+            max-width: var(--large-modal);
+        }
 
     #custom-modal .custom-modal-content {
         border-radius: 2rem;

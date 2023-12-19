@@ -22,7 +22,26 @@
         </footer>
     </div>
     @Scripts.Render("~/Scripts/Shared/alertMessages.js");
+
+    <!-- Custom modal -->
+    <script>
+        const modalVariables = {
+            size: {
+                small: '@Refugio.Resources.CustomModal.Size.Small',
+                medium: '@Refugio.Resources.CustomModal.Size.Medium',
+                large: '@Refugio.Resources.CustomModal.Size.Large',
+            },
+            type: {
+                danger: '@Refugio.Resources.CustomModal.Types.Danger',
+                success: '@Refugio.Resources.CustomModal.Types.Success',
+                warning: '@Refugio.Resources.CustomModal.Types.Warning',
+                info : '@Refugio.Resources.CustomModal.Types.Info',
+            }
+        }
+    </script>
     @Scripts.Render("~/Scripts/Shared/custom-modal.js")
+    <!--End custom modal-->
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

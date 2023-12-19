@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,11 +28,21 @@ namespace Refugio.Resources
         }
     }
 
-    public class CustomModalTypes
+    public class CustomModal
     {
-        public const string DangerKey = "danger";
-        public const string SuccessKey = "success";
-        public const string WarningKey = "warning";
-        public const string InfoKey = "info";
+        public enum Types
+        {
+            Danger,
+            Success,
+            Warning,
+            Info
+        }
+
+        public enum Size
+        {
+            Small,
+            Medium,
+            Large,
+        }
     }
 }
