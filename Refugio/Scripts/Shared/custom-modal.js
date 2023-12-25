@@ -6,7 +6,6 @@
     footerPrimaryButtonText: '',
     footerPrimaryButtonUrlAction: '',
     footerSecondaryButtonText: '',
-    footerSecondaryButtonUrlAction: '',
     footerAdditionalButtonText: '',
     footerAdditionalButtonUrlAction: '',
     type: '',
@@ -131,12 +130,6 @@ function configureButtonsVisibilityAndTexts() {
     if (modalConfiguration.footerSecondaryButtonText.length > 0) {
         $('#custom-modal .button-secondary').html(modalConfiguration.footerSecondaryButtonText);
         $('#custom-modal .button-secondary').show();
-        if (modalConfiguration.footerSecondaryButtonUrlAction.length > 0) {
-            $('#custom-modal .button-secondary').attr('href', modalConfiguration.footersecondaryButtonUrlAction);
-        }
-        else {
-            $('#custom-modal .button-secondary').attr('href', '');
-        }
     }
     else {
         $('#custom-modal .button-secondary').hide();

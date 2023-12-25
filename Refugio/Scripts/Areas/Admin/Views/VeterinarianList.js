@@ -46,7 +46,6 @@ function submitForm() {
 }
 
 function deleteFromList() {
-    // Obtén los datos de la fila actual
     var completeName = $(this).data('complete-name');
     var speciality = $(this).data('speciality');
     var professionalLicense = $(this).data('professional-licence');
