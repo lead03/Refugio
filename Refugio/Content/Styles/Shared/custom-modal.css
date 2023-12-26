@@ -48,21 +48,17 @@
 
     #custom-modal .modal-dialog.custom-modal-dialog {
         margin-top: 10rem;
-        max-width: 550px;
     }
 
         #custom-modal .modal-dialog.custom-modal-dialog.small-size {
-            margin-top: 10rem;
             max-width: var(--small-modal);
         }
 
         #custom-modal .modal-dialog.custom-modal-dialog.medium-size {
-            margin-top: 10rem;
             max-width: var(--medium-modal);
         }
 
         #custom-modal .modal-dialog.custom-modal-dialog.large-size {
-            margin-top: 10rem;
             max-width: var(--large-modal);
         }
 
