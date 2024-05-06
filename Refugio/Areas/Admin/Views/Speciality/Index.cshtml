@@ -1,0 +1,24 @@
+﻿@model Refugio.Areas.Admin.Models.Speciality.List
+@{
+    ViewBag.Title = Refugio.Resources.Languages.Global.Speciality;
+}
+<h1>@Refugio.Resources.Languages.Global.Speciality</h1>
+@Html.Partial("_MessageAlert")
+@using (Html.BeginForm("Index", "Speciality", FormMethod.Post, new { id = "form-speciality-list" }))
+{
+    <div>
+        <h2>@Refugio.Resources.Languages.Global.Filters</h2>
+        @Refugio.Resources.Languages.Global.Search:
+        @Html.TextBoxFor(x => x.Filters.Keyword, new { @class = "form-control filter" })
+        <button type="submit" class="btn btn-primary" id="btn-search">@Refugio.Resources.Languages.Global.Search</button>
+        <button type="button" class="btn btn-secondary" id="btn-reset-filters">@Refugio.Resources.Languages.Global.ClearFilters</button>
+        @Html.HiddenFor(x => x.Pager.CurrentPage, new { @id = "hdn-pager-index" })
+    </div>
+    <div id="speciality-list-container"></div>
+    <div>
+        @*<a class="btn btn-outline-info" href="@Url.Action("Edit", "Veterinarian", new { area = "Admin" })">@Refugio.Resources.Languages.Global.New</a>*@
+    </div>
+}
+
+<script src="~/Scripts/Areas/Admin/speciality-list.js"></script>
+@Styles.Render(("~/Content/Styles/Shared/table-highlight.css"))

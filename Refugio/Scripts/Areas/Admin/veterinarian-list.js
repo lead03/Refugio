@@ -2,7 +2,7 @@
     $('#btn-search').click(loadFilters);
     $(document).on('click', '.pager-index', loadPage);
     $('#btn-reset-filters').click(cleanFilters);
-    $('.filter').change(setFilterIsModified);
+    //$('.filter').change(setFilterIsModified);
     $(document).on('click', '.delete', deleteFromList);
     submitForm();
 });
@@ -20,15 +20,15 @@ function loadPage() {
     submitForm();
 }
 
-function setFilterIsModified() {
-    $('#hdn-filter-modified-indicator').val(true);
-}
+//function setFilterIsModified() {
+//    $('#hdn-filter-modified-indicator').val(true);
+//}
 
 function cleanFilters() {
     event.preventDefault();
     $('#form-veterinarian-list').trigger("reset");
     $('#hdn-pager-index').val(1);
-    $('#hdn-filter-modified-indicator').val(true);
+    //$('#hdn-filter-modified-indicator').val(true);
     submitForm();
 }
 

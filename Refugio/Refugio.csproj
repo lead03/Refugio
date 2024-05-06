@@ -127,7 +127,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\SpecialityController.cs" />
     <Compile Include="Areas\Admin\Controllers\VeterinarianController.cs" />
+    <Compile Include="Areas\Admin\Models\Speciality\Filter.cs" />
+    <Compile Include="Areas\Admin\Models\Speciality\List.cs" />
     <Compile Include="Areas\Admin\Models\Veterinarian\Details.cs" />
     <Compile Include="Areas\Admin\Models\Veterinarian\Edit.cs" />
     <Compile Include="Areas\Admin\Models\Veterinarian\Filter.cs" />
@@ -178,7 +181,8 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\Areas\Admin\general.js" />
-    <Content Include="Scripts\Areas\Admin\Views\VeterinarianList.js" />
+    <Content Include="Scripts\Areas\Admin\speciality-list.js" />
+    <Content Include="Scripts\Areas\Admin\veterinarian-list.js" />
     <Content Include="libman.json" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
@@ -222,6 +226,9 @@
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="Areas\Admin\Views\Shared\_Sidebar.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Modal.cshtml" />
+    <Content Include="Areas\Admin\Views\Veterinarian\SpecialityList.cshtml" />
+    <Content Include="Areas\Admin\Views\Speciality\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Speciality\Partials\_List.cshtml" />
     <None Include="Scripts\jquery-3.6.3.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.3.js" />
     <Content Include="Scripts\jquery-3.6.3.min.js" />
@@ -237,6 +244,7 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\Shared\alertMessages.js" />
     <Content Include="Scripts\Shared\custom-modal.js" />
+    <Content Include="Scripts\Shared\pager.js" />
     <Content Include="Scripts\Views\Index.js" />
     <Content Include="SQLQuery.txt" />
     <Content Include="Views\Web.config" />
@@ -260,6 +268,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="App_Resources\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\VeterinarianSpeciality\" />
+    <Folder Include="Scripts\Areas\Admin\Views\" />
     <Folder Include="Views\AlertMessage\" />
     <Folder Include="Views\Language\" />
     <Folder Include="Views\Staff\" />

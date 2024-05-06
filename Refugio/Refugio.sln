@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31624.102
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refugio", "Refugio.csproj", "{D73F95A0-8D70-4D92-A765-860FEDA8B0DF}"
 EndProject
@@ -10,6 +10,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refugio.Business", "..\Refugio.Business\Refugio.Business.csproj", "{8FC61421-D103-47D4-B4A2-DF60B2F95F12}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refugio.DataAccess", "..\Refugio.DataAccess\Refugio.DataAccess.csproj", "{BF5FD5D0-51E3-4664-BB53-6D539038463C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0F1A2950-4545-4130-87BE-C2646A3228F3} = {0F1A2950-4545-4130-87BE-C2646A3228F3}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refugio.Resources", "..\Refugio.Resources\Refugio.Resources.csproj", "{0F1A2950-4545-4130-87BE-C2646A3228F3}"
 EndProject

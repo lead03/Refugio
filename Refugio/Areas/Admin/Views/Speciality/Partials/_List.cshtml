@@ -1,0 +1,33 @@
+﻿@model Refugio.Areas.Admin.Models.Speciality.List
+@{
+    string language = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
+}
+<table class="table-highlight">
+    <thead>
+        <tr>
+            <th>@Refugio.Resources.Languages.Global.FirstName</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var speciality in Model.Specialities)
+        {
+            string name = string.Empty;
+            switch (language)
+            {
+                case (Refugio.Resources.Language.SpanishKey):
+                    name = speciality.SpecialityNameES;
+                    break;
+                case (Refugio.Resources.Language.EnglishKey):
+                    name = speciality.SpecialityNameEN;
+                    break;
+            }
+            <tr>
+                <td>@name</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="text-center">
+    @Html.Partial("_pager", Model.Pager)
+</div>

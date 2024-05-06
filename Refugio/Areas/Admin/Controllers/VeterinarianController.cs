@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 
@@ -29,8 +30,7 @@ namespace Refugio.Areas.Admin.Controllers
             try
             {
                 model.Pager.TotalPages = Business.Veterinarian.GetTotalPages(model.Pager.PageSize, model.Filters.Keyword, model.Filters.SelectedVeterinarianSpecialityId);
-                model.Pager.CurrentPage = (model.Pager.TotalPages < model.Pager.CurrentPage || model.Filters.FilterModified) ? 1 : model.Pager.CurrentPage;
-                model.Filters.FilterModified = false;
+                model.Pager.CurrentPage = (model.Pager.TotalPages < model.Pager.CurrentPage) ? 1 : model.Pager.CurrentPage;
                 model.Veterinarians = Business.Veterinarian.GetVeterinariansFilteredAndPaged(model.Pager.CurrentPage, model.Pager.PageSize, model.Filters.Keyword, model.Filters.SelectedVeterinarianSpecialityId);
                 return PartialView("~/Areas/Admin/Views/Veterinarian/Partials/_List.cshtml", model);
             }

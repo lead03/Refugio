@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Common.cs" />
+    <Compile Include="Classes\Language.cs" />
     <Compile Include="Generic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RefugioModel.Designer.cs">
@@ -60,6 +61,7 @@
       <DependentUpon>RefugioModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Veterinarian.cs" />
+    <Compile Include="VeterinarianSpeciality.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Refugio.DTO\Refugio.DTO.csproj">
@@ -83,5 +85,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

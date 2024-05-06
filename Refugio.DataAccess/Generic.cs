@@ -60,9 +60,9 @@ namespace Refugio.DataAccess
             Common.DataContext.SaveChanges();
         }
 
-        public static List<T> GetAll<T>() where T: class
+        public static IQueryable<T> GetAll<T>() where T: class
         {
-            return Common.DataContext.Set<T>().ToList();
+            return Common.DataContext.Set<T>();
         }
 
         public static void Delete<T>(T entity) where T : class

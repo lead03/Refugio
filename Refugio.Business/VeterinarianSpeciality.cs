@@ -9,21 +9,41 @@ namespace Refugio.Business
 {
     public class VeterinarianSpeciality
     {
+        public static List<DTO.VeterinarianSpeciality> GetVeterinarianSpecialitiesFilteredAndPaged(int currentPage, int pageSize, string keyword = null)
+        {
+            string language = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
+            List<DTO.VeterinarianSpeciality> specialities = DataAccess.VeterinarianSpeciality.GetFilteredPaged(currentPage, pageSize, keyword, language).ToList();
+            return specialities;
+        }
+
         public static SelectList GetSelectListForVeterinarianSpeciality()
         {
-            var language = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
-            string propName = string.Empty;
+            string language = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
+            string languagePropName = string.Empty;
             switch (language)
             {
                 case Refugio.Resources.Language.SpanishKey:
-                    propName = "SpecialityNameES";
+                    languagePropName = "SpecialityNameES";
                     break;
                 case Refugio.Resources.Language.EnglishKey:
-                    propName = "SpecialityNameEN";
+                    languagePropName = "SpecialityNameEN";
                     break;
             }
-            SelectList response = new SelectList(DataAccess.Generic.GetAll<DTO.VeterinarianSpeciality>().OrderBy(x => typeof(DTO.VeterinarianSpeciality).GetProperty(propName)).ToList(), "Id", propName);
+            SelectList response = new SelectList(DataAccess.VeterinarianSpeciality.GetAllOrderedByLanguage(language), "Id", languagePropName);
             return response;
+        }
+
+        public static int GetTotalPages(int pageSize, string keyword)
+        {
+            string language = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
+            int totalPages = (int)Math.Ceiling((double)GetCountFiltered(keyword, language) / pageSize);
+            return totalPages;
+        }
+
+        public static int GetCountFiltered(string keyword = null, string language = null)
+        {
+            int total = DataAccess.VeterinarianSpeciality.GetCount(keyword, language);
+            return total;
         }
     }
 }
