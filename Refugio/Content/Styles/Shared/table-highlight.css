@@ -66,9 +66,14 @@
             font-size: larger;
             transition-delay: 0s, 0s;
         }
+
             .table-highlight tbody tr:hover td .icon-button {
                 visibility: visible;
             }
+
+                .table-highlight tbody tr:hover td .icon-button i {
+                    color: var(--data-font-color);
+                }
 
                 .table-highlight tbody tr:hover td .icon-button:hover i {
                     color: var(--icons-color-hover);

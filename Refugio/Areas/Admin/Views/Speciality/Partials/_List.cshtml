@@ -7,6 +7,7 @@
         <tr>
             <th>@Refugio.Resources.Languages.Global.FirstName</th>
             <th>@Refugio.Resources.Languages.Global.Veterinarians</th>
+            <th class="icon-buttons-col"></th>
         </tr>
     </thead>
     <tbody>
@@ -25,6 +26,20 @@
             <tr>
                 <td>@name</td>
                 <td>@speciality.VeterinarianCount</td>
+                <td class="text-center icon-buttons-col">
+                    <a href="@Url.Action("Details", "Speciality", new { area = "Admin", Id = speciality.SpecialityId })" class="icon-button">
+                        <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                    </a>
+                    <a href="@Url.Action("Edit", "Speciality", new { area = "Admin", Id = speciality.SpecialityId })" class="icon-button">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </a>
+                    <label class="icon-button delete" for="dialog_state"
+                           data-speciality="@name"
+                           data-count="@speciality.VeterinarianCount"
+                           data-id="@speciality.SpecialityId">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </label>
+                </td>
             </tr>
         }
     </tbody>

@@ -118,7 +118,8 @@
             background-color: var(--info-header-background-color);
         }
 
-        #custom-modal .custom-modal-content .custom-modal-header h1, i {
+        #custom-modal .custom-modal-content .custom-modal-header h1,
+        #custom-modal .custom-modal-content .custom-modal-header i {
             color: var(--default-header-font-color);
             text-align: center;
         }
