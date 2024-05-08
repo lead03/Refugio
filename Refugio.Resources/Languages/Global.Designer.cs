@@ -475,6 +475,15 @@ namespace Refugio.Resources.Languages {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Specialities.
+        /// </summary>
+        public static string Specialities {
+            get {
+                return ResourceManager.GetString("Specialities", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Speciality.
         /// </summary>
         public static string Speciality {

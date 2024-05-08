@@ -255,6 +255,9 @@
   <data name="Spanish" xml:space="preserve">
     <value>Español</value>
   </data>
+  <data name="Specialities" xml:space="preserve">
+    <value>Especialidades</value>
+  </data>
   <data name="Speciality" xml:space="preserve">
     <value>Especialidad</value>
   </data>

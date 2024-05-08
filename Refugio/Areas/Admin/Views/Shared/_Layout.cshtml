@@ -14,6 +14,41 @@
 </head>
 <body>
     @*@Html.Partial("_Sidebar")*@
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Refugio "Mi refugio"</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExample03">
+                <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="@Url.Action("Index", "Home", new { Area="" })">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/admin/veterinarian">@Refugio.Resources.Languages.Global.Veterinarians</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/admin/speciality">@Refugio.Resources.Languages.Global.Specialities</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    @Refugio.Resources.Languages.Global.Language
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a href="@Url.Action("ChangeLanguage", "Language", new { language = Refugio.Resources.Language.SpanishKey, returnUrl = Request.Url.AbsoluteUri, Area="" })" 
+                           class="dropdown-item">@Refugio.Resources.Language.SpanishAbbreviation</a></li>
+                    <li><a href="@Url.Action("ChangeLanguage", "Language", new { language = Refugio.Resources.Language.EnglishKey, returnUrl = Request.Url.AbsoluteUri, Area="" })" 
+                           class="dropdown-item">@Refugio.Resources.Language.EnglishAbbreviation</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
     <div class="container body-content">
         @RenderBody()
         <hr />
