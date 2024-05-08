@@ -7,6 +7,7 @@
     --data-background-color-hover: #9b92c7;
     --data-link-color: gray;
     --data-link-color-hover: #fff;
+    --icons-color-hover: #6b3a8f;
 }
 
 .table-highlight {
@@ -53,8 +54,7 @@
         }
 
             .table-highlight tbody td .icon-button:hover {
-                color: var(--data-link-color-hover);
-                text-decoration: none;
+                cursor: pointer;
             }
 
     .table-highlight tbody tr:hover {
@@ -69,6 +69,10 @@
             .table-highlight tbody tr:hover td .icon-button {
                 visibility: visible;
             }
+
+                .table-highlight tbody tr:hover td .icon-button:hover i {
+                    color: var(--icons-color-hover);
+                }
 
     .table-highlight td {
         transition-property: transform;
