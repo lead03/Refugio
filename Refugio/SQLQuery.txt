@@ -298,3 +298,16 @@ GO
 ALTER TABLE [Veterinarian]
 ADD ProfileImageId UNIQUEIDENTIFIER
 GO
+
+CREATE VIEW vw_VeterinarianSpecialities AS
+SELECT
+    VS.Id AS SpecialityId,
+    VS.SpecialityNameEN AS SpecialityNameEN,
+	VS.SpecialityNameES AS SpecialityNameES,
+    COUNT(V.Id) AS VeterinarianCount
+FROM
+    VeterinarianSpeciality VS
+LEFT JOIN
+    Veterinarian V ON VS.Id = V.Speciality
+GROUP BY
+    VS.Id, VS.SpecialityNameEN, VS.SpecialityNameES;

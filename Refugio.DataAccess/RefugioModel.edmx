@@ -71,6 +71,18 @@
           <Property Name="SpecialityNameES" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="SpecialityNameEN" Type="varchar" MaxLength="100" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Refugio.dbo.vw_VeterinarianSpecialities' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="vw_VeterinarianSpecialities">
+          <Key>
+            <PropertyRef Name="SpecialityId" />
+            <PropertyRef Name="SpecialityNameES" />
+          </Key>
+          <Property Name="SpecialityId" Type="int" Nullable="false" />
+          <Property Name="SpecialityNameEN" Type="varchar" MaxLength="100" />
+          <Property Name="SpecialityNameES" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="VeterinarianCount" Type="int" />
+        </EntityType>
         <Association Name="FK_Veterinarian_TimeSlotRange">
           <End Role="TimeSlotRange" Type="Self.TimeSlotRange" Multiplicity="0..1" />
           <End Role="Veterinarian" Type="Self.Veterinarian" Multiplicity="*" />
@@ -100,6 +112,14 @@
           <EntitySet Name="TimeSlotRange" EntityType="Self.TimeSlotRange" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Veterinarian" EntityType="Self.Veterinarian" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VeterinarianSpeciality" EntityType="Self.VeterinarianSpeciality" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vw_VeterinarianSpecialities" EntityType="Self.vw_VeterinarianSpecialities" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_VeterinarianSpecialities].[SpecialityId] AS [SpecialityId], 
+    [vw_VeterinarianSpecialities].[SpecialityNameEN] AS [SpecialityNameEN], 
+    [vw_VeterinarianSpecialities].[SpecialityNameES] AS [SpecialityNameES], 
+    [vw_VeterinarianSpecialities].[VeterinarianCount] AS [VeterinarianCount]
+    FROM [dbo].[vw_VeterinarianSpecialities] AS [vw_VeterinarianSpecialities]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Veterinarian_TimeSlotRange" Association="Self.FK_Veterinarian_TimeSlotRange">
             <End Role="TimeSlotRange" EntitySet="TimeSlotRange" />
             <End Role="Veterinarian" EntitySet="Veterinarian" />
@@ -126,6 +146,7 @@
             <End Role="VeterinarianSpeciality" EntitySet="VeterinarianSpeciality" />
             <End Role="Veterinarian" EntitySet="Veterinarian" />
           </AssociationSet>
+          <EntitySet Name="vw_VeterinarianSpecialities" EntityType="RefugioModel.vw_VeterinarianSpecialities" />
         </EntityContainer>
         <EntityType Name="Staff">
           <Key>
@@ -221,6 +242,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="vw_VeterinarianSpecialities">
+          <Key>
+            <PropertyRef Name="SpecialityId" />
+            <PropertyRef Name="SpecialityNameES" />
+          </Key>
+          <Property Name="SpecialityId" Type="Int32" Nullable="false" />
+          <Property Name="SpecialityNameEN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SpecialityNameES" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="VeterinarianCount" Type="Int32" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -294,6 +325,16 @@
                 <ScalarProperty Name="SpecialityNameEN" ColumnName="SpecialityNameEN" />
                 <ScalarProperty Name="SpecialityNameES" ColumnName="SpecialityNameES" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_VeterinarianSpecialities">
+            <EntityTypeMapping TypeName="RefugioModel.vw_VeterinarianSpecialities">
+              <MappingFragment StoreEntitySet="vw_VeterinarianSpecialities">
+                <ScalarProperty Name="VeterinarianCount" ColumnName="VeterinarianCount" />
+                <ScalarProperty Name="SpecialityNameES" ColumnName="SpecialityNameES" />
+                <ScalarProperty Name="SpecialityNameEN" ColumnName="SpecialityNameEN" />
+                <ScalarProperty Name="SpecialityId" ColumnName="SpecialityId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

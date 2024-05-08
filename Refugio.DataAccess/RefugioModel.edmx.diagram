@@ -4,13 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5daa4374218a418082de8fb40fba68fd" Name="Diagram1">
-        <EntityTypeShape EntityType="RefugioModel.Staff" Width="1.5" PointX="5.75" PointY="1.125" />
-        <EntityTypeShape EntityType="RefugioModel.TimeSlotRange" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="RefugioModel.Veterinarian" Width="1.5" PointX="3" PointY="1.5" />
-        <EntityTypeShape EntityType="RefugioModel.VeterinarianSpeciality" Width="1.5" PointX="0.75" PointY="3.625" />
+      <Diagram DiagramId="5daa4374218a418082de8fb40fba68fd" Name="Tables" ShowGrid="false">
+        <EntityTypeShape EntityType="RefugioModel.Staff" Width="1.5" PointX="5.75" PointY="1.25" />
+        <EntityTypeShape EntityType="RefugioModel.TimeSlotRange" Width="1.5" PointX="0.75" PointY="3.875" />
+        <EntityTypeShape EntityType="RefugioModel.Veterinarian" Width="1.5" PointX="3" PointY="1.625" />
+        <EntityTypeShape EntityType="RefugioModel.VeterinarianSpeciality" Width="1.5" PointX="0.75" PointY="0.75" />
         <AssociationConnector Association="RefugioModel.FK_Veterinarian_TimeSlotRange" />
         <AssociationConnector Association="RefugioModel.FK_Veterinarian_VeterinarianSpeciality" />
+      </Diagram>
+      <Diagram DiagramId="b3c7f793e57844698f96bd8b75a2b45a" Name="Views" >
+        <EntityTypeShape EntityType="RefugioModel.vw_VeterinarianSpecialities" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

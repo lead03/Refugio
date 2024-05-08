@@ -9,10 +9,10 @@ namespace Refugio.Business
 {
     public class VeterinarianSpeciality
     {
-        public static List<DTO.VeterinarianSpeciality> GetVeterinarianSpecialitiesFilteredAndPaged(int currentPage, int pageSize, string keyword = null)
+        public static List<DTO.vw_VeterinarianSpecialities> GetVeterinarianSpecialitiesFilteredAndPaged(int currentPage, int pageSize, string keyword = null)
         {
             string language = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
-            List<DTO.VeterinarianSpeciality> specialities = DataAccess.VeterinarianSpeciality.GetFilteredPaged(currentPage, pageSize, keyword, language).ToList();
+            List<DTO.vw_VeterinarianSpecialities> specialities = DataAccess.VeterinarianSpeciality.GetFilteredPaged(currentPage, pageSize, keyword, language).ToList();
             return specialities;
         }
 

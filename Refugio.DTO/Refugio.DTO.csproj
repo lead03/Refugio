@@ -72,6 +72,9 @@
     <Compile Include="VeterinarianSpeciality.cs">
       <DependentUpon>RefugioModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="vw_VeterinarianSpecialities.cs">
+      <DependentUpon>RefugioModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -8,9 +8,9 @@ namespace Refugio.DataAccess
 {
     public class VeterinarianSpeciality
     {
-        public static IQueryable<DTO.VeterinarianSpeciality> GetFilteredPaged(int currentPage, int pageSize, string keyword, string language)
+        public static IQueryable<DTO.vw_VeterinarianSpecialities> GetFilteredPaged(int currentPage, int pageSize, string keyword, string language)
         {
-            IQueryable<DTO.VeterinarianSpeciality> query = GetFiltered(keyword, language);
+            IQueryable<DTO.vw_VeterinarianSpecialities> query = GetFiltered(keyword, language);
             switch (language)
             {
                 default:
@@ -25,9 +25,9 @@ namespace Refugio.DataAccess
             return query;
         }
 
-        public static IQueryable <DTO.VeterinarianSpeciality> GetFiltered(string keyword, string language)
+        public static IQueryable <DTO.vw_VeterinarianSpecialities> GetFiltered(string keyword, string language)
         {
-            IQueryable<DTO.VeterinarianSpeciality> query = Common.DataContext.VeterinarianSpeciality;
+            IQueryable<DTO.vw_VeterinarianSpecialities> query = Common.DataContext.vw_VeterinarianSpecialities;
             if(!string.IsNullOrEmpty(keyword))
             {
                 switch (language)
@@ -65,7 +65,7 @@ namespace Refugio.DataAccess
 
         public static int GetCount(string keyword = null, string language = null)
         {
-            IQueryable<DTO.VeterinarianSpeciality> query = GetFiltered(keyword, language);
+            IQueryable<DTO.vw_VeterinarianSpecialities> query = GetFiltered(keyword, language);
             return query.Count();
         }
     }
