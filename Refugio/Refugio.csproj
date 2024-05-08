@@ -270,7 +270,6 @@
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\Shared\Partials\" />
     <Folder Include="Areas\Admin\Views\VeterinarianSpeciality\" />
-    <Folder Include="Scripts\Areas\Admin\Views\" />
     <Folder Include="Views\AlertMessage\" />
     <Folder Include="Views\Language\" />
     <Folder Include="Views\Staff\" />

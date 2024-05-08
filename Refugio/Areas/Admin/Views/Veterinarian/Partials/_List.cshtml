@@ -57,9 +57,6 @@
 
 @Html.Partial("~/Areas/Admin/Views/Shared/_Modal.cshtml")
 <script>
-    var deleteModalSize = '@Refugio.Resources.CustomModal.Size.Small';
-    var deleteModalType = '@Refugio.Resources.CustomModal.Types.Danger';
-    var deleteModalIcon = 'fa fa-exclamation-triangle';
     var deleteModalHeaderTitle = '@Refugio.Resources.Languages.Global.Delete ' + '@Refugio.Resources.Languages.Global.Veterinarian.ToLower()';
     var deleteModalBodyTitle = '@Refugio.Resources.Languages.Global.SureDelete ' + '@Refugio.Resources.Languages.Global.Veterinarian.ToLower()' + '?';
     var deleteModalPrimaryButtonText = '@Refugio.Resources.Languages.Global.Yes' + ', ' + '@Refugio.Resources.Languages.Global.Delete.ToLower()';

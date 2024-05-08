@@ -1,12 +1,12 @@
 ﻿$(document).ready(function () {
-    $(document).on('click', '.delete', showDeleteModal);
+    $(document).on('click', '.delete', showDeleteVeterinarianModal);
 });
 
 function submitForm() {
     submitGenericForm("/Veterinarian/VeterinarianList", "#form-veterinarian-list", "#veterinarian-list-container");
 }
 
-function showDeleteModal() {
+function showDeleteVeterinarianModal() {
     var completeName = $(this).data('complete-name');
     var speciality = $(this).data('speciality');
     var professionalLicense = $(this).data('professional-licence');

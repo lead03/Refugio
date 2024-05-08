@@ -39,10 +39,14 @@
                     @Refugio.Resources.Languages.Global.Language
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a href="@Url.Action("ChangeLanguage", "Language", new { language = Refugio.Resources.Language.SpanishKey, returnUrl = Request.Url.AbsoluteUri, Area="" })" 
-                           class="dropdown-item">@Refugio.Resources.Language.SpanishAbbreviation</a></li>
-                    <li><a href="@Url.Action("ChangeLanguage", "Language", new { language = Refugio.Resources.Language.EnglishKey, returnUrl = Request.Url.AbsoluteUri, Area="" })" 
-                           class="dropdown-item">@Refugio.Resources.Language.EnglishAbbreviation</a></li>
+                    <li>
+                        <a href="@Url.Action("ChangeLanguage", "Language", new { language = Refugio.Resources.Language.SpanishKey, returnUrl = Request.Url.AbsoluteUri, Area="" })"
+                           class="dropdown-item">@Refugio.Resources.Language.SpanishAbbreviation</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ChangeLanguage", "Language", new { language = Refugio.Resources.Language.EnglishKey, returnUrl = Request.Url.AbsoluteUri, Area="" })"
+                           class="dropdown-item">@Refugio.Resources.Language.EnglishAbbreviation</a>
+                    </li>
                 </ul>
             </div>
 
@@ -73,6 +77,9 @@
                 info : '@Refugio.Resources.CustomModal.Types.Info',
             }
         }
+        var deleteModalSize = modalVariables.size.small;
+        var deleteModalType = modalVariables.type.danger;
+        var deleteModalIcon = 'fa fa-exclamation-triangle';
     </script>
     @Scripts.Render("~/Scripts/Shared/custom-modal.js")
     <!--End custom modal-->

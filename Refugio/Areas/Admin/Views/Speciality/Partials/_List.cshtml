@@ -48,3 +48,15 @@
 <div class="text-center">
     @Html.Partial("_pager", Model.Pager)
 </div>
+
+@Html.Partial("~/Areas/Admin/Views/Shared/_Modal.cshtml")
+<script>
+    var deleteVeterinarianSpecialityModalCustomData = {
+        HeaderTitle : '@Refugio.Resources.Languages.Global.Delete ' + '@Refugio.Resources.Languages.Global.Speciality.ToLower()',
+        BodyTitle : '@Refugio.Resources.Languages.Global.SureDeleteF ' + '@Refugio.Resources.Languages.Global.Speciality.ToLower()' + '?',
+        PrimaryButtonText : '@Refugio.Resources.Languages.Global.Yes' + ', ' + '@Refugio.Resources.Languages.Global.Delete.ToLower()',
+        SecondaryButtonText : '@Refugio.Resources.Languages.Global.No' + ', ' + '@Refugio.Resources.Languages.Global.Cancel.ToLower()',
+        BodyContentNameSection : '@Refugio.Resources.Languages.Global.Speciality',
+        PrimaryButtonUrlAction : '/Admin/Speciality/Delete/',
+    }
+</script>

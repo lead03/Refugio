@@ -529,6 +529,15 @@ namespace Refugio.Resources.Languages {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Are you sure to delete this.
+        /// </summary>
+        public static string SureDeleteF {
+            get {
+                return ResourceManager.GetString("SureDeleteF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a There were modifications while you were performing the operation. Please reload the page and try again.
         /// </summary>
         public static string ThereWereModifications {

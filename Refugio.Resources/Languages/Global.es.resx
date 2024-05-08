@@ -273,6 +273,9 @@
   <data name="SureDelete" xml:space="preserve">
     <value>¿Está seguro de borrar este</value>
   </data>
+  <data name="SureDeleteF" xml:space="preserve">
+    <value>¿Está seguro de borrar esta</value>
+  </data>
   <data name="ThereWereModifications" xml:space="preserve">
     <value>Hubo modificaciones mientras usted realizaba la operación. Vuelva a cargar la página e inténtelo nuevamente.</value>
   </data>
