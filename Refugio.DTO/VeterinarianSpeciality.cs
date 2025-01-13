@@ -22,6 +22,7 @@ namespace Refugio.DTO
         public int Id { get; set; }
         public string SpecialityNameES { get; set; }
         public string SpecialityNameEN { get; set; }
+        public byte[] RowVersion { get; set; }
     
         public virtual ICollection<Veterinarian> Veterinarian { get; set; }
     }

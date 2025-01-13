@@ -42,8 +42,17 @@ namespace Refugio.Business
 
         public static int GetCountFiltered(string keyword = null, string language = null)
         {
-            int total = DataAccess.VeterinarianSpeciality.GetCount(keyword, language);
-            return total;
+            return DataAccess.VeterinarianSpeciality.GetCount(keyword, language);
+        }
+
+        public static DTO.VeterinarianSpeciality GetVeterinarianSpecialityById(int id)
+        {
+            return DataAccess.Generic.GetById<DTO.VeterinarianSpeciality>(id);
+        }
+
+        public static int GetVeterinarianCountBySpecialityId(int id)
+        {
+            return DataAccess.Veterinarian.GetByVeterinarianSpeciality(id);
         }
     }
 }

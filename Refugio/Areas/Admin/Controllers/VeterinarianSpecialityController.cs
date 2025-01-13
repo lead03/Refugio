@@ -6,13 +6,13 @@ using System.Web.Mvc;
 
 namespace Refugio.Areas.Admin.Controllers
 {
-    public class SpecialityController : Controller
+    public class VeterinarianSpecialityController : Controller
     {
         public ActionResult Index()
         {
             try
             {
-                Models.Speciality.List model = new Models.Speciality.List();
+                Models.VeterinarianSpeciality.List model = new Models.VeterinarianSpeciality.List();
                 return View(model);
             }
             catch
@@ -21,14 +21,14 @@ namespace Refugio.Areas.Admin.Controllers
             }
         }
 
-        public ActionResult SpecialityList(Refugio.Areas.Admin.Models.Speciality.List model)
+        public ActionResult SpecialityList(Refugio.Areas.Admin.Models.VeterinarianSpeciality.List model)
         {
             try
             {
                 model.Pager.TotalPages = Business.VeterinarianSpeciality.GetTotalPages(model.Pager.PageSize, model.Filters.Keyword);
                 model.Pager.CurrentPage = (model.Pager.TotalPages < model.Pager.CurrentPage) ? 1 : model.Pager.CurrentPage;
                 model.Specialities = Business.VeterinarianSpeciality.GetVeterinarianSpecialitiesFilteredAndPaged(model.Pager.CurrentPage, model.Pager.PageSize, model.Filters.Keyword);
-                return PartialView("~/Areas/Admin/Views/Speciality/Partials/_List.cshtml", model);
+                return PartialView("~/Areas/Admin/Views/VeterinarianSpeciality/Partials/_List.cshtml", model);
             }
             catch (Exception)
             {
@@ -65,13 +65,37 @@ namespace Refugio.Areas.Admin.Controllers
             }
         }
 
-        // GET: Admin/Specialities/Edit/5
-        public ActionResult Edit(int id)
+        [HttpGet]
+        public ActionResult Edit(Refugio.Models.Shared.RequestById request)
         {
-            return View();
+            try
+            {
+                Models.VeterinarianSpeciality.Edit editModel = new Models.VeterinarianSpeciality.Edit();
+                if (request != null && request.Id.HasValue)
+                {
+                    DTO.VeterinarianSpeciality veterinarianSpeciality = Business.VeterinarianSpeciality.GetVeterinarianSpecialityById(request.Id.Value);
+                    if (veterinarianSpeciality == null)
+                    {
+                        throw new KeyNotFoundException(Refugio.Resources.Languages.Global.VeterinarianNotFoundById);
+                    }
+                    Business.Common.Map<DTO.VeterinarianSpeciality, Models.VeterinarianSpeciality.Edit>(veterinarianSpeciality, editModel);
+
+                }
+                editModel.ProfessionalsAssociated = Business.VeterinarianSpeciality.GetVeterinarianCountBySpecialityId(request.Id.Value);
+                return View(editModel);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                Business.AlertMessage.Set(TempData, true, Refugio.Resources.Languages.Global.ErrorProcessingEdit + ". " + ex.Message, (int)Refugio.Resources.AlertMessage.Type.Error);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                Business.AlertMessage.Set(TempData, true, Refugio.Resources.Languages.Global.ErrorProcessingEdit + ". " + Refugio.Resources.Languages.Global.TryAgainContactSupport, (int)Refugio.Resources.AlertMessage.Type.Error);
+                return RedirectToAction("Index");
+            }
         }
 
-        // POST: Admin/Specialities/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {

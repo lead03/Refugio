@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Refugio.Areas.Admin.Models.Speciality
+namespace Refugio.Areas.Admin.Models.VeterinarianSpeciality
 {
     public class List
     {

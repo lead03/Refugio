@@ -35,5 +35,10 @@ namespace Refugio.DataAccess
             }
             return query;
         }
+
+        public static int GetByVeterinarianSpeciality(int id)
+        {
+            return GetCount(null, id);
+        }
     }
 }

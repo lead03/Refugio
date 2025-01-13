@@ -1,10 +1,10 @@
-﻿@model Refugio.Areas.Admin.Models.Speciality.List
+﻿@model Refugio.Areas.Admin.Models.VeterinarianSpeciality.List
 @{
     ViewBag.Title = Refugio.Resources.Languages.Global.Speciality;
 }
 <h1>@Refugio.Resources.Languages.Global.Speciality</h1>
 @Html.Partial("_MessageAlert")
-@using (Html.BeginForm("Index", "Speciality", FormMethod.Post, new { id = "form-speciality-list" }))
+@using (Html.BeginForm("Index", "VeterinarianSpeciality", FormMethod.Post, new { id = "form-speciality-list" }))
 {
     <div>
         <h2>@Refugio.Resources.Languages.Global.Filters</h2>

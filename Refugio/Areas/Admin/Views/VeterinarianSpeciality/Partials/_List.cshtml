@@ -1,4 +1,4 @@
-﻿@model Refugio.Areas.Admin.Models.Speciality.List
+﻿@model Refugio.Areas.Admin.Models.VeterinarianSpeciality.List
 @{
     string language = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
 }
@@ -27,10 +27,10 @@
                 <td>@name</td>
                 <td>@speciality.VeterinarianCount</td>
                 <td class="text-center icon-buttons-col">
-                    <a href="@Url.Action("Details", "Speciality", new { area = "Admin", Id = speciality.SpecialityId })" class="icon-button">
+                    <a href="@Url.Action("Details", "VeterinarianSpeciality", new { area = "Admin", Id = speciality.SpecialityId })" class="icon-button">
                         <i class="fa fa-file-text-o" aria-hidden="true"></i>
                     </a>
-                    <a href="@Url.Action("Edit", "Speciality", new { area = "Admin", Id = speciality.SpecialityId })" class="icon-button">
+                    <a href="@Url.Action("Edit", "VeterinarianSpeciality", new { area = "Admin", Id = speciality.SpecialityId })" class="icon-button">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                     </a>
                     <label class="icon-button delete" for="dialog_state"
@@ -57,6 +57,6 @@
         PrimaryButtonText : '@Refugio.Resources.Languages.Global.Yes' + ', ' + '@Refugio.Resources.Languages.Global.Delete.ToLower()',
         SecondaryButtonText : '@Refugio.Resources.Languages.Global.No' + ', ' + '@Refugio.Resources.Languages.Global.Cancel.ToLower()',
         BodyContentNameSection : '@Refugio.Resources.Languages.Global.Speciality',
-        PrimaryButtonUrlAction : '/Admin/Speciality/Delete/',
+        PrimaryButtonUrlAction : '/Admin/VeterinarianSpeciality/Delete/',
     }
 </script>
