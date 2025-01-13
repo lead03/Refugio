@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 
@@ -97,17 +99,38 @@ namespace Refugio.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Models.VeterinarianSpeciality.Edit editRequest)
         {
             try
             {
-                // TODO: Add update logic here
-
+                if (!ModelState.IsValid)
+                {
+                    return View(editRequest);
+                }
+                DTO.VeterinarianSpeciality veterinarianSpeciality = new DTO.VeterinarianSpeciality();
+                if (!editRequest.IsNewSpeciality){
+                    veterinarianSpeciality = Business.VeterinarianSpeciality.GetVeterinarianSpecialityById(editRequest.Id);
+                    Business.Common.CheckRowVersion(editRequest.RowVersion, veterinarianSpeciality.RowVersion);
+                }
+                Business.Common.Map<Models.VeterinarianSpeciality.Edit, DTO.VeterinarianSpeciality>(editRequest, veterinarianSpeciality);
+                editRequest.Id = Business.VeterinarianSpeciality.Save(veterinarianSpeciality);
+                Business.AlertMessage.Set(TempData, true, Refugio.Resources.Languages.Global.SuccessDataSave, (int)Refugio.Resources.AlertMessage.Type.Success);
+                return RedirectToAction("Details", new { id = editRequest.Id });
+            }
+            catch (InvalidOperationException)
+            {
+                Business.AlertMessage.Set(TempData, true, Refugio.Resources.Languages.Global.ErrorProcessingEdit + ". " + Refugio.Resources.Languages.Global.ThereWereModifications, (int)Refugio.Resources.AlertMessage.Type.Error);
                 return RedirectToAction("Index");
             }
-            catch
+            catch (DbUpdateException)
             {
-                return View();
+                Business.AlertMessage.Set(TempData, true, Refugio.Resources.Languages.Global.ErrorProcessingEdit + ". " + Refugio.Resources.Languages.Global.ErrorProcesingUpdate, (int)Refugio.Resources.AlertMessage.Type.Error);
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                Business.AlertMessage.Set(TempData, true, Refugio.Resources.Languages.Global.ErrorProcessingEdit + ". " + Refugio.Resources.Languages.Global.TryAgainContactSupport, (int)Refugio.Resources.AlertMessage.Type.Error);
+                return RedirectToAction("Details", new { id = editRequest.Id });
             }
         }
 

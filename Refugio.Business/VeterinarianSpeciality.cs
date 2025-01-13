@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,6 +54,19 @@ namespace Refugio.Business
         public static int GetVeterinarianCountBySpecialityId(int id)
         {
             return DataAccess.Veterinarian.GetByVeterinarianSpeciality(id);
+        }
+
+        public static int Save(DTO.VeterinarianSpeciality veterinarianSpeciality)
+        {
+            try
+            {
+                DataAccess.Generic.UpdateOrCreate<DTO.VeterinarianSpeciality>(veterinarianSpeciality, veterinarianSpeciality.Id);
+                return veterinarianSpeciality.Id;
+            }
+            catch
+            {
+                throw new DbUpdateException();
+            }
         }
     }
 }

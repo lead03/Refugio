@@ -16,5 +16,13 @@ namespace Refugio.Areas.Admin.Models.VeterinarianSpeciality
         public int ProfessionalsAssociated {  get; set; }
 
         public byte[] RowVersion { get; set; }
+        
+        public bool IsNewSpeciality
+        {
+            get
+            {
+                return this.Id == 0;
+            }
+        }
     }
 }
