@@ -601,6 +601,15 @@ namespace Refugio.Resources.Languages {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a No veterinarian speciality found with this identifier.
+        /// </summary>
+        public static string VeterinarianSpecialityNotFound {
+            get {
+                return ResourceManager.GetString("VeterinarianSpecialityNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Yes.
         /// </summary>
         public static string Yes {

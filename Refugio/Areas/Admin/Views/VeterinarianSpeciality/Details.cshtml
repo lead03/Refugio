@@ -1,0 +1,29 @@
+﻿@model Refugio.Areas.Admin.Models.VeterinarianSpeciality.Details
+@{
+    ViewBag.Title = Refugio.Resources.Languages.Global.Details;
+}
+
+<h2>@Refugio.Resources.Languages.Global.Details</h2>
+<div id="container-alert-message"></div>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>@Refugio.Resources.Languages.Global.Speciality - @Refugio.Resources.Languages.Global.English</th></th>
+                <td>@Html.DisplayFor(model => model.SpecialityNameEN)</td>
+            </tr>
+            <tr>
+                <th>@Refugio.Resources.Languages.Global.Speciality - @Refugio.Resources.Languages.Global.Spanish</th></th>
+                <td>@Html.DisplayFor(model => model.SpecialityNameES)</td>
+            </tr>
+            <tr>
+                <th>@Refugio.Resources.Languages.Global.Veterinarians</th>
+                <td>@Html.DisplayFor(model => model.ProfessionalsAssociatedCount)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="@Url.Action("Edit", "VeterinarianSpeciality", new { area = "Admin", id = Model.Id})" class="btn btn-primary">@Refugio.Resources.Languages.Global.Edit</a>
+    <a href="@Url.Action("Index", "VeterinarianSpeciality", new { area = "Admin" })" class="btn btn-success">@Refugio.Resources.Languages.Global.BackToList</a>
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-delete">@Refugio.Resources.Languages.Global.Delete @Refugio.Resources.Languages.Global.Veterinarian.ToLower()</button>
+</div>
