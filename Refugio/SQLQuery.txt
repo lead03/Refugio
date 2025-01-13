@@ -311,3 +311,10 @@ LEFT JOIN
     Veterinarian V ON VS.Id = V.Speciality
 GROUP BY
     VS.Id, VS.SpecialityNameEN, VS.SpecialityNameES;
+
+GO
+
+ALTER TABLE VeterinarianSpeciality
+ADD RowVersion rowversion;
+
+GO

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,8 +43,30 @@ namespace Refugio.Business
 
         public static int GetCountFiltered(string keyword = null, string language = null)
         {
-            int total = DataAccess.VeterinarianSpeciality.GetCount(keyword, language);
-            return total;
+            return DataAccess.VeterinarianSpeciality.GetCount(keyword, language);
+        }
+
+        public static DTO.VeterinarianSpeciality GetVeterinarianSpecialityById(int id)
+        {
+            return DataAccess.Generic.GetById<DTO.VeterinarianSpeciality>(id);
+        }
+
+        public static int GetVeterinarianCountBySpecialityId(int id)
+        {
+            return DataAccess.Veterinarian.GetByVeterinarianSpeciality(id);
+        }
+
+        public static int Save(DTO.VeterinarianSpeciality veterinarianSpeciality)
+        {
+            try
+            {
+                DataAccess.Generic.UpdateOrCreate<DTO.VeterinarianSpeciality>(veterinarianSpeciality, veterinarianSpeciality.Id);
+                return veterinarianSpeciality.Id;
+            }
+            catch
+            {
+                throw new DbUpdateException();
+            }
         }
     }
 }

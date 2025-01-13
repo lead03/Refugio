@@ -1,0 +1,47 @@
+﻿@model Refugio.Areas.Admin.Models.VeterinarianSpeciality.Edit
+
+@{
+    ViewBag.Title = "Editar Especialidad Veterinaria";
+}
+
+<h2>Editar Especialidad Veterinaria</h2>
+
+@using (Html.BeginForm("Edit", "VeterinarianSpeciality", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.HiddenFor(x => x.RowVersion)
+    @Html.AntiForgeryToken()
+
+    <!-- Nombre en Español -->
+    <div class="mb-3 row">
+        @Html.LabelFor(m => m.SpecialityNameES)
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.SpecialityNameES, new { @class = "form-control" })
+            <span class="text-danger">@Html.ValidationMessageFor(model => model.SpecialityNameES)</span>
+        </div>
+    </div>
+
+    <!-- Nombre en Inglés -->
+    <div class="mb-3 row">
+        @Html.LabelFor(m => m.SpecialityNameEN)
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.SpecialityNameEN, new { @class = "form-control" })
+            <span class="text-danger">@Html.ValidationMessageFor(model => model.SpecialityNameEN)</span>
+        </div>
+    </div>
+
+    <!-- Profesionales asociados -->
+    <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label text-end">Profesionales</label>
+        <div class="col-md-10">
+            <p>@Model.ProfessionalsAssociated</p>
+        </div>
+    </div>
+
+    <!-- Botones -->
+    <div class="mb-3 row">
+        <div class="col-md-10 offset-sm-2">
+            <button type="submit" class="btn btn-success">@Refugio.Resources.Languages.Global.Save</button>
+            <a href="@Url.Action("Index", "VeterinarianSpeciality", new { area = "Admin" })" class="btn btn-secondary">@Refugio.Resources.Languages.Global.BackToList</a>
+        </div>
+    </div>
+}

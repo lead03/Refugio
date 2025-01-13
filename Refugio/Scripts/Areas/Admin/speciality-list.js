@@ -3,7 +3,7 @@
 });
 
 function submitForm() {
-    submitGenericForm("/Speciality/SpecialityList", "#form-speciality-list", "#speciality-list-container");
+    submitGenericForm("/VeterinarianSpeciality/SpecialityList", "#form-speciality-list", "#speciality-list-container");
 }
 
 function showDeleteVeterinarianSpecialityModal() {
