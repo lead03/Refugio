@@ -39,31 +39,36 @@ namespace Refugio.Areas.Admin.Controllers
             }
         }
 
-        // GET: Admin/Specialities/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: Admin/Specialities/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Admin/Specialities/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Details(Refugio.Models.Shared.RequestById request)
         {
             try
             {
-                // TODO: Add insert logic here
-
+                Models.VeterinarianSpeciality.Details detailsModel = new Models.VeterinarianSpeciality.Details();
+                if (request.Id.HasValue)
+                {
+                    DTO.VeterinarianSpeciality veterinarianSpeciality = Business.VeterinarianSpeciality.GetById(request.Id.Value);
+                    if (veterinarianSpeciality == null)
+                    {
+                        throw new KeyNotFoundException(Refugio.Resources.Languages.Global.VeterinarianSpecialityNotFound);
+                    }
+                    Business.Common.Map<DTO.VeterinarianSpeciality, Models.VeterinarianSpeciality.Details>(veterinarianSpeciality, detailsModel);
+                    detailsModel.ProfessionalsAssociatedCount = Business.VeterinarianSpeciality.GetVeterinarianCountBySpecialityId(request.Id.Value);
+                    return View(detailsModel);
+                }
+                else
+                {
+                    throw new KeyNotFoundException(Refugio.Resources.Languages.Global.IdNotProvided);
+                }
+            }
+            catch (KeyNotFoundException ex)
+            {
+                Business.AlertMessage.Set(TempData, true, Refugio.Resources.Languages.Global.ErrorDisplayingDetails + ". " + ex.Message, (int)Refugio.Resources.AlertMessage.Type.Error);
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                Business.AlertMessage.Set(TempData, true, Refugio.Resources.Languages.Global.ErrorDisplayingDetails + ". " + Refugio.Resources.Languages.Global.TryAgainContactSupport, (int)Refugio.Resources.AlertMessage.Type.Error);
+                return RedirectToAction("Index");
             }
         }
 
@@ -75,15 +80,15 @@ namespace Refugio.Areas.Admin.Controllers
                 Models.VeterinarianSpeciality.Edit editModel = new Models.VeterinarianSpeciality.Edit();
                 if (request != null && request.Id.HasValue)
                 {
-                    DTO.VeterinarianSpeciality veterinarianSpeciality = Business.VeterinarianSpeciality.GetVeterinarianSpecialityById(request.Id.Value);
+                    DTO.VeterinarianSpeciality veterinarianSpeciality = Business.VeterinarianSpeciality.GetById(request.Id.Value);
                     if (veterinarianSpeciality == null)
                     {
-                        throw new KeyNotFoundException(Refugio.Resources.Languages.Global.VeterinarianNotFoundById);
+                        throw new KeyNotFoundException(Refugio.Resources.Languages.Global.VeterinarianSpecialityNotFound);
                     }
                     Business.Common.Map<DTO.VeterinarianSpeciality, Models.VeterinarianSpeciality.Edit>(veterinarianSpeciality, editModel);
 
                 }
-                editModel.ProfessionalsAssociated = Business.VeterinarianSpeciality.GetVeterinarianCountBySpecialityId(request.Id.Value);
+                editModel.ProfessionalsAssociatedCount = Business.VeterinarianSpeciality.GetVeterinarianCountBySpecialityId(request.Id.Value);
                 return View(editModel);
             }
             catch (KeyNotFoundException ex)
@@ -109,7 +114,7 @@ namespace Refugio.Areas.Admin.Controllers
                 }
                 DTO.VeterinarianSpeciality veterinarianSpeciality = new DTO.VeterinarianSpeciality();
                 if (!editRequest.IsNewSpeciality){
-                    veterinarianSpeciality = Business.VeterinarianSpeciality.GetVeterinarianSpecialityById(editRequest.Id);
+                    veterinarianSpeciality = Business.VeterinarianSpeciality.GetById(editRequest.Id);
                     Business.Common.CheckRowVersion(editRequest.RowVersion, veterinarianSpeciality.RowVersion);
                 }
                 Business.Common.Map<Models.VeterinarianSpeciality.Edit, DTO.VeterinarianSpeciality>(editRequest, veterinarianSpeciality);

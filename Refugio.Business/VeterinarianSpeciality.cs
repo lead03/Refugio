@@ -46,7 +46,7 @@ namespace Refugio.Business
             return DataAccess.VeterinarianSpeciality.GetCount(keyword, language);
         }
 
-        public static DTO.VeterinarianSpeciality GetVeterinarianSpecialityById(int id)
+        public static DTO.VeterinarianSpeciality GetById(int id)
         {
             return DataAccess.Generic.GetById<DTO.VeterinarianSpeciality>(id);
         }

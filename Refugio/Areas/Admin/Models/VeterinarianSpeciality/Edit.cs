@@ -13,7 +13,7 @@ namespace Refugio.Areas.Admin.Models.VeterinarianSpeciality
 
         public string SpecialityNameEN { get; set; }
 
-        public int ProfessionalsAssociated {  get; set; }
+        public int ProfessionalsAssociatedCount {  get; set; }
 
         public byte[] RowVersion { get; set; }
         

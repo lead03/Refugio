@@ -297,6 +297,9 @@
   <data name="Veterinarians" xml:space="preserve">
     <value>Veterinarians</value>
   </data>
+  <data name="VeterinarianSpecialityNotFound" xml:space="preserve">
+    <value>No veterinarian speciality found with this identifier</value>
+  </data>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
   </data>
