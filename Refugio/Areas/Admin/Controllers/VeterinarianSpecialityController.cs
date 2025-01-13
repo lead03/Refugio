@@ -86,9 +86,8 @@ namespace Refugio.Areas.Admin.Controllers
                         throw new KeyNotFoundException(Refugio.Resources.Languages.Global.VeterinarianSpecialityNotFound);
                     }
                     Business.Common.Map<DTO.VeterinarianSpeciality, Models.VeterinarianSpeciality.Edit>(veterinarianSpeciality, editModel);
-
+                    editModel.ProfessionalsAssociatedCount = Business.VeterinarianSpeciality.GetVeterinarianCountBySpecialityId(request.Id.Value);
                 }
-                editModel.ProfessionalsAssociatedCount = Business.VeterinarianSpeciality.GetVeterinarianCountBySpecialityId(request.Id.Value);
                 return View(editModel);
             }
             catch (KeyNotFoundException ex)
