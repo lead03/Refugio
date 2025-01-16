@@ -1,11 +1,11 @@
 ﻿:root {
     --font-size-base: 16px;
-    --form-background-color: #fff;
+    --form-background-color: #fafbfe;
     --soft-right-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     --form-placeholder-color: #666;
     --default-transition: all 0.3s cubic-bezier(0.4, 0, 1, 1);
     --form-box-border: 1px solid #ddd;
-    --form-input-focus-backgrund-color: #f9f9f9;
+    --form-input-focus-backgrund-color: #fbfbfb;
     --btn-primary-background: linear-gradient(45deg, #3f51b5, #5c6bc0);
     --btn-primary-hover-background: linear-gradient(45deg, #303f9f, #3949ab);
     --btn-secondary-background: linear-gradient(45deg, #9e9e9e, #bdbdbd);
@@ -122,11 +122,11 @@ h2 {
     }
 
 .btn-secondary {
-    background: linear-gradient(45deg, #9e9e9e, #bdbdbd);
+    background: var(--btn-secondary-background);
 }
 
     .btn-secondary:hover {
-        background: linear-gradient(45deg, #757575, #9e9e9e);
+        background: var(--btn-secondary-hover-background);
     }
 
 .btn-tertiary {
