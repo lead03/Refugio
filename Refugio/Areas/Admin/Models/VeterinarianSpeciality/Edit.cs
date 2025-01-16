@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Refugio.Resources.Languages;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,17 +11,19 @@ namespace Refugio.Areas.Admin.Models.VeterinarianSpeciality
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessageResourceType = typeof(Global), ErrorMessageResourceName = "RequieredField")]
+        [Display(Name = "FieldName_SpecialityNameES", ResourceType = typeof(Global))]
         public string SpecialityNameES { get; set; }
 
-        [Required]
+        [Required(ErrorMessageResourceType = typeof(Global), ErrorMessageResourceName = "RequieredField")]
+        [Display(Name = "FieldName_SpecialityNameEN", ResourceType = typeof(Global))]
         public string SpecialityNameEN { get; set; }
 
         public int ProfessionalsAssociatedCount {  get; set; }
 
         public byte[] RowVersion { get; set; }
         
-        public bool IsNewSpeciality
+        public bool IsNew
         {
             get
             {

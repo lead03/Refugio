@@ -118,7 +118,7 @@ namespace Refugio.Areas.Admin.Controllers
                     return View(model);
                 }
                 DTO.Veterinarian veterinarian = new DTO.Veterinarian();
-                if (!model.IsNewUser)
+                if (!model.IsNew)
                 {
                     veterinarian = Business.Veterinarian.GetVeterinarianById(model.Id);
                     Business.Common.CheckRowVersion(model.RowVersion, veterinarian.RowVersion);

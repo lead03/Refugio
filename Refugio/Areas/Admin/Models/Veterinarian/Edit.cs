@@ -87,7 +87,7 @@ namespace Refugio.Areas.Admin.Models.Veterinarian
 
         public byte[] RowVersion { get; set; }
 
-        public bool IsNewUser
+        public bool IsNew
         {
             get
             {

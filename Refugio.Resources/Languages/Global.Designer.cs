@@ -124,6 +124,15 @@ namespace Refugio.Resources.Languages {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Create.
+        /// </summary>
+        public static string Create {
+            get {
+                return ResourceManager.GetString("Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Delete.
         /// </summary>
         public static string Delete {
@@ -237,6 +246,24 @@ namespace Refugio.Resources.Languages {
         public static string FieldDecimalBetween {
             get {
                 return ResourceManager.GetString("FieldDecimalBetween", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Speciality name (EN).
+        /// </summary>
+        public static string FieldName_SpecialityNameEN {
+            get {
+                return ResourceManager.GetString("FieldName_SpecialityNameEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Speciality name (ES).
+        /// </summary>
+        public static string FieldName_SpecialityNameES {
+            get {
+                return ResourceManager.GetString("FieldName_SpecialityNameES", resourceCulture);
             }
         }
         
@@ -597,6 +624,15 @@ namespace Refugio.Resources.Languages {
         public static string Veterinarians {
             get {
                 return ResourceManager.GetString("Veterinarians", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Veterinarian speciality.
+        /// </summary>
+        public static string VeterinarianSpeciality {
+            get {
+                return ResourceManager.GetString("VeterinarianSpeciality", resourceCulture);
             }
         }
         

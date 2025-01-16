@@ -138,6 +138,9 @@
   <data name="ConsultationFee" xml:space="preserve">
     <value>Tarifa de consulta</value>
   </data>
+  <data name="Create" xml:space="preserve">
+    <value>Crear</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Borrar</value>
   </data>
@@ -176,6 +179,12 @@
   </data>
   <data name="FieldDecimalBetween" xml:space="preserve">
     <value>El valor de este campo debe estar entre 0 y 9999999999999999</value>
+  </data>
+  <data name="FieldName_SpecialityNameEN" xml:space="preserve">
+    <value>Nombre de especialidad (EN)</value>
+  </data>
+  <data name="FieldName_SpecialityNameES" xml:space="preserve">
+    <value>Nombre de especialidad (ES)</value>
   </data>
   <data name="Filters" xml:space="preserve">
     <value>Filtros</value>
@@ -296,6 +305,9 @@
   </data>
   <data name="Veterinarians" xml:space="preserve">
     <value>Veterinarios</value>
+  </data>
+  <data name="VeterinarianSpeciality" xml:space="preserve">
+    <value>Especialidad veterinaria</value>
   </data>
   <data name="VeterinarianSpecialityNotFound" xml:space="preserve">
     <value>No se encuentra ninguna especialidad veterinaria con este identificador</value>
