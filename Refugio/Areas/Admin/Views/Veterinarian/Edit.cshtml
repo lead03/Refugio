@@ -15,7 +15,7 @@
         @Html.HiddenFor(x => x.RowVersion)
         @Html.AntiForgeryToken()
 
-        <div class="section-title">@Global.PersonalInformation</div>
+        <div class="section-title">@Global.PersonalData</div>
         <div class="row">
             @{
                 if (Model.IsNew)
@@ -48,7 +48,7 @@
             </div>
         </div>
 
-        <h3 class="section-title">@Global.PersonalInformation</h3>
+        <div class="section-title">@Global.Location</div>
         <div class="row">
             <div class="form-floating col-lg-4 col-md-6 col-sm-12">
                 @Html.TextBoxFor(model => model.Province, new { @class = "form-control", placeholder = "" })
@@ -80,7 +80,7 @@
             </div>
         </div>
 
-        <h3 class="section-title">@Global.ContactInformation</h3>
+        <div class="section-title">@Global.Contact</div>
         <div class="row">
             <div class="form-floating col-lg-4 col-md-6 col-sm-12">
                 @Html.TextBoxFor(model => model.PhoneNumberMain, new { @class = "form-control", placeholder = "" })
@@ -94,7 +94,7 @@
             </div>
         </div>
 
-        <h3 class="section-title">@Global.ProfessionalInformation</h3>
+        <div class="section-title">@Global.ProfessionalInformation</div>
         <div class="row">
             <div class="form-floating col-lg-4 col-md-6 col-sm-12">
                 @Html.DropDownListFor(model => model.Speciality, new SelectList(Model.VeterinarianSpecialityList, "Value", "Text"), Global.OptionSelect, new { @class = "form-select" })
@@ -134,7 +134,7 @@
             </div>
         </div>
 
-        <h3 class="section-title">@Global.WebsiteInformation</h3>
+        <div class="section-title">@Global.WebsiteConfiguration</div>
         <div class="row">
             <div class="form-label col-lg-4 col-md-6 col-sm-12">
                 @Html.LabelFor(model => model.InLanding, new { @class = "form-check-label" })

@@ -124,11 +124,11 @@ namespace Refugio.Resources.Languages {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Contact information.
+        ///   Busca una cadena traducida similar a Contact.
         /// </summary>
-        public static string ContactInformation {
+        public static string Contact {
             get {
-                return ResourceManager.GetString("ContactInformation", resourceCulture);
+                return ResourceManager.GetString("Contact", resourceCulture);
             }
         }
         
@@ -340,6 +340,15 @@ namespace Refugio.Resources.Languages {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Location.
+        /// </summary>
+        public static string Location {
+            get {
+                return ResourceManager.GetString("Location", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a This field must be shorter than 10 characters.
         /// </summary>
         public static string MaxNumberOfCharacters10 {
@@ -421,11 +430,11 @@ namespace Refugio.Resources.Languages {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Personal information.
+        ///   Busca una cadena traducida similar a Personal data.
         /// </summary>
-        public static string PersonalInformation {
+        public static string PersonalData {
             get {
-                return ResourceManager.GetString("PersonalInformation", resourceCulture);
+                return ResourceManager.GetString("PersonalData", resourceCulture);
             }
         }
         
@@ -673,11 +682,11 @@ namespace Refugio.Resources.Languages {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Website information.
+        ///   Busca una cadena traducida similar a Website configuration.
         /// </summary>
-        public static string WebsiteInformation {
+        public static string WebsiteConfiguration {
             get {
-                return ResourceManager.GetString("WebsiteInformation", resourceCulture);
+                return ResourceManager.GetString("WebsiteConfiguration", resourceCulture);
             }
         }
         

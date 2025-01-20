@@ -138,8 +138,8 @@
   <data name="ConsultationFee" xml:space="preserve">
     <value>Consultation fee</value>
   </data>
-  <data name="ContactInformation" xml:space="preserve">
-    <value>Contact information</value>
+  <data name="Contact" xml:space="preserve">
+    <value>Contact</value>
   </data>
   <data name="Create" xml:space="preserve">
     <value>Create</value>
@@ -210,6 +210,9 @@
   <data name="LastName" xml:space="preserve">
     <value>Last name</value>
   </data>
+  <data name="Location" xml:space="preserve">
+    <value>Location</value>
+  </data>
   <data name="MaxNumberOfCharacters10" xml:space="preserve">
     <value>This field must be shorter than 10 characters</value>
   </data>
@@ -237,8 +240,8 @@
   <data name="OptionSelect" xml:space="preserve">
     <value>Select one</value>
   </data>
-  <data name="PersonalInformation" xml:space="preserve">
-    <value>Personal information</value>
+  <data name="PersonalData" xml:space="preserve">
+    <value>Personal data</value>
   </data>
   <data name="PhoneNumberAditional" xml:space="preserve">
     <value>Aditional phone number</value>
@@ -321,8 +324,8 @@
   <data name="VeterinarianSpecialityNotFound" xml:space="preserve">
     <value>No veterinarian speciality found with this identifier</value>
   </data>
-  <data name="WebsiteInformation" xml:space="preserve">
-    <value>Website information</value>
+  <data name="WebsiteConfiguration" xml:space="preserve">
+    <value>Website configuration</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
