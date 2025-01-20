@@ -13,6 +13,7 @@
     --btn-tertiary-background: #d1dee8;
     --btn-tertiary-hover-background: #6b79a1;
     --form-primary-color: #3f51b5;
+    --form-subtitles-color: #333;
 }
 
 html {
@@ -37,8 +38,31 @@ h2 {
     letter-spacing: 1px;
 }
 
+input, select, textarea {
+    max-width: unset;
+}
+
+.form-floating > textarea.form-control {
+    height: unset;
+    line-height: 1.25;
+}
+.form-label {
+    margin: unset;
+}
+
+.form-switch {
+    font-size: 1.25rem;
+}
+
+.form-check-input:checked {
+    background-color: var(--btn-primary-background);
+    border-color: var(--btn-primary-background);
+}
+
 .row {
+    margin: unset;
     margin-bottom: 1.5rem;
+    row-gap: 1rem;
 }
 
 .form-floating label {
@@ -57,14 +81,18 @@ h2 {
     transition: border-color 0.5s;
 }
 
-    .form-floating input:focus {
+    .form-floating input:focus,
+    .form-floating > .form-control:focus {
         outline: none;
         border-color: var(--form-primary-color);
         background-color: var(--form-input-focus-backgrund-color);
     }
 
         .form-floating input:focus + label,
-        .form-floating input:not(:placeholder-shown) + label {
+        .form-floating input:not(:placeholder-shown) + label,
+        .form-floating select + label,
+        .form-floating > .form-control:focus + label,
+        .form-floating > .form-control:not(:placeholder-shown) + label {
             top: 12px;
             left: 17px;
             font-size: 0.85rem;
@@ -86,12 +114,16 @@ h2 {
     align-content: center;
 }
 
-.form-label {
+.form-label > label {
     font-size: 1rem;
     color: var(--form-placeholder-color);
     font-weight: bold;
     margin-bottom: 0.5rem;
     display: block;
+}
+
+.form-label > p {
+    margin: unset;
 }
 
 .btn {
@@ -139,6 +171,14 @@ h2 {
         color: #FFF;
     }
 
+.section-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--form-subtitles-color);
+    border-bottom: 1px solid #ddd;
+    margin: 2rem;
+}
+
 @media (max-width: 575.98px) {
     .form-container {
         padding: 2rem;
@@ -155,14 +195,6 @@ h2 {
 
     .btn {
         width: 100%;
-    }
-}
-
-@media (max-width:767.98px) {
-    .form-floating {
-        display: flex;
-        gap: 1rem;
-        flex-direction: column;
     }
 }
 

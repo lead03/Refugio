@@ -1,187 +1,168 @@
 ﻿@model Refugio.Areas.Admin.Models.Veterinarian.Edit
+
+@using Refugio.Resources.Languages
+
 @{
-    ViewBag.Title = "Edit";
+    string title = (Model.Id == 0 ? Global.Create : Global.Edit) + " " + Global.Veterinarian;
+    ViewBag.Title = char.ToUpper(title[0]) + title.Substring(1).ToLower();
 }
 
-<h2>Editar veterinario</h2>
+<div class="form-container">
+    <h2>@title.ToUpper()</h2>
 
-@using (Html.BeginForm("Edit", "Veterinarian", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.HiddenFor(x => x.RowVersion)
-    @Html.AntiForgeryToken()
-
-
-    if (Model.Id == 0)
+    @using (Html.BeginForm("Edit", "Veterinarian", FormMethod.Post, new { @class = "form-horizontal" }))
     {
-        <div class="mb-3 row">
-            @Html.LabelFor(m => m.UserName, Refugio.Resources.Languages.Global.UserName, new { @class = "col-sm-2 col-form-label text-end" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(model => model.UserName, new { @class = "form-control" })
-                <span class="text-danger">@Html.ValidationMessageFor(model => model.UserName)</span>
+        @Html.HiddenFor(x => x.RowVersion)
+        @Html.AntiForgeryToken()
+
+        <div class="section-title">@Global.PersonalInformation</div>
+        <div class="row">
+            @{
+                if (Model.IsNew)
+                {
+                    <div class="form-floating col-lg-4 col-md-6 col-sm-12">
+                        @Html.LabelFor(m => m.UserName)
+                        @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", placeholder = "" })
+                        <span class="text-danger">@Html.ValidationMessageFor(model => model.UserName)</span>
+                    </div>
+                }
+                else
+                {
+                    <div class="form-label col-lg-4 col-md-6 col-sm-12">
+                        @Html.LabelFor(m => m.UserName, new { @class = "label" })
+                        <p>@Model.UserName</p>
+                    </div>
+                }
+            }
+        </div>
+        <div class="row">
+            <div class="form-floating col-lg-4 col-md-6 col-sm-12">
+                @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", placeholder = "" })
+                @Html.LabelFor(m => m.FirstName)
+                <span class="text-danger">@Html.ValidationMessageFor(model => model.FirstName)</span>
+            </div>
+            <div class="form-floating col-lg-4 col-md-6 col-sm-12">
+                @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", placeholder = "" })
+                @Html.LabelFor(m => m.LastName)
+                <span class="text-danger">@Html.ValidationMessageFor(model => model.LastName)</span>
             </div>
         </div>
-    }
-    else
-    {
-        @Html.HiddenFor(model => model.UserName)
-        <div class="mb-3 row">
-            @Html.LabelFor(m => m.UserName, Refugio.Resources.Languages.Global.UserName, new { @class = "col-sm-2 col-form-label text-end" })
-            <div class="col-md-10">
-                @Html.DisplayFor(model => model.UserName, new { @class = "form-control" })
-                <span class="text-danger">@Html.ValidationMessageFor(model => model.UserName)</span>
+
+        <h3 class="section-title">@Global.PersonalInformation</h3>
+        <div class="row">
+            <div class="form-floating col-lg-4 col-md-6 col-sm-12">
+                @Html.TextBoxFor(model => model.Province, new { @class = "form-control", placeholder = "" })
+                @Html.LabelFor(m => m.Province)
+                <span class="text-danger">@Html.ValidationMessageFor(model => model.Province)</span>
+            </div>
+            <div class="form-floating col-lg-4 col-md-6 col-sm-12">
+                @Html.TextBoxFor(model => model.City, new { @class = "form-control", placeholder = "" })
+                @Html.LabelFor(m => m.City)
+                <span class="text-danger">@Html.ValidationMessageFor(model => model.City)</span>
             </div>
         </div>
+
+        <div class="row">
+            <div class="form-floating col-lg-4 col-md-6 col-sm-12">
+                @Html.TextBoxFor(model => model.StreetAddress, new { @class = "form-control", placeholder = "" })
+                @Html.LabelFor(m => m.StreetAddress)
+                <span class="text-danger">@Html.ValidationMessageFor(model => model.StreetAddress)</span>
+            </div>
+            <div class="form-floating col-lg-4 col-md-6 col-sm-12">
+                @Html.TextBoxFor(model => model.ApartmentNumber, new { @class = "form-control", placeholder = "" })
+                @Html.LabelFor(m => m.ApartmentNumber)
+                <span class="text-danger">@Html.ValidationMessageFor(model => model.ApartmentNumber)</span>
+            </div>
+            <div class="form-floating col-lg-4 col-md-6 col-sm-12">
+                @Html.TextBoxFor(model => model.ZipCode, new { @class = "form-control", placeholder = "" })
+                @Html.LabelFor(m => m.ZipCode)
+                <span class="text-danger">@Html.ValidationMessageFor(model => model.ZipCode)</span>
+            </div>
+        </div>
+
+        <h3 class="section-title">@Global.ContactInformation</h3>
+        <div class="row">
+            <div class="form-floating col-lg-4 col-md-6 col-sm-12">
+                @Html.TextBoxFor(model => model.PhoneNumberMain, new { @class = "form-control", placeholder = "" })
+                @Html.LabelFor(m => m.PhoneNumberMain)
+                <span class="text-danger">@Html.ValidationMessageFor(model => model.PhoneNumberMain)</span>
+            </div>
+            <div class="form-floating col-lg-4 col-md-6 col-sm-12">
+                @Html.TextBoxFor(model => model.PhoneNumberAditional, new { @class = "form-control", placeholder = "" })
+                @Html.LabelFor(m => m.PhoneNumberAditional)
+                <span class="text-danger">@Html.ValidationMessageFor(model => model.PhoneNumberAditional)</span>
+            </div>
+        </div>
+
+        <h3 class="section-title">@Global.ProfessionalInformation</h3>
+        <div class="row">
+            <div class="form-floating col-lg-4 col-md-6 col-sm-12">
+                @Html.DropDownListFor(model => model.Speciality, new SelectList(Model.VeterinarianSpecialityList, "Value", "Text"), Global.OptionSelect, new { @class = "form-select" })
+                @Html.LabelFor(m => m.Speciality)
+                <span class="text-danger">@Html.ValidationMessageFor(model => model.Speciality)</span>
+            </div>
+            <div class="form-floating col-lg-4 col-md-6 col-sm-12">
+                @Html.TextBoxFor(model => model.ProfessionalLicense, new { @class = "form-control", placeholder = "" })
+                @Html.LabelFor(m => m.ProfessionalLicense)
+                <span class="text-danger">@Html.ValidationMessageFor(model => model.ProfessionalLicense)</span>
+            </div>
+            <div class="form-floating col-lg-4 col-md-6 col-sm-12">
+                @Html.DropDownListFor(model => model.TimeSlot, new SelectList(Model.TimeSlotRangeList, "Value", "Text"), Global.OptionSelect, new { @class = "form-select" })
+                @Html.LabelFor(m => m.TimeSlot)
+                <span class="text-danger">@Html.ValidationMessageFor(model => model.TimeSlot)</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-label col-lg-4 col-md-6 col-sm-12">
+                @Html.LabelFor(m => m.IsPermanent, new { @class = "label" })
+                <div class="form-check form-switch">
+                    @Html.RadioButtonFor(model => model.IsPermanent, true, new { @class = "form-check-input", id = "IsPermanent_Yes", type = "checkbox" })
+                    @Html.RadioButtonFor(model => model.IsPermanent, false, new { @class = "form-check-input", id = "IsPermanent_No", type = "checkbox" })
+                </div>
+                <span class="text-danger">@Html.ValidationMessageFor(model => model.IsPermanent)</span>
+            </div>
+            <div class="form-floating col-lg-4 col-md-6 col-sm-12">
+                @Html.TextBoxFor(model => model.Salary, new { @class = "form-control", placeholder = "" })
+                @Html.LabelFor(m => m.Salary)
+                <span class="text-danger">@Html.ValidationMessageFor(model => model.Salary)</span>
+            </div>
+            <div class="form-floating col-lg-4 col-md-6 col-sm-12">
+                @Html.TextBoxFor(model => model.Fee, new { @class = "form-control", placeholder = "" })
+                @Html.LabelFor(m => m.Fee)
+                <span class="text-danger">@Html.ValidationMessageFor(model => model.Fee)</span>
+            </div>
+        </div>
+
+        <h3 class="section-title">@Global.WebsiteInformation</h3>
+        <div class="row">
+            <div class="form-label col-lg-4 col-md-6 col-sm-12">
+                @Html.LabelFor(model => model.InLanding, new { @class = "form-check-label" })
+                <div class="form-check form-switch">
+                    @Html.RadioButtonFor(model => model.InLanding, true, new { @class = "form-check-input", id = "InLanding_Yes", type = "checkbox" })
+                    @Html.RadioButtonFor(model => model.InLanding, false, new { @class = "form-check-input", id = "InLanding_No", type = "checkbox" })
+                </div>
+                <span class="text-danger">@Html.ValidationMessageFor(model => model.InLanding)</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-floating col-lg-12 col-md-12 col-sm-12">
+                @Html.TextAreaFor(model => model.DescriptionEN, new { @class = "form-control", placeholder = "", rows = "3" })
+                @Html.LabelFor(m => m.DescriptionEN)
+                <span class="text-danger">@Html.ValidationMessageFor(model => model.DescriptionEN)</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-floating col-lg-12 col-md-12 col-sm-12">
+                @Html.TextAreaFor(model => model.DescriptionES, new { @class = "form-control", placeholder = "", rows = "3" })
+                @Html.LabelFor(model => model.DescriptionES)
+                <span class="text-danger">@Html.ValidationMessageFor(model => model.DescriptionES)</span>
+            </div>
+        </div>
+
+        <div class="buttons-container">
+            <button type="submit" class="btn btn-primary">@Global.Save</button>
+            <button type="button" class="btn btn-secondary" onclick="location.href='@Url.Action("Index", "Veterinarian", new { area = "Admin" })'">@Global.BackToList</button>
+        </div>
     }
-    <div class="mb-3 row">
-        @Html.LabelFor(model => model.FirstName, Refugio.Resources.Languages.Global.FirstName, new { @class = "col-sm-2 col-form-label text-end" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" })
-            <span class="text-danger">@Html.ValidationMessageFor(model => model.FirstName)</span>
-        </div>
-    </div>
-
-    <div class="mb-3 row">
-        @Html.LabelFor(model => model.LastName, Refugio.Resources.Languages.Global.LastName, new { @class = "col-sm-2 col-form-label text-end" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
-            <span class="text-danger">@Html.ValidationMessageFor(model => model.LastName)</span>
-        </div>
-    </div>
-
-    <div class="mb-3 row">
-        @Html.LabelFor(model => model.StreetAddress, Refugio.Resources.Languages.Global.StreetAddress, new { @class = "col-sm-2 col-form-label text-end" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(model => model.StreetAddress, new { @class = "form-control" })
-            <span class="text-danger">@Html.ValidationMessageFor(model => model.StreetAddress)</span>
-        </div>
-    </div>
-
-    <div class="mb-3 row">
-        @Html.LabelFor(model => model.ApartmentNumber, Refugio.Resources.Languages.Global.ApartmentNumber, new { @class = "col-sm-2 col-form-label text-end" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(model => model.ApartmentNumber, new { @class = "form-control" })
-            <span class="text-danger">@Html.ValidationMessageFor(model => model.ApartmentNumber)</span>
-        </div>
-    </div>
-
-    <div class="mb-3 row">
-        @Html.LabelFor(model => model.City, Refugio.Resources.Languages.Global.City, new { @class = "col-sm-2 col-form-label text-end" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(model => model.City, new { @class = "form-control" })
-            <span class="text-danger">@Html.ValidationMessageFor(model => model.City)</span>
-        </div>
-    </div>
-
-    <div class="mb-3 row">
-        @Html.LabelFor(model => model.ZipCode, Refugio.Resources.Languages.Global.ZipCode, new { @class = "col-sm-2 col-form-label text-end" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(model => model.ZipCode, new { @class = "form-control" })
-            <span class="text-danger">@Html.ValidationMessageFor(model => model.ZipCode)</span>
-        </div>
-    </div>
-
-    <div class="mb-3 row">
-        @Html.LabelFor(model => model.Province, Refugio.Resources.Languages.Global.Province, new { @class = "col-sm-2 col-form-label text-end" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(model => model.Province, new { @class = "form-control" })
-            <span class="text-danger">@Html.ValidationMessageFor(model => model.Province)</span>
-        </div>
-    </div>
-
-    <div class="mb-3 row">
-        @Html.LabelFor(model => model.PhoneNumberMain, Refugio.Resources.Languages.Global.PhoneNumberMain, new { @class = "col-sm-2 col-form-label text-end" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(model => model.PhoneNumberMain, new { @class = "form-control" })
-            <span class="text-danger">@Html.ValidationMessageFor(model => model.PhoneNumberMain)</span>
-        </div>
-    </div>
-
-    <div class="mb-3 row">
-        @Html.LabelFor(model => model.PhoneNumberAditional, Refugio.Resources.Languages.Global.PhoneNumberAditional, new { @class = "col-sm-2 col-form-label text-end" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(model => model.PhoneNumberAditional, new { @class = "form-control" })
-            <span class="text-danger">@Html.ValidationMessageFor(model => model.PhoneNumberAditional)</span>
-        </div>
-    </div>
-    <div class="mb-3 row">
-        @Html.LabelFor(model => model.Speciality, Refugio.Resources.Languages.Global.Speciality, new { @class = "col-sm-2 col-form-label text-end" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(
-                model => model.Speciality,
-                new SelectList(Model.VeterinarianSpecialityList, "Value", "Text"),
-                Refugio.Resources.Languages.Global.OptionSelect,
-                new { @class = "form-control" })
-            <span class="text-danger">@Html.ValidationMessageFor(model => model.Speciality)</span>
-        </div>
-    </div>
-    <div class="mb-3 row">
-        @Html.LabelFor(model => model.IsPermanent, Refugio.Resources.Languages.Global.IsPermanent, new { @class = "col-sm-2 col-form-label text-end" })
-        <div class="col-md-10">
-            @Html.RadioButtonFor(model => model.IsPermanent, true, new { @class = "form-check-input" }) @Refugio.Resources.Languages.Global.Yes
-            @Html.RadioButtonFor(model => model.IsPermanent, false, new { @class = "form-check-input" }) @Refugio.Resources.Languages.Global.No
-            <span class="text-danger">@Html.ValidationMessageFor(model => model.IsPermanent)</span>
-        </div>
-    </div>
-    <div class="mb-3 row">
-        @Html.LabelFor(model => model.Salary, Refugio.Resources.Languages.Global.Salary, new { @class = "col-sm-2 col-form-label text-end" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(model => model.Salary, new { @class = "form-control" })
-            <span class="text-danger">@Html.ValidationMessageFor(model => model.Salary)</span>
-        </div>
-    </div>
-    <div class="mb-3 row">
-        @Html.LabelFor(model => model.Fee, Refugio.Resources.Languages.Global.ConsultationFee, new { @class = "col-sm-2 col-form-label text-end" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(model => model.Fee, new { @class = "form-control" })
-            <span class="text-danger">@Html.ValidationMessageFor(model => model.Fee)</span>
-        </div>
-    </div>
-
-    <div class="mb-3 row">
-        @Html.LabelFor(model => model.TimeSlot, Refugio.Resources.Languages.Global.TimeSlot, new { @class = "col-sm-2 col-form-label text-end" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(
-                model => model.TimeSlot,
-                new SelectList(Model.TimeSlotRangeList, "Value", "Text"),
-                Refugio.Resources.Languages.Global.OptionSelect,
-                new { @class = "form-control" })
-            <span class="text-danger">@Html.ValidationMessageFor(model => model.TimeSlot)</span>
-        </div>
-    </div>
-    <div class="mb-3 row">
-        @Html.LabelFor(model => model.ProfessionalLicense, Refugio.Resources.Languages.Global.ProfessionalLicense, new { @class = "col-sm-2 col-form-label text-end" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(model => model.ProfessionalLicense, new { @class = "form-control" })
-            <span class="text-danger">@Html.ValidationMessageFor(model => model.ProfessionalLicense)</span>
-        </div>
-    </div>
-    <div class="mb-3 row">
-        @Html.LabelFor(model => model.DescriptionEN, Refugio.Resources.Languages.Global.Description.ToString() + " - " + Refugio.Resources.Languages.Global.English.ToString(), new { @class = "col-sm-2 col-form-label text-end" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(model => model.DescriptionEN, new { @class = "form-control" })
-            <span class="text-danger">@Html.ValidationMessageFor(model => model.DescriptionEN)</span>
-        </div>
-    </div>
-    <div class="mb-3 row">
-        @Html.LabelFor(model => model.DescriptionES, Refugio.Resources.Languages.Global.Description.ToString() + " - " + Refugio.Resources.Languages.Global.Spanish.ToString(), new { @class = "col-sm-2 col-form-label text-end" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(model => model.DescriptionES, new { @class = "form-control" })
-            <span class="text-danger">@Html.ValidationMessageFor(model => model.DescriptionES)</span>
-        </div>
-    </div>
-
-    <div class="mb-3 row">
-        @Html.LabelFor(model => model.InLanding, Refugio.Resources.Languages.Global.InLanding, new { @class = "col-sm-2 col-form-label text-end" })
-        <div class="col-md-10">
-            @Html.RadioButtonFor(model => model.InLanding, true, new { @class = "form-check-input" }) @Refugio.Resources.Languages.Global.Yes
-            @Html.RadioButtonFor(model => model.InLanding, false, new { @class = "form-check-input" }) @Refugio.Resources.Languages.Global.No
-            <span class="text-danger">@Html.ValidationMessageFor(model => model.IsPermanent)</span>
-        </div>
-    </div>
-
-
-    <div>
-        <button type="submit" class="btn btn-success">@Refugio.Resources.Languages.Global.Save</button>
-        <a href="@Url.Action("Index", "Veterinarian", new { area = "Admin" })" class="btn btn-secondary">@Refugio.Resources.Languages.Global.BackToList</a>
-    </div>
-}
+</div>

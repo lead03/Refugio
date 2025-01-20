@@ -1,7 +1,9 @@
 ﻿@model Refugio.Areas.Admin.Models.VeterinarianSpeciality.Edit
 
+@using Refugio.Resources.Languages
+
 @{
-    string title = (Model.IsNew ? Refugio.Resources.Languages.Global.Create : Refugio.Resources.Languages.Global.Edit) + " " + @Refugio.Resources.Languages.Global.VeterinarianSpeciality;
+    string title = (Model.IsNew ? Global.Create : Global.Edit) + " " + Global.VeterinarianSpeciality;
     ViewBag.Title = char.ToUpper(title[0]) + title.Substring(1).ToLower();
 }
 
@@ -26,16 +28,15 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-12">
-                <label class="form-label">@Refugio.Resources.Languages.Global.Professionals</label>
+            <div class="form-label col-lg-4 col-md-6 col-sm-12">
+                @Html.LabelFor(m => m.ProfessionalsAssociatedCount, new { @class = "label" })
                 <p>@Model.ProfessionalsAssociatedCount</p>
             </div>
         </div>
 
         <div class="buttons-container">
-            <button type="submit" class="btn btn-primary">@Refugio.Resources.Languages.Global.Save</button>
-            <button type="button" class="btn btn-secondary" onclick="location.href='@Url.Action("Index", "VeterinarianSpeciality", new { area = "Admin" })'">@Refugio.Resources.Languages.Global.BackToList</button>
-            <button type="button" class="btn btn-tertiary">Opción</button>
+            <button type="submit" class="btn btn-primary">@Global.Save</button>
+            <button type="button" class="btn btn-secondary" onclick="location.href='@Url.Action("Index", "VeterinarianSpeciality", new { area = "Admin" })'">@Global.BackToList</button>
         </div>
     }
 </div>
