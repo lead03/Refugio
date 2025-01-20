@@ -65,6 +65,11 @@ input, select, textarea {
     row-gap: 1rem;
 }
 
+.form-floating > .form-control:focus ~ label::after,
+.form-floating > .form-control:not(:placeholder-shown) ~ label::after,
+.form-floating > .form-select ~ label::after {
+    background-color: unset;
+}
 .form-floating label {
     padding-left: 1.5rem;
     font-size: 1rem;
@@ -90,9 +95,9 @@ input, select, textarea {
 
         .form-floating input:focus + label,
         .form-floating input:not(:placeholder-shown) + label,
-        .form-floating select + label,
         .form-floating > .form-control:focus + label,
-        .form-floating > .form-control:not(:placeholder-shown) + label {
+        .form-floating > .form-control:not(:placeholder-shown) + label,
+        .form-floating > .form-select ~ label {
             top: 12px;
             left: 17px;
             font-size: 0.85rem;

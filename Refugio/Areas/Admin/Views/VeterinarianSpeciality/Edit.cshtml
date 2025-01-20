@@ -10,7 +10,7 @@
 <div class="form-container">
     <h2>@title.ToUpper()</h2>
 
-    @using (Html.BeginForm("Edit", "VeterinarianSpeciality", FormMethod.Post, new { @class = "form-horizontal" }))
+    @using (Html.BeginForm("Edit", "VeterinarianSpeciality", FormMethod.Post, new { @class = "form-horizontal", id = "veterinarianSpecialityForm" }))
     {
         @Html.HiddenFor(x => x.RowVersion)
         @Html.AntiForgeryToken()
@@ -40,3 +40,15 @@
         </div>
     }
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.js"></script>
+
+
+<script>
+
+    $(document).ready(function () {
+        $.validator.unobtrusive.parse("#veterinarianSpecialityForm");
+    });
+</script>
