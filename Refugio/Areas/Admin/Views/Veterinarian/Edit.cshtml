@@ -46,6 +46,11 @@
                 @Html.LabelFor(m => m.LastName)
                 <span class="text-danger">@Html.ValidationMessageFor(model => model.LastName)</span>
             </div>
+            <div class="form-floating col-lg-4 col-md-6 col-sm-12">
+                @Html.TextBoxFor(model => model.DocNumber, new { @class = "form-control", placeholder = "" })
+                @Html.LabelFor(m => m.DocNumber)
+                <span class="text-danger">@Html.ValidationMessageFor(model => model.DocNumber)</span>
+            </div>
         </div>
 
         <div class="section-title">@Global.Location</div>
@@ -92,6 +97,11 @@
                 @Html.LabelFor(m => m.PhoneNumberAditional)
                 <span class="text-danger">@Html.ValidationMessageFor(model => model.PhoneNumberAditional)</span>
             </div>
+            <div class="form-floating col-lg-4 col-md-6 col-sm-12">
+                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "" })
+                @Html.LabelFor(m => m.Email)
+                <span class="text-danger">@Html.ValidationMessageFor(model => model.Email)</span>
+            </div>
         </div>
 
         <div class="section-title">@Global.ProfessionalInformation</div>
@@ -122,6 +132,13 @@
                 </div>
                 <span class="text-danger">@Html.ValidationMessageFor(model => model.IsPermanent)</span>
             </div>
+            <div class="form-floating col-lg-4 col-md-6 col-sm-12">
+                @Html.TextBoxFor(model => model.CUIT, new { @class = "form-control", placeholder = "" })
+                @Html.LabelFor(m => m.CUIT)
+                <span class="text-danger">@Html.ValidationMessageFor(model => model.CUIT)</span>
+            </div>
+        </div>
+        <div class="row">
             <div class="form-floating col-lg-4 col-md-6 col-sm-12">
                 @Html.TextBoxFor(model => model.Salary, new { @class = "form-control", placeholder = "" })
                 @Html.LabelFor(m => m.Salary)

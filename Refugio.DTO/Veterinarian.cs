@@ -38,6 +38,8 @@ namespace Refugio.DTO
         public string Email { get; set; }
         public bool InLanding { get; set; }
         public Nullable<System.Guid> ProfileImageId { get; set; }
+        public string DocNumber { get; set; }
+        public string CUIT { get; set; }
     
         public virtual TimeSlotRange TimeSlotRange { get; set; }
         public virtual VeterinarianSpeciality VeterinarianSpeciality { get; set; }

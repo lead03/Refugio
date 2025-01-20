@@ -318,3 +318,10 @@ ALTER TABLE VeterinarianSpeciality
 ADD RowVersion rowversion;
 
 GO
+
+ALTER TABLE [dbo].[Veterinarian]
+ADD 
+    [DocNumber] VARCHAR(10) NULL,
+    [CUIT] VARCHAR(12) NULL;
+
+GO

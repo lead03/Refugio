@@ -77,6 +77,8 @@ namespace Refugio.Areas.Admin.Models.Veterinarian
 
         public string DescriptionES { get; set; }
 
+        public string Email { get; set; }
+
         public bool InLanding { get; set; }
 
         public Guid? ProfileImageId { get; set; }
@@ -86,6 +88,10 @@ namespace Refugio.Areas.Admin.Models.Veterinarian
         public SelectList TimeSlotRangeList { get; set; }
 
         public byte[] RowVersion { get; set; }
+
+        public string DocNumber { get; set; }
+
+        public string CUIT { get; set; }
 
         public bool IsNew
         {
