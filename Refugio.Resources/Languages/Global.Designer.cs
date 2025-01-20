@@ -259,6 +259,15 @@ namespace Refugio.Resources.Languages {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Total specialist professionals.
+        /// </summary>
+        public static string FieldName_ProfessionalsAssociatedCount {
+            get {
+                return ResourceManager.GetString("FieldName_ProfessionalsAssociatedCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Speciality name (EN).
         /// </summary>
         public static string FieldName_SpecialityNameEN {
@@ -345,6 +354,15 @@ namespace Refugio.Resources.Languages {
         public static string Location {
             get {
                 return ResourceManager.GetString("Location", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The maximum allowed length has been exceeded ({1} characters). Please shorten the input..
+        /// </summary>
+        public static string MaxLengthExceeded {
+            get {
+                return ResourceManager.GetString("MaxLengthExceeded", resourceCulture);
             }
         }
         

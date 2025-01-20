@@ -183,6 +183,9 @@
   <data name="FieldDecimalBetween" xml:space="preserve">
     <value>El valor de este campo debe estar entre 0 y 9999999999999999</value>
   </data>
+  <data name="FieldName_ProfessionalsAssociatedCount" xml:space="preserve">
+    <value>Cantidad total de especialistas</value>
+  </data>
   <data name="FieldName_SpecialityNameEN" xml:space="preserve">
     <value>Nombre de especialidad (EN)</value>
   </data>
@@ -212,6 +215,9 @@
   </data>
   <data name="Location" xml:space="preserve">
     <value>Ubicación</value>
+  </data>
+  <data name="MaxLengthExceeded" xml:space="preserve">
+    <value>Se ha excedido la longitud máxima permitida ({1} caracteres). Por favor, reduzca el texto ingresado.</value>
   </data>
   <data name="MaxNumberOfCharacters10" xml:space="preserve">
     <value>Este campo debe ser menor a 10 caracteres</value>

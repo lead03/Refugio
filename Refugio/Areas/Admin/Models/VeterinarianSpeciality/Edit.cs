@@ -13,12 +13,15 @@ namespace Refugio.Areas.Admin.Models.VeterinarianSpeciality
 
         [Required(ErrorMessageResourceType = typeof(Global), ErrorMessageResourceName = "RequieredField")]
         [Display(Name = "FieldName_SpecialityNameES", ResourceType = typeof(Global))]
+        [StringLength(100, ErrorMessageResourceType = typeof(Global), ErrorMessageResourceName = "MaxLengthExceeded")]
         public string SpecialityNameES { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Global), ErrorMessageResourceName = "RequieredField")]
         [Display(Name = "FieldName_SpecialityNameEN", ResourceType = typeof(Global))]
+        [StringLength(100, ErrorMessageResourceType = typeof(Global), ErrorMessageResourceName = "MaxLengthExceeded")]
         public string SpecialityNameEN { get; set; }
 
+        [Display(Name = "FieldName_ProfessionalsAssociatedCount", ResourceType = typeof(Global))]
         public int ProfessionalsAssociatedCount {  get; set; }
 
         public byte[] RowVersion { get; set; }
