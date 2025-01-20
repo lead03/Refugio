@@ -124,6 +124,24 @@ namespace Refugio.Resources.Languages {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Contact information.
+        /// </summary>
+        public static string ContactInformation {
+            get {
+                return ResourceManager.GetString("ContactInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Create.
+        /// </summary>
+        public static string Create {
+            get {
+                return ResourceManager.GetString("Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Delete.
         /// </summary>
         public static string Delete {
@@ -237,6 +255,24 @@ namespace Refugio.Resources.Languages {
         public static string FieldDecimalBetween {
             get {
                 return ResourceManager.GetString("FieldDecimalBetween", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Speciality name (EN).
+        /// </summary>
+        public static string FieldName_SpecialityNameEN {
+            get {
+                return ResourceManager.GetString("FieldName_SpecialityNameEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Speciality name (ES).
+        /// </summary>
+        public static string FieldName_SpecialityNameES {
+            get {
+                return ResourceManager.GetString("FieldName_SpecialityNameES", resourceCulture);
             }
         }
         
@@ -376,11 +412,20 @@ namespace Refugio.Resources.Languages {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a -- Select --.
+        ///   Busca una cadena traducida similar a Select one.
         /// </summary>
         public static string OptionSelect {
             get {
                 return ResourceManager.GetString("OptionSelect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Personal information.
+        /// </summary>
+        public static string PersonalInformation {
+            get {
+                return ResourceManager.GetString("PersonalInformation", resourceCulture);
             }
         }
         
@@ -399,6 +444,15 @@ namespace Refugio.Resources.Languages {
         public static string PhoneNumberMain {
             get {
                 return ResourceManager.GetString("PhoneNumberMain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Proffesional Information.
+        /// </summary>
+        public static string ProfessionalInformation {
+            get {
+                return ResourceManager.GetString("ProfessionalInformation", resourceCulture);
             }
         }
         
@@ -601,11 +655,29 @@ namespace Refugio.Resources.Languages {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Veterinarian speciality.
+        /// </summary>
+        public static string VeterinarianSpeciality {
+            get {
+                return ResourceManager.GetString("VeterinarianSpeciality", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a No veterinarian speciality found with this identifier.
         /// </summary>
         public static string VeterinarianSpecialityNotFound {
             get {
                 return ResourceManager.GetString("VeterinarianSpecialityNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Website information.
+        /// </summary>
+        public static string WebsiteInformation {
+            get {
+                return ResourceManager.GetString("WebsiteInformation", resourceCulture);
             }
         }
         

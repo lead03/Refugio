@@ -8,7 +8,11 @@ namespace Refugio.Business
     {
         public static void CheckRowVersion(byte[] modelVersion, byte[] DTOVersion)
         {
-            if(!modelVersion.SequenceEqual(DTOVersion))
+            if (modelVersion == null || DTOVersion == null)
+            {
+                throw new ArgumentNullException();
+            }
+            if (!modelVersion.SequenceEqual(DTOVersion))
             {
                 throw new InvalidOperationException();
             }

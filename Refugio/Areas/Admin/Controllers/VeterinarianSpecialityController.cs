@@ -112,7 +112,7 @@ namespace Refugio.Areas.Admin.Controllers
                     return View(editRequest);
                 }
                 DTO.VeterinarianSpeciality veterinarianSpeciality = new DTO.VeterinarianSpeciality();
-                if (!editRequest.IsNewSpeciality){
+                if (!editRequest.IsNew){
                     veterinarianSpeciality = Business.VeterinarianSpeciality.GetById(editRequest.Id);
                     Business.Common.CheckRowVersion(editRequest.RowVersion, veterinarianSpeciality.RowVersion);
                 }

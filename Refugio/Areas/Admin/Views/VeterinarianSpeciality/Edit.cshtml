@@ -1,47 +1,42 @@
 ﻿@model Refugio.Areas.Admin.Models.VeterinarianSpeciality.Edit
 
+@using Refugio.Resources.Languages
+
 @{
-    ViewBag.Title = "Editar Especialidad Veterinaria";
+    string title = (Model.IsNew ? Global.Create : Global.Edit) + " " + Global.VeterinarianSpeciality;
+    ViewBag.Title = char.ToUpper(title[0]) + title.Substring(1).ToLower();
 }
 
-<h2>Editar Especialidad Veterinaria</h2>
+<div class="form-container">
+    <h2>@title.ToUpper()</h2>
 
-@using (Html.BeginForm("Edit", "VeterinarianSpeciality", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.HiddenFor(x => x.RowVersion)
-    @Html.AntiForgeryToken()
+    @using (Html.BeginForm("Edit", "VeterinarianSpeciality", FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.HiddenFor(x => x.RowVersion)
+        @Html.AntiForgeryToken()
 
-    <!-- Nombre en Español -->
-    <div class="mb-3 row">
-        @Html.LabelFor(m => m.SpecialityNameES)
-        <div class="col-md-10">
-            @Html.TextBoxFor(model => model.SpecialityNameES, new { @class = "form-control" })
-            <span class="text-danger">@Html.ValidationMessageFor(model => model.SpecialityNameES)</span>
+        <div class="row">
+            <div class="form-floating col-lg-4 col-md-6 col-sm-12">
+                @Html.TextBoxFor(model => model.SpecialityNameES, new { @class = "form-control", placeholder = "" })
+                @Html.LabelFor(m => m.SpecialityNameES)
+                <span class="text-danger">@Html.ValidationMessageFor(model => model.SpecialityNameES)</span>
+            </div>
+            <div class="form-floating col-lg-4 col-md-6 col-sm-12">
+                @Html.TextBoxFor(model => model.SpecialityNameEN, new { @class = "form-control", placeholder = "" })
+                @Html.LabelFor(m => m.SpecialityNameEN)
+                <span class="text-danger">@Html.ValidationMessageFor(model => model.SpecialityNameEN)</span>
+            </div>
         </div>
-    </div>
-
-    <!-- Nombre en Inglés -->
-    <div class="mb-3 row">
-        @Html.LabelFor(m => m.SpecialityNameEN)
-        <div class="col-md-10">
-            @Html.TextBoxFor(model => model.SpecialityNameEN, new { @class = "form-control" })
-            <span class="text-danger">@Html.ValidationMessageFor(model => model.SpecialityNameEN)</span>
+        <div class="row">
+            <div class="form-label col-lg-4 col-md-6 col-sm-12">
+                @Html.LabelFor(m => m.ProfessionalsAssociatedCount, new { @class = "label" })
+                <p>@Model.ProfessionalsAssociatedCount</p>
+            </div>
         </div>
-    </div>
 
-    <!-- Profesionales asociados -->
-    <div class="mb-3 row">
-        <label class="col-sm-2 col-form-label text-end">Profesionales</label>
-        <div class="col-md-10">
-            <p>@Model.ProfessionalsAssociatedCount</p>
+        <div class="buttons-container">
+            <button type="submit" class="btn btn-primary">@Global.Save</button>
+            <button type="button" class="btn btn-secondary" onclick="location.href='@Url.Action("Index", "VeterinarianSpeciality", new { area = "Admin" })'">@Global.BackToList</button>
         </div>
-    </div>
-
-    <!-- Botones -->
-    <div class="mb-3 row">
-        <div class="col-md-10 offset-sm-2">
-            <button type="submit" class="btn btn-success">@Refugio.Resources.Languages.Global.Save</button>
-            <a href="@Url.Action("Index", "VeterinarianSpeciality", new { area = "Admin" })" class="btn btn-secondary">@Refugio.Resources.Languages.Global.BackToList</a>
-        </div>
-    </div>
-}
+    }
+</div>
