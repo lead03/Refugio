@@ -325,3 +325,48 @@ ADD
     [CUIT] VARCHAR(12) NULL;
 
 GO
+
+ALTER TABLE [dbo].[Veterinarian]
+ALTER COLUMN [UserName] VARCHAR(30) NULL;
+
+GO
+
+ALTER TABLE [dbo].[Veterinarian]
+ALTER COLUMN [UserName] VARCHAR(30) NULL;
+
+GO
+
+ALTER TABLE [dbo].[Veterinarian]
+ALTER COLUMN [UserPassword] VARCHAR(60) NOT NULL;
+
+GO
+
+ALTER TABLE [dbo].[Veterinarian]
+ALTER COLUMN [StreetAddress] VARCHAR(100) NOT NULL;
+
+GO
+
+ALTER TABLE [dbo].[Veterinarian]
+ALTER COLUMN [ApartmentNumber] VARCHAR(15) NULL;
+
+GO
+
+ALTER TABLE [dbo].[Veterinarian]
+ALTER COLUMN [CUIT] VARCHAR(13);
+
+GO
+
+ALTER TABLE [dbo].[Veterinarian]
+ALTER COLUMN [Province] varchar(50) NOT NULL;
+
+GO
+
+UPDATE [dbo].[Veterinarian]
+SET [Email] = 'test@test.com';
+
+GO
+
+ALTER TABLE [dbo].[Veterinarian]
+ALTER COLUMN [Email] varchar(320) NOT NULL;
+
+GO

@@ -17,6 +17,7 @@ namespace Refugio.Resources
         public const string SpanishAbbreviation = "ES";
         public const string EnglishKey = "en-US";
         public const string EnglishAbbreviation = "EN";
+        public const string DefaultLanguage = "en";
     }
 
     public class AlertMessage

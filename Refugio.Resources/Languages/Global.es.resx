@@ -210,6 +210,9 @@
   <data name="Language" xml:space="preserve">
     <value>Idioma</value>
   </data>
+  <data name="LanguageCookieNotFound" xml:space="preserve">
+    <value>Cookie de lenguage no encontrado</value>
+  </data>
   <data name="LastName" xml:space="preserve">
     <value>Apellido</value>
   </data>
@@ -219,20 +222,8 @@
   <data name="MaxLengthExceeded" xml:space="preserve">
     <value>Se ha excedido la longitud máxima permitida ({1} caracteres). Por favor, reduzca el texto ingresado.</value>
   </data>
-  <data name="MaxNumberOfCharacters10" xml:space="preserve">
-    <value>Este campo debe ser menor a 10 caracteres</value>
-  </data>
-  <data name="MaxNumberOfCharacters100" xml:space="preserve">
-    <value>Este campo debe ser menor a 100 caracteres</value>
-  </data>
-  <data name="MaxNumberOfCharacters15" xml:space="preserve">
-    <value>Este campo debe ser menor a 15 caracteres</value>
-  </data>
-  <data name="MaxNumberOfCharacters50" xml:space="preserve">
-    <value>Este campo debe ser menor a 50 caracteres</value>
-  </data>
-  <data name="MinNumberOfCharacters4" xml:space="preserve">
-    <value>Este campo debe ser mayor a 4 caracteres</value>
+  <data name="MinLengthNotMet" xml:space="preserve">
+    <value>No se ha alcanzado la longitud mínima requerida de {1} caracteres. Por favor, ingrese más caracteres.</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Nombre</value>

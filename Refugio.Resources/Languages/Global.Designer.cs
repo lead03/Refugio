@@ -340,6 +340,15 @@ namespace Refugio.Resources.Languages {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Language cookie not found.
+        /// </summary>
+        public static string LanguageCookieNotFound {
+            get {
+                return ResourceManager.GetString("LanguageCookieNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Last name.
         /// </summary>
         public static string LastName {
@@ -367,47 +376,11 @@ namespace Refugio.Resources.Languages {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a This field must be shorter than 10 characters.
+        ///   Busca una cadena traducida similar a The minimum required length of {1} characters has not been met. Please enter more characters..
         /// </summary>
-        public static string MaxNumberOfCharacters10 {
+        public static string MinLengthNotMet {
             get {
-                return ResourceManager.GetString("MaxNumberOfCharacters10", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a This field must be shorter than 100 characters.
-        /// </summary>
-        public static string MaxNumberOfCharacters100 {
-            get {
-                return ResourceManager.GetString("MaxNumberOfCharacters100", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a This field must be shorter than 15 characters.
-        /// </summary>
-        public static string MaxNumberOfCharacters15 {
-            get {
-                return ResourceManager.GetString("MaxNumberOfCharacters15", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a This field must be shorter than 50 characters.
-        /// </summary>
-        public static string MaxNumberOfCharacters50 {
-            get {
-                return ResourceManager.GetString("MaxNumberOfCharacters50", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a This field must be longer than 4 characters.
-        /// </summary>
-        public static string MinNumberOfCharacters4 {
-            get {
-                return ResourceManager.GetString("MinNumberOfCharacters4", resourceCulture);
+                return ResourceManager.GetString("MinLengthNotMet", resourceCulture);
             }
         }
         

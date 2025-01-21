@@ -21,8 +21,8 @@
                 if (Model.IsNew)
                 {
                     <div class="form-floating col-lg-4 col-md-6 col-sm-12">
-                        @Html.LabelFor(m => m.UserName)
                         @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", placeholder = "" })
+                        @Html.LabelFor(m => m.UserName)
                         <span class="text-danger">@Html.ValidationMessageFor(model => model.UserName)</span>
                     </div>
                 }
@@ -107,9 +107,9 @@
         <div class="section-title">@Global.ProfessionalInformation</div>
         <div class="row">
             <div class="form-floating col-lg-4 col-md-6 col-sm-12">
-                @Html.DropDownListFor(model => model.Speciality, new SelectList(Model.VeterinarianSpecialityList, "Value", "Text"), Global.OptionSelect, new { @class = "form-select" })
-                @Html.LabelFor(m => m.Speciality)
-                <span class="text-danger">@Html.ValidationMessageFor(model => model.Speciality)</span>
+                @Html.DropDownListFor(model => model.SpecialityId, new SelectList(Model.VeterinarianSpecialityList, "Value", "Text"), Global.OptionSelect, new { @class = "form-select" })
+                @Html.LabelFor(m => m.SpecialityId)
+                <span class="text-danger">@Html.ValidationMessageFor(model => model.SpecialityId)</span>
             </div>
             <div class="form-floating col-lg-4 col-md-6 col-sm-12">
                 @Html.TextBoxFor(model => model.ProfessionalLicense, new { @class = "form-control", placeholder = "" })
@@ -140,7 +140,7 @@
         </div>
         <div class="row">
             <div class="form-floating col-lg-4 col-md-6 col-sm-12">
-                @Html.TextBoxFor(model => model.Salary, new { @class = "form-control", placeholder = "" })
+                @Html.TextBoxFor(model => model.Salary, new { @class = "form-control", placeholder = "", lang = Refugio.Resources.Helpers.LanguageHelper.GetLanguageKey() })
                 @Html.LabelFor(m => m.Salary)
                 <span class="text-danger">@Html.ValidationMessageFor(model => model.Salary)</span>
             </div>
@@ -183,3 +183,5 @@
         </div>
     }
 </div>
+
+@*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/localization/messages_es.js"></script>*@
