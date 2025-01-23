@@ -39,12 +39,12 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserName" Type="varchar" MaxLength="50" />
-          <Property Name="UserPassword" Type="varchar" MaxLength="50" />
+          <Property Name="UserName" Type="varchar" MaxLength="30" />
+          <Property Name="UserPassword" Type="varchar" MaxLength="60" Nullable="false" />
           <Property Name="FirstName" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="LastName" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="StreetAddress" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="ApartmentNumber" Type="varchar" MaxLength="50" />
+          <Property Name="StreetAddress" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ApartmentNumber" Type="varchar" MaxLength="15" />
           <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Province" Type="varchar" MaxLength="50" />
           <Property Name="ZipCode" Type="varchar" MaxLength="10" Nullable="false" />
@@ -62,8 +62,8 @@
           <Property Name="Email" Type="varchar" MaxLength="320" />
           <Property Name="InLanding" Type="bit" Nullable="false" />
           <Property Name="ProfileImageId" Type="uniqueidentifier" />
-          <Property Name="DocNumber" Type="varchar" MaxLength="20" />
-          <Property Name="CUIT" Type="varchar" MaxLength="20" />
+          <Property Name="DocNumber" Type="varchar" MaxLength="10" />
+          <Property Name="CUIT" Type="varchar" MaxLength="13" />
         </EntityType>
         <EntityType Name="VeterinarianSpeciality">
           <Key>
@@ -186,12 +186,12 @@ advertencia 6002: La tabla o vista 'Refugio.dbo.vw_VeterinarianSpecialities' no 
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="UserPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="UserPassword" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FirstName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="LastName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="StreetAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ApartmentNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StreetAddress" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ApartmentNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="City" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Province" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ZipCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
@@ -211,8 +211,8 @@ advertencia 6002: La tabla o vista 'Refugio.dbo.vw_VeterinarianSpecialities' no 
           <Property Name="ProfileImageId" Type="Guid" />
           <NavigationProperty Name="TimeSlotRange" Relationship="RefugioModel.FK_Veterinarian_TimeSlotRange" FromRole="Veterinarian" ToRole="TimeSlotRange" />
           <NavigationProperty Name="VeterinarianSpeciality" Relationship="RefugioModel.FK_Veterinarian_VeterinarianSpeciality" FromRole="Veterinarian" ToRole="VeterinarianSpeciality" />
-          <Property Name="DocNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="CUIT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DocNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CUIT" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="VeterinarianSpeciality">
           <Key>

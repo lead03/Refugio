@@ -183,14 +183,80 @@
   <data name="FieldDecimalBetween" xml:space="preserve">
     <value>This field must be between 0 and 9999999999999999</value>
   </data>
+  <data name="FieldName_Address" xml:space="preserve">
+    <value>Street and number</value>
+  </data>
+  <data name="FieldName_ApartmentNumber" xml:space="preserve">
+    <value>Floor/Apartment</value>
+  </data>
+  <data name="FieldName_City" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="FieldName_CUIT" xml:space="preserve">
+    <value>CUIT</value>
+  </data>
+  <data name="FieldName_DescriptionEN" xml:space="preserve">
+    <value>Description (EN)</value>
+  </data>
+  <data name="FieldName_DescriptionES" xml:space="preserve">
+    <value>Description (SPA)</value>
+  </data>
+  <data name="FieldName_DocNumber" xml:space="preserve">
+    <value>Document number</value>
+  </data>
+  <data name="FieldName_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="FieldName_Fee" xml:space="preserve">
+    <value>Fee</value>
+  </data>
+  <data name="FieldName_FirstName" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="FieldName_IsPermanent" xml:space="preserve">
+    <value>Is permanent?</value>
+  </data>
+  <data name="FieldName_Landing" xml:space="preserve">
+    <value>Visible in website</value>
+  </data>
+  <data name="FieldName_LastName" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="FieldName_PhoneNumberAdditional" xml:space="preserve">
+    <value>Alternative phone number</value>
+  </data>
+  <data name="FieldName_PhoneNumberMain" xml:space="preserve">
+    <value>Main phone number</value>
+  </data>
+  <data name="FieldName_ProfessionalLicense" xml:space="preserve">
+    <value>Professional license</value>
+  </data>
   <data name="FieldName_ProfessionalsAssociatedCount" xml:space="preserve">
     <value>Total specialist professionals</value>
+  </data>
+  <data name="FieldName_Salary" xml:space="preserve">
+    <value>Salary</value>
+  </data>
+  <data name="FieldName_SpecialityId" xml:space="preserve">
+    <value>Speciality</value>
   </data>
   <data name="FieldName_SpecialityNameEN" xml:space="preserve">
     <value>Speciality name (EN)</value>
   </data>
   <data name="FieldName_SpecialityNameES" xml:space="preserve">
-    <value>Speciality name (ES)</value>
+    <value>Speciality name (SPA)</value>
+  </data>
+  <data name="FieldName_State" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="FieldName_TimeSlotId" xml:space="preserve">
+    <value>Time slot</value>
+  </data>
+  <data name="FieldName_UserName" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="FieldName_ZipCode" xml:space="preserve">
+    <value>Zip code</value>
   </data>
   <data name="Filters" xml:space="preserve">
     <value>Filters</value>
@@ -210,6 +276,9 @@
   <data name="Language" xml:space="preserve">
     <value>Language</value>
   </data>
+  <data name="LanguageCookieNotFound" xml:space="preserve">
+    <value>Language cookie not found</value>
+  </data>
   <data name="LastName" xml:space="preserve">
     <value>Last name</value>
   </data>
@@ -219,20 +288,8 @@
   <data name="MaxLengthExceeded" xml:space="preserve">
     <value>The maximum allowed length has been exceeded ({1} characters). Please shorten the input.</value>
   </data>
-  <data name="MaxNumberOfCharacters10" xml:space="preserve">
-    <value>This field must be shorter than 10 characters</value>
-  </data>
-  <data name="MaxNumberOfCharacters100" xml:space="preserve">
-    <value>This field must be shorter than 100 characters</value>
-  </data>
-  <data name="MaxNumberOfCharacters15" xml:space="preserve">
-    <value>This field must be shorter than 15 characters</value>
-  </data>
-  <data name="MaxNumberOfCharacters50" xml:space="preserve">
-    <value>This field must be shorter than 50 characters</value>
-  </data>
-  <data name="MinNumberOfCharacters4" xml:space="preserve">
-    <value>This field must be longer than 4 characters</value>
+  <data name="MinLengthNotMet" xml:space="preserve">
+    <value>The minimum required length of {1} characters has not been met. Please enter more characters.</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>

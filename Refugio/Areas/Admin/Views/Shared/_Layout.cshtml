@@ -26,7 +26,7 @@
             <div class="collapse navbar-collapse" id="navbarsExample03">
                 <ul class="navbar-nav me-auto mb-2 mb-sm-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="@Url.Action("Index", "Home", new { Area="" })">Home</a>
+                        <a class="nav-link active" aria-current="page" href="@Url.Action("Index", "Home", new { Area = "" })">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="~/admin/veterinarian">@Refugio.Resources.Languages.Global.Veterinarians</a>
@@ -42,11 +42,11 @@
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <li>
-                        <a href="@Url.Action("ChangeLanguage", "Language", new { language = Refugio.Resources.Language.SpanishKey, returnUrl = Request.Url.AbsoluteUri, Area="" })"
+                        <a href="@Url.Action("ChangeLanguage", "Language", new { language = Refugio.Resources.Language.SpanishKey, returnUrl = Request.Url.AbsoluteUri, Area = "" })"
                            class="dropdown-item">@Refugio.Resources.Language.SpanishAbbreviation</a>
                     </li>
                     <li>
-                        <a href="@Url.Action("ChangeLanguage", "Language", new { language = Refugio.Resources.Language.EnglishKey, returnUrl = Request.Url.AbsoluteUri, Area="" })"
+                        <a href="@Url.Action("ChangeLanguage", "Language", new { language = Refugio.Resources.Language.EnglishKey, returnUrl = Request.Url.AbsoluteUri, Area = "" })"
                            class="dropdown-item">@Refugio.Resources.Language.EnglishAbbreviation</a>
                     </li>
                 </ul>
@@ -62,35 +62,15 @@
             <p>&copy; @DateTime.Now.Year - Refugio "Mi Refugio"</p>
         </footer>
     </div>
+    @{Html.RenderPartial("~/Views/Shared/_GlobalValues.cshtml");}
     @Scripts.Render("~/Scripts/Shared/alert-messages.js");
-
-    <!-- Custom modal -->
-    <script>
-        const modalVariables = {
-            size: {
-                small: '@Refugio.Resources.CustomModal.Size.Small',
-                medium: '@Refugio.Resources.CustomModal.Size.Medium',
-                large: '@Refugio.Resources.CustomModal.Size.Large',
-            },
-            type: {
-                danger: '@Refugio.Resources.CustomModal.Types.Danger',
-                success: '@Refugio.Resources.CustomModal.Types.Success',
-                warning: '@Refugio.Resources.CustomModal.Types.Warning',
-                info : '@Refugio.Resources.CustomModal.Types.Info',
-            }
-        }
-        var deleteModalSize = modalVariables.size.small;
-        var deleteModalType = modalVariables.type.danger;
-        var deleteModalIcon = 'fa fa-exclamation-triangle';
-    </script>
     @Scripts.Render("~/Scripts/Shared/custom-modal.js")
-    <!--End custom modal-->
 
-    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
     @Scripts.Render("~/Scripts/Areas/Admin/general.js")
     @Styles.Render("~/Content/Styles/Areas/Admin/general.css")
+    @Scripts.Render("~/Scripts/Shared/common.js")
     @*@Styles.Render("~/Content/Styles/Shared/sidebar.css")*@
 </body>
 </html>
