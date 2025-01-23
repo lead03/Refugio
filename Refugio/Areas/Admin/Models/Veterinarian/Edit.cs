@@ -1,4 +1,5 @@
-﻿using Refugio.Resources.Languages;
+﻿using Refugio.Resources.Helpers;
+using Refugio.Resources.Languages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -40,7 +41,7 @@ namespace Refugio.Areas.Admin.Models.Veterinarian
 
         [Required(ErrorMessageResourceType = typeof(Global), ErrorMessageResourceName = "RequieredField")]
         [Display(Name = "FieldName_City", ResourceType = typeof(Global))]
-        [StringLength(50, ErrorMessageResourceType = typeof(Global), ErrorMessageResourceName = "MaxLengthExceeded")]    
+        [StringLength(50, ErrorMessageResourceType = typeof(Global), ErrorMessageResourceName = "MaxLengthExceeded")]
         public string City { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Global), ErrorMessageResourceName = "RequieredField")]
@@ -90,9 +91,11 @@ namespace Refugio.Areas.Admin.Models.Veterinarian
         public string ProfessionalLicense { get; set; }
 
         [Display(Name = "FieldName_DescriptionEN", ResourceType = typeof(Global))]
+        [RequiredIf("InLanding", true, false, ErrorMessageResourceType = typeof(Global), ErrorMessageResourceName = "RequiredIfMessage")]
         public string DescriptionEN { get; set; }
 
         [Display(Name = "FieldName_DescriptionES", ResourceType = typeof(Global))]
+        [RequiredIf("InLanding", true, false)]
         public string DescriptionES { get; set; }
 
         [Display(Name = "FieldName_Email", ResourceType = typeof(Global))]

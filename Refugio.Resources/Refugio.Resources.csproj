@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
@@ -44,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Common.cs" />
     <Compile Include="Helpers\LanguageHelper.cs" />
+    <Compile Include="Helpers\ValidationAttributes.cs" />
     <Compile Include="Languages\Global.Designer.cs">
       <DependentUpon>Global.resx</DependentUpon>
       <AutoGen>True</AutoGen>

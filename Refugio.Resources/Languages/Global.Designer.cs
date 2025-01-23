@@ -151,6 +151,24 @@ namespace Refugio.Resources.Languages {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a You must fill in the &apos;{0}&apos; field to proceed..
+        /// </summary>
+        public static string DependentFieldInvalidValue {
+            get {
+                return ResourceManager.GetString("DependentFieldInvalidValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The field &apos;{0}&apos;, required for this, is not correctly set up..
+        /// </summary>
+        public static string DependentFieldNotConfigured {
+            get {
+                return ResourceManager.GetString("DependentFieldNotConfigured", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Description.
         /// </summary>
         public static string Description {
@@ -687,6 +705,15 @@ namespace Refugio.Resources.Languages {
         public static string RequieredField {
             get {
                 return ResourceManager.GetString("RequieredField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a If &apos;{0}&apos; has the selected value, this field is required..
+        /// </summary>
+        public static string RequiredIfMessage {
+            get {
+                return ResourceManager.GetString("RequiredIfMessage", resourceCulture);
             }
         }
         
