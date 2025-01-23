@@ -147,6 +147,12 @@
   <data name="Delete" xml:space="preserve">
     <value>Delete</value>
   </data>
+  <data name="DependentFieldInvalidValue" xml:space="preserve">
+    <value>You must fill in the '{0}' field to proceed.</value>
+  </data>
+  <data name="DependentFieldNotConfigured" xml:space="preserve">
+    <value>The field '{0}', required for this, is not correctly set up.</value>
+  </data>
   <data name="Description" xml:space="preserve">
     <value>Description</value>
   </data>
@@ -326,6 +332,9 @@
   </data>
   <data name="RequieredField" xml:space="preserve">
     <value>This field is required</value>
+  </data>
+  <data name="RequiredIfMessage" xml:space="preserve">
+    <value>If '{0}' has the selected value, this field is required.</value>
   </data>
   <data name="Salary" xml:space="preserve">
     <value>Salary</value>

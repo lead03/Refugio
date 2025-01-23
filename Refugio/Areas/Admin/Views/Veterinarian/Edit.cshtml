@@ -127,8 +127,7 @@
             <div class="form-label col-lg-4 col-md-6 col-sm-12">
                 @Html.LabelFor(m => m.IsPermanent, new { @class = "label" })
                 <div class="form-check form-switch">
-                    @Html.RadioButtonFor(model => model.IsPermanent, true, new { @class = "form-check-input", id = "IsPermanent_Yes", type = "checkbox" })
-                    @Html.RadioButtonFor(model => model.IsPermanent, false, new { @class = "form-check-input", id = "IsPermanent_No", type = "checkbox" })
+                    @Html.CheckBoxFor(model => model.IsPermanent, new { @class = "form-check-input" })
                 </div>
                 <span class="text-danger">@Html.ValidationMessageFor(model => model.IsPermanent)</span>
             </div>
@@ -156,8 +155,7 @@
             <div class="form-label col-lg-4 col-md-6 col-sm-12">
                 @Html.LabelFor(model => model.InLanding, new { @class = "form-check-label" })
                 <div class="form-check form-switch">
-                    @Html.RadioButtonFor(model => model.InLanding, true, new { @class = "form-check-input", id = "InLanding_Yes", type = "checkbox" })
-                    @Html.RadioButtonFor(model => model.InLanding, false, new { @class = "form-check-input", id = "InLanding_No", type = "checkbox" })
+                    @Html.CheckBoxFor(model => model.InLanding, new { @class = "form-check-input" })
                 </div>
                 <span class="text-danger">@Html.ValidationMessageFor(model => model.InLanding)</span>
             </div>
