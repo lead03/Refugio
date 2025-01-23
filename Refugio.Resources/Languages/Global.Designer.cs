@@ -259,11 +259,173 @@ namespace Refugio.Resources.Languages {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Street and number.
+        /// </summary>
+        public static string FieldName_Address {
+            get {
+                return ResourceManager.GetString("FieldName_Address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Floor/Apartment.
+        /// </summary>
+        public static string FieldName_ApartmentNumber {
+            get {
+                return ResourceManager.GetString("FieldName_ApartmentNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a City.
+        /// </summary>
+        public static string FieldName_City {
+            get {
+                return ResourceManager.GetString("FieldName_City", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a CUIT.
+        /// </summary>
+        public static string FieldName_CUIT {
+            get {
+                return ResourceManager.GetString("FieldName_CUIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Description (EN).
+        /// </summary>
+        public static string FieldName_DescriptionEN {
+            get {
+                return ResourceManager.GetString("FieldName_DescriptionEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Description (SPA).
+        /// </summary>
+        public static string FieldName_DescriptionES {
+            get {
+                return ResourceManager.GetString("FieldName_DescriptionES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Document number.
+        /// </summary>
+        public static string FieldName_DocNumber {
+            get {
+                return ResourceManager.GetString("FieldName_DocNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Email.
+        /// </summary>
+        public static string FieldName_Email {
+            get {
+                return ResourceManager.GetString("FieldName_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Fee.
+        /// </summary>
+        public static string FieldName_Fee {
+            get {
+                return ResourceManager.GetString("FieldName_Fee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a First name.
+        /// </summary>
+        public static string FieldName_FirstName {
+            get {
+                return ResourceManager.GetString("FieldName_FirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Is permanent?.
+        /// </summary>
+        public static string FieldName_IsPermanent {
+            get {
+                return ResourceManager.GetString("FieldName_IsPermanent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Visible in website.
+        /// </summary>
+        public static string FieldName_Landing {
+            get {
+                return ResourceManager.GetString("FieldName_Landing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Last name.
+        /// </summary>
+        public static string FieldName_LastName {
+            get {
+                return ResourceManager.GetString("FieldName_LastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Alternative phone number.
+        /// </summary>
+        public static string FieldName_PhoneNumberAdditional {
+            get {
+                return ResourceManager.GetString("FieldName_PhoneNumberAdditional", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Main phone number.
+        /// </summary>
+        public static string FieldName_PhoneNumberMain {
+            get {
+                return ResourceManager.GetString("FieldName_PhoneNumberMain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Professional license.
+        /// </summary>
+        public static string FieldName_ProfessionalLicense {
+            get {
+                return ResourceManager.GetString("FieldName_ProfessionalLicense", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Total specialist professionals.
         /// </summary>
         public static string FieldName_ProfessionalsAssociatedCount {
             get {
                 return ResourceManager.GetString("FieldName_ProfessionalsAssociatedCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Salary.
+        /// </summary>
+        public static string FieldName_Salary {
+            get {
+                return ResourceManager.GetString("FieldName_Salary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Speciality.
+        /// </summary>
+        public static string FieldName_SpecialityId {
+            get {
+                return ResourceManager.GetString("FieldName_SpecialityId", resourceCulture);
             }
         }
         
@@ -277,11 +439,47 @@ namespace Refugio.Resources.Languages {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Speciality name (ES).
+        ///   Busca una cadena traducida similar a Speciality name (SPA).
         /// </summary>
         public static string FieldName_SpecialityNameES {
             get {
                 return ResourceManager.GetString("FieldName_SpecialityNameES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a State.
+        /// </summary>
+        public static string FieldName_State {
+            get {
+                return ResourceManager.GetString("FieldName_State", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Time slot.
+        /// </summary>
+        public static string FieldName_TimeSlotId {
+            get {
+                return ResourceManager.GetString("FieldName_TimeSlotId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a User.
+        /// </summary>
+        public static string FieldName_UserName {
+            get {
+                return ResourceManager.GetString("FieldName_UserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Zip code.
+        /// </summary>
+        public static string FieldName_ZipCode {
+            get {
+                return ResourceManager.GetString("FieldName_ZipCode", resourceCulture);
             }
         }
         
