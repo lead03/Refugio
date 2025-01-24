@@ -664,7 +664,7 @@ namespace Refugio.Resources.Languages {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Proffesional Information.
+        ///   Busca una cadena traducida similar a Professional Information.
         /// </summary>
         public static string ProfessionalInformation {
             get {

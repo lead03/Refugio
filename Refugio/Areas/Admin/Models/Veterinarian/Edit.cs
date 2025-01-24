@@ -72,6 +72,7 @@ namespace Refugio.Areas.Admin.Models.Veterinarian
         public bool IsPermanent { get; set; }
 
         [DataType(DataType.Currency)]
+        [RequiredIf("IsPermanent", true, false)]
         [Display(Name = "FieldName_Salary", ResourceType = typeof(Global))]
         [Column(TypeName = "decimal(18, 2)")]
         [Range(0, 9999999999999999, ErrorMessageResourceType = typeof(Global), ErrorMessageResourceName = "FieldDecimalBetween")]
@@ -82,16 +83,17 @@ namespace Refugio.Areas.Admin.Models.Veterinarian
         [Range(0, 9999999999999999, ErrorMessageResourceType = typeof(Global), ErrorMessageResourceName = "FieldDecimalBetween")]
         public decimal? Fee { get; set; }
 
+        [RequiredIf("IsPermanent", true, false)]
         [Display(Name = "FieldName_TimeSlotId", ResourceType = typeof(Global))]
         public int? TimeSlot { get; set; }
 
-        [Required(ErrorMessageResourceType = typeof(Global), ErrorMessageResourceName = "RequieredField")]
+        [RequiredIf("IsPermanent", true, false)]
         [Display(Name = "FieldName_ProfessionalLicense", ResourceType = typeof(Global))]
         [StringLength(10, ErrorMessageResourceType = typeof(Global), ErrorMessageResourceName = "MaxLengthExceeded")]
         public string ProfessionalLicense { get; set; }
 
         [Display(Name = "FieldName_DescriptionEN", ResourceType = typeof(Global))]
-        [RequiredIf("InLanding", true, false, ErrorMessageResourceType = typeof(Global), ErrorMessageResourceName = "RequiredIfMessage")]
+        [RequiredIf("InLanding", true, false)]
         public string DescriptionEN { get; set; }
 
         [Display(Name = "FieldName_DescriptionES", ResourceType = typeof(Global))]
@@ -116,9 +118,11 @@ namespace Refugio.Areas.Admin.Models.Veterinarian
         public byte[] RowVersion { get; set; }
 
         [Display(Name = "FieldName_DocNumber", ResourceType = typeof(Global))]
+        [RequiredIf("IsPermanent", true, false)]
         public string DocNumber { get; set; }
 
         [Display(Name = "FieldName_CUIT", ResourceType = typeof(Global))]
+        [RequiredIf("IsPermanent", true, false)]
         public string CUIT { get; set; }
 
         public bool IsNew
